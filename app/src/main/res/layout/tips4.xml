@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- 게임스크린샷 이미지 -->
+    <ImageView
+        android:id="@+id/tips4_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/tips4image"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintHeight_percent="0.9"
+        app:layout_constraintWidth_percent="0.9"
+        />
+
+    <com.tenriver.kpopmultiplechoice.OutlineTextView
+        android:id="@+id/tips4_text1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeMinTextSize="13sp"
+        android:autoSizeStepGranularity="2sp"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/font_basic"
+        android:gravity="center"
+
+        android:scaleType="fitXY"
+        android:text="@string/Tips4_1"
+        android:textColor="@color/title_text_color"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tips4_text4"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintVertical_bias="0.18"
+
+        app:layout_constraintWidth_percent="0.5"
+        app:layout_constraintHeight_percent="0.25"
+
+        app:textStroke="true"
+        app:textStrokeWidth="16.0"
+        app:textStrokeColor="@color/white"/>
+
+    <com.tenriver.kpopmultiplechoice.OutlineTextView
+        android:id="@+id/tips4_text4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/font_basiclight"
+        android:gravity="center"
+        android:scaleType="fitXY"
+        android:text="@string/Tips4_4"
+        android:textColor="@color/hard_color"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintVertical_bias="0.18"
+
+        app:layout_constraintWidth_percent="0.25"
+        app:layout_constraintHeight_percent="0.2"
+
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="13sp"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeStepGranularity="2sp"
+
+        app:textStroke="true"
+        app:textStrokeWidth="16.0"
+        app:textStrokeColor="@color/white"/>
+
+    <com.tenriver.kpopmultiplechoice.OutlineTextView
+        android:id="@+id/tips4_text3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeMinTextSize="13sp"
+        android:autoSizeStepGranularity="2sp"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/font_basic"
+
+        android:gravity="center"
+        android:scaleType="fitXY"
+        android:text="@string/Tips4_3"
+        android:textColor="@color/hard_color"
+        app:layout_constraintBottom_toBottomOf="@id/tips4_image"
+        app:layout_constraintHeight_percent="0.23"
+        app:layout_constraintHorizontal_bias="0.944"
+        app:layout_constraintLeft_toLeftOf="@id/tips4_image"
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.825"
+        app:layout_constraintWidth_percent="0.25"
+
+        app:textStroke="true"
+        app:textStrokeColor="@color/white"
+        app:textStrokeWidth="16.0" />
+
+    <com.tenriver.kpopmultiplechoice.OutlineTextView
+        android:id="@+id/tips4_text5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeMinTextSize="13sp"
+        android:autoSizeStepGranularity="2sp"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/font_basiclight"
+
+
+        android:gravity="center"
+        android:scaleType="fitXY"
+        android:text="@string/songexample"
+        android:textColor="@color/purple_500"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tips4_text4"
+
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintVertical_bias="0.04"
+
+        app:layout_constraintHeight_percent="0.15"
+        app:layout_constraintWidth_percent="0.5"
+
+        app:textStroke="true"
+        app:textStrokeWidth="16.0"
+        app:textStrokeColor="@color/white"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

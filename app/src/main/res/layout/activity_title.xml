@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/title_color">
+
+    <com.tenriver.kpopmultiplechoice.OutlineTextView
+        android:id="@+id/titletextK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="K"
+        android:textColor="@color/title_text_color"
+        android:gravity="center"
+        android:textSize="52dp"
+        android:fontFamily="@font/font_digital"
+        android:alpha="0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.25"
+
+        app:textStroke="true"
+        app:textStrokeWidth="6.0"
+        app:textStrokeColor="@color/white"/>
+
+    <com.tenriver.kpopmultiplechoice.OutlineTextView
+        android:id="@+id/titletextP1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="P"
+        android:textColor="@color/title_text_color"
+        android:gravity="center"
+        android:textSize="52dp"
+        android:fontFamily="@font/font_digital"
+        android:alpha="0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.35"
+
+        app:textStroke="true"
+        app:textStrokeWidth="6.0"
+        app:textStrokeColor="@color/white"/>
+
+    <com.tenriver.kpopmultiplechoice.OutlineTextView
+        android:id="@+id/titletextO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="O"
+        android:textColor="@color/title_text_color"
+        android:gravity="center"
+        android:textSize="52dp"
+        android:fontFamily="@font/font_digital"
+        android:alpha="0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.45"
+
+        app:textStroke="true"
+        app:textStrokeWidth="6.0"
+        app:textStrokeColor="@color/white"/>
+
+    <com.tenriver.kpopmultiplechoice.OutlineTextView
+        android:id="@+id/titletextP2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="P"
+        android:textColor="@color/title_text_color"
+        android:gravity="center"
+        android:textSize="52dp"
+        android:fontFamily="@font/font_digital"
+        android:alpha="0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.55"
+
+        app:textStroke="true"
+        app:textStrokeWidth="6.0"
+        app:textStrokeColor="@color/white"/>
+
+    <ImageView
+        android:id="@+id/imageView_lp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:srcCompat="@drawable/musiclp"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintWidth_percent="0.2"
+        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.75"
+        />
+
+    <com.tenriver.kpopmultiplechoice.OutlineTextView
+        android:id="@+id/titletextGuess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/MvQuiz"
+        android:textColor="@color/title_text_color"
+        android:gravity="center"
+        android:textSize="52dp"
+        android:fontFamily="@font/font_digital"
+        android:alpha="0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.5"
+
+        app:textStroke="true"
+        app:textStrokeWidth="6.0"
+        app:textStrokeColor="@color/white"/>
+
+    <com.tenriver.kpopmultiplechoice.OutlineTextView
+        android:id="@+id/titleMultiplechoice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/multiplechoice"
+        android:textColor="@color/teal_200"
+        android:gravity="center"
+        android:textSize="42dp"
+        android:fontFamily="@font/font_digital"
+        android:alpha="0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.52"
+        app:layout_constraintHorizontal_bias="0.5"
+
+        app:textStroke="true"
+        app:textStrokeWidth="6.0"
+        app:textStrokeColor="@color/white"/>
+
+
+    <TextView
+        android:id="@+id/touchtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Touch To Start!!"
+        android:textColor="@color/title_text_color"
+        android:gravity="center"
+        android:textSize="35dp"
+        android:fontFamily="@font/font_digital"
+        android:alpha="0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.7"
+        />
+
+    <TextView
+        android:id="@+id/versiontext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/touchtext"
+        android:gravity="end"
+        android:text="ver. 1.0.0"
+        android:textColor="@color/title_text_color"
+        android:textSize="32dp"
+        android:alpha="0"
+        android:fontFamily="@font/font_digital"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.88"
+        app:layout_constraintHorizontal_bias="1"
+        android:layout_marginRight="20dp"
+         />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- 모니터 이미지 -->
+    <ImageView
+        android:id="@+id/Image_TV_difficulty"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/tvframefullfinal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.20"
+        app:layout_constraintHeight_percent="0.44"
+        app:layout_constraintWidth_percent="1"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_difficultyTip"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="@+id/Image_TV_difficulty"
+        app:layout_constraintBottom_toBottomOf="@+id/Image_TV_difficulty"
+        app:layout_constraintLeft_toLeftOf="@+id/Image_TV_difficulty"
+        app:layout_constraintRight_toRightOf="@+id/Image_TV_difficulty"
+        >
+
+        <com.tenriver.kpopmultiplechoice.OutlineTextView
+            android:id="@+id/txtTitle1"
+            android:text="K"
+            android:fontFamily="@font/font_basicbold"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:textColor="@color/title_text_color"
+
+            android:gravity="center"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="28sp"
+            android:autoSizeMaxTextSize="100sp"
+            android:autoSizeStepGranularity="2sp"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.05"
+            app:layout_constraintHeight_percent="0.2"
+            app:layout_constraintWidth_percent="0.15"
+            app:layout_constraintHorizontal_bias="0.25"
+
+            app:textStroke="true"
+            app:textStrokeWidth="8.0"
+            app:textStrokeColor="@color/white"/>
+
+        <com.tenriver.kpopmultiplechoice.OutlineTextView
+            android:id="@+id/txtTitle2"
+            android:text="P"
+            android:fontFamily="@font/font_basicbold"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:textColor="@color/title_text_color"
+
+
+            android:gravity="center"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="28sp"
+            android:autoSizeMaxTextSize="100sp"
+            android:autoSizeStepGranularity="2sp"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.05"
+            app:layout_constraintHeight_percent="0.2"
+            app:layout_constraintWidth_percent="0.15"
+            app:layout_constraintHorizontal_bias="0.42"
+
+            app:textStroke="true"
+            app:textStrokeWidth="8.0"
+            app:textStrokeColor="@color/white"/>
+
+
+        <ImageView
+            android:id="@+id/imageView_lp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:srcCompat="@drawable/musiclp"
+
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="0.2"
+            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintVertical_bias="0.05"
+            app:layout_constraintHorizontal_bias="0.59"
+
+            />
+
+        <com.tenriver.kpopmultiplechoice.OutlineTextView
+            android:id="@+id/txtTitle3"
+            android:text="P"
+            android:fontFamily="@font/font_basicbold"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:textColor="@color/title_text_color"
+
+            android:gravity="center"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="28sp"
+            android:autoSizeMaxTextSize="100sp"
+            android:autoSizeStepGranularity="2sp"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.05"
+            app:layout_constraintHeight_percent="0.2"
+            app:layout_constraintWidth_percent="0.15"
+            app:layout_constraintHorizontal_bias="0.76"
+
+            app:textStroke="true"
+            app:textStrokeWidth="8.0"
+            app:textStrokeColor="@color/white"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.tenriver.kpopmultiplechoice.OutlineTextView
+        android:id="@+id/difficulty_Title"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:gravity="center"
+        android:text="@string/Difficulty"
+        android:fontFamily="@font/font_basicbold"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="24sp"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeStepGranularity="2sp"
+
+        android:textColor="@color/white"
+        app:layout_constraintVertical_bias="0.28"
+        app:layout_constraintHeight_percent="0.07"
+        app:layout_constraintWidth_percent="0.5"
+
+        app:layout_constraintTop_toTopOf="@id/Image_TV_difficulty"
+        app:layout_constraintLeft_toLeftOf="@id/Image_TV_difficulty"
+        app:layout_constraintRight_toRightOf="@id/Image_TV_difficulty"
+        app:layout_constraintBottom_toBottomOf="@id/Image_TV_difficulty"
+
+        app:textStroke="true"
+        app:textStrokeWidth="10.0"
+        app:textStrokeColor="@color/title_text_color"/>
+
+    <!-- 모니터 이미지 -->
+    <LinearLayout
+        android:id="@+id/easy_linear"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:weightSum="3"
+        android:layout_marginBottom="10dp"
+
+        app:layout_constraintBottom_toBottomOf="@+id/Image_TV_difficulty"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/difficulty_Title">
+
+        <com.tenriver.kpopmultiplechoice.OutlineTextView
+            android:id="@+id/txt_easy"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:bufferType="spannable"
+            android:fontFamily="@font/font_digital"
+            android:gravity="center"
+            android:text="@string/Easy"
+            android:textColor="@color/easy_color"
+
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="20dp"
+
+
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="22sp"
+            android:autoSizeMaxTextSize="100sp"
+            android:autoSizeStepGranularity="2sp"
+            android:textStyle="bold"
+
+            app:textStroke="true"
+            app:textStrokeColor="@color/basic_color2"
+            app:textStrokeWidth="6.0" />
+
+        <com.tenriver.kpopmultiplechoice.OutlineTextView
+            android:id="@+id/txt_easy2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:bufferType="spannable"
+            android:fontFamily="@font/font_basic"
+            android:gravity="center"
+            android:text="@string/Easy2"
+            android:textColor="@color/white"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="20sp"
+            android:autoSizeMaxTextSize="100sp"
+            android:autoSizeStepGranularity="2sp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+
+            app:textStroke="true"
+            app:textStrokeColor="@color/title_text_color"
+            app:textStrokeWidth="3.0" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/normal_linear"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:weightSum="3"
+        android:layout_marginBottom="10dp"
+
+        app:layout_constraintBottom_toBottomOf="@+id/Image_TV_difficulty"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/difficulty_Title">
+
+        <com.tenriver.kpopmultiplechoice.OutlineTextView
+            android:id="@+id/txt_normal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:bufferType="spannable"
+            android:fontFamily="@font/font_digital"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="@string/Normal"
+
+            android:textColor="@color/basic_color1"
+
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="20dp"
+
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="22sp"
+            android:autoSizeMaxTextSize="100sp"
+            android:autoSizeStepGranularity="2sp"
+            android:textStyle="bold"
+
+            app:textStroke="true"
+            app:textStrokeColor="@color/basic_color2"
+            app:textStrokeWidth="6.0" />
+
+        <com.tenriver.kpopmultiplechoice.OutlineTextView
+            android:id="@+id/txt_normal2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:bufferType="spannable"
+            android:fontFamily="@font/font_basic"
+            android:gravity="center"
+            android:text="@string/Normal2"
+            android:textColor="@color/white"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="20sp"
+            android:autoSizeMaxTextSize="100sp"
+            android:autoSizeStepGranularity="2sp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+
+            app:textStroke="true"
+            app:textStrokeColor="@color/title_text_color"
+            app:textStrokeWidth="3.0" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hard_linear"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:weightSum="3"
+        android:layout_marginBottom="10dp"
+
+        app:layout_constraintBottom_toBottomOf="@+id/Image_TV_difficulty"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/difficulty_Title">
+
+        <com.tenriver.kpopmultiplechoice.OutlineTextView
+            android:id="@+id/txt_hard"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:bufferType="spannable"
+            android:fontFamily="@font/font_digital"
+            android:gravity="center"
+            android:text="@string/Hard"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/hard_color"
+
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="20sp"
+            android:autoSizeMaxTextSize="100sp"
+            android:autoSizeStepGranularity="2sp"
+
+            android:textStyle="bold"
+
+            app:textStroke="true"
+            app:textStrokeColor="@color/challenge_color2"
+            app:textStrokeWidth="6.0" />
+
+        <com.tenriver.kpopmultiplechoice.OutlineTextView
+            android:id="@+id/txt_hard2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:bufferType="spannable"
+            android:fontFamily="@font/font_basic"
+            android:gravity="center"
+            android:text="@string/Hard2"
+            android:textColor="@color/white"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="20sp"
+            android:autoSizeMaxTextSize="100sp"
+            android:autoSizeStepGranularity="2sp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+
+            app:textStroke="true"
+            app:textStrokeColor="@color/title_text_color"
+            app:textStrokeWidth="3.0" />
+    </LinearLayout>
+
+    <!-- 배경 이미지 -->
+    <ImageView
+        android:id="@+id/bookcase"
+        android:src="@drawable/bookcase2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHeight_percent="0.42"
+        app:layout_constraintWidth_percent="0.85"
+        />
+
+    <!-- 리모컨 이미지 -->
+    <ImageView
+        android:id="@+id/Remote_difficulty"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/remotecontrol"
+        android:scaleType="fitXY"
+
+        app:layout_constraintTop_toBottomOf="@id/Image_TV_difficulty"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintHeight_percent="0.38"
+        app:layout_constraintWidth_percent="0.45"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Remote_button_difficulty"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="@+id/Remote_difficulty"
+        app:layout_constraintBottom_toBottomOf="@+id/Remote_difficulty"
+        app:layout_constraintLeft_toLeftOf="@+id/Remote_difficulty"
+        app:layout_constraintRight_toRightOf="@+id/Remote_difficulty"
+        >
+
+        <ImageButton
+            android:id="@+id/difficulty_up"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="fitXY"
+            android:background="@android:color/transparent"
+
+            android:soundEffectsEnabled="false"
+
+            android:src="@drawable/uparrow"
+            android:text="up"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/difficulty_confirm"
+            app:layout_constraintVertical_bias="1"
+            >
+
+        </ImageButton>
+
+        <Button
+            android:id="@+id/difficulty_confirm"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/btn_remote_circle"
+            android:soundEffectsEnabled="false"
+
+            android:text="OK"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:fontFamily="@font/font_basic"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+
+            >
+        </Button>
+
+        <ImageButton
+            android:id="@+id/difficulty_down"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="fitXY"
+
+            android:background="@android:color/transparent"
+            android:src="@drawable/downarrow"
+            app:layout_constraintTop_toBottomOf="@id/difficulty_confirm"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0"
+            >
+        </ImageButton>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/difficulty_adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0"
+        />
+
+    <FrameLayout
+        android:id="@+id/googlePopupQuizMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/upPink"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/uparrowpink"
+
+        app:layout_constraintTop_toBottomOf="@id/difficulty_Title"
+        app:layout_constraintLeft_toLeftOf="@id/difficulty_Title"
+        app:layout_constraintRight_toRightOf="@id/difficulty_Title"
+
+
+        />
+
+    <ImageView
+        android:id="@+id/downPink"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/downarrowpink"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintLeft_toLeftOf="@id/Image_TV_difficulty"
+        app:layout_constraintRight_toRightOf="@id/Image_TV_difficulty"
+        app:layout_constraintBottom_toBottomOf="@id/Image_TV_difficulty"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

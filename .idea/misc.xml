@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/drawable/btn_remote.xml" value="0.23958333333333334" />
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/drawable/btn_remote_circle.xml" value="0.1984375" />
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/drawable/btn_year.xml" value="0.1984375" />
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/drawable/ic_launcher_new_background.xml" value="0.21979166666666666" />
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/drawable/progress_bg.xml" value="0.2296875" />
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/drawable/tips_image.xml" value="0.21875" />
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/font/font_digital.xml" value="0.15572916666666667" />
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/layout/activity_difficulty.xml" value="0.25" />
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/layout/activity_gamemode.xml" value="0.25" />
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/layout/activity_quiz_alphabet.xml" value="0.19322916666666667" />
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/layout/activity_quiz_challenge.xml" value="0.33" />
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/layout/activity_quiz_main.xml" value="0.22" />
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/layout/activity_tips.xml" value="0.144" />
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/layout/activity_title.xml" value="0.20104166666666667" />
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/layout/activity_warning.xml" value="0.176" />
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/layout/activity_year.xml" value="0.20104166666666667" />
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/layout/activity_year_new.xml" value="0.22" />
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/layout/dialog_progress.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/layout/dialog_setting.xml" value="0.19739583333333333" />
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/layout/tips1.xml" value="0.33" />
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/layout/tips2.xml" value="0.33" />
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/layout/tips3.xml" value="0.33" />
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/layout/tips4.xml" value="0.33" />
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/layout/tips5.xml" value="0.33" />
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/mipmap-anydpi-v26/ic_new.xml" value="0.22083333333333333" />
+        <entry key="..\:/Users/Philip/AndroidStudioProjects/KpopFix/app/src/main/res/mipmap-anydpi-v26/ic_new_round.xml" value="0.22083333333333333" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

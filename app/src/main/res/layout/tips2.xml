@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- 게임스크린샷 이미지 -->
+    <ImageView
+        android:id="@+id/tips2_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/tips2image"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintHeight_percent="0.9"
+        app:layout_constraintWidth_percent="0.9"
+        />
+
+    <com.tenriver.kpopmultiplechoice.OutlineTextView
+        android:id="@+id/tips2_text1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeMinTextSize="13sp"
+        android:autoSizeStepGranularity="2sp"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/font_basic"
+
+        android:gravity="center"
+        android:scaleType="fitXY"
+        android:text="@string/Tips2_1"
+        android:textColor="@color/hard_color"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.915"
+        app:layout_constraintVertical_bias="0.303"
+
+        app:layout_constraintWidth_percent="0.34"
+        app:layout_constraintHeight_percent="0.13"
+
+        app:textStroke="true"
+        app:textStrokeColor="@color/white"
+        app:textStrokeWidth="16.0" />
+
+    <com.tenriver.kpopmultiplechoice.OutlineTextView
+        android:id="@+id/tips2_text2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeMinTextSize="13sp"
+        android:autoSizeStepGranularity="2sp"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/font_basic"
+
+        android:gravity="center"
+        android:scaleType="fitXY"
+        android:text="@string/Tips2_2"
+        android:textColor="@color/hard_color"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintVertical_bias="0.787"
+
+        app:layout_constraintWidth_percent="0.4"
+        app:layout_constraintHeight_percent="0.1"
+
+        app:textStroke="true"
+        app:textStrokeColor="@color/white"
+        app:textStrokeWidth="16.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

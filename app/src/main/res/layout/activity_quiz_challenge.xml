@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <ImageView
+        android:id="@+id/Image_TV_quizmain"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/tvframefullfinal"
+
+        app:layout_constraintTop_toBottomOf="@id/txtCountDown"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.03"
+        app:layout_constraintHeight_percent="0.44"
+        app:layout_constraintWidth_percent="1" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="@+id/Image_TV_quizmain"
+        app:layout_constraintBottom_toBottomOf="@+id/Image_TV_quizmain"
+        app:layout_constraintLeft_toLeftOf="@+id/Image_TV_quizmain"
+        app:layout_constraintRight_toRightOf="@+id/Image_TV_quizmain"
+        >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txt_hintall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:autoSizeTextType="uniform"
+                android:textColor="@color/white"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="20dp"
+                android:textSize="25sp"
+
+                android:ellipsize="marquee"
+                android:fontFamily="@font/font_basicbold"
+                android:gravity="center_horizontal|center_vertical"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="true"
+
+                android:text="ANSWER"
+                />
+
+            <ProgressBar
+                android:id="@+id/musicProgressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@color/gray"
+                android:progress="0"
+                />
+
+
+            <!-- 모니터 이미지 -->
+            <view
+                android:id="@+id/youtubeView"
+                class="com.google.android.youtube.player.YouTubePlayerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0"
+                />
+
+            <ImageView
+                android:id="@+id/EndImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/theend2"
+                android:scaleType="fitXY"
+                android:visibility="gone"
+                />
+
+
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+    <TextView
+        android:id="@+id/txtQuestionCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text="1/100"
+        android:fontFamily="@font/font_basic"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.04"
+        app:layout_constraintHorizontal_bias="0.1"
+        />
+
+    <TextView
+        android:id="@+id/txtCountDown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="30"
+        android:textSize="30dp"
+        android:fontFamily="@font/font_basic"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.04"
+        />
+
+    <TextView
+        android:id="@+id/correctText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:textSize="30dp"
+        android:layout_marginRight="5dp"
+        android:textColor="@color/teal_200"
+        android:fontFamily="@font/font_basic"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/scoreText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.04"
+        app:layout_constraintHorizontal_bias="1"
+
+
+        />
+
+    <TextView
+        android:id="@+id/scoreText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="30dp"
+        android:fontFamily="@font/font_basic"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.04"
+        app:layout_constraintHorizontal_bias="0.9"
+
+        />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="@string/nextlevelexample"
+        android:inputType="text"
+        android:fontFamily="@font/font_basic"
+        android:ellipsize="end"
+
+        app:layout_constraintTop_toBottomOf="@+id/Image_TV_quizmain"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0"
+        />
+
+    <TextView
+        android:id="@+id/txt_answer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeMinTextSize="18sp"
+        android:autoSizeStepGranularity="2sp"
+        android:autoSizeTextType="uniform"
+
+        android:ellipsize="marquee"
+        android:fontFamily="@font/font_basic"
+        android:gravity="center_horizontal|center_vertical"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+
+        android:text="ANSWER"
+        app:layout_constraintBottom_toTopOf="@id/Remote_quizmain"
+        app:layout_constraintHeight_percent="0.04"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Image_TV_quizmain"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <ImageView
+        android:id="@+id/imageView_speakerall"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/allspeaker"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHeight_percent="0.37"
+        app:layout_constraintWidth_percent="1"
+        />
+
+    <!-- 리모컨 이미지 -->
+    <ImageView
+        android:id="@+id/Remote_quizmain"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/remotecontrol"
+        android:scaleType="fitXY"
+
+        app:layout_constraintTop_toBottomOf="@id/editText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintHeight_percent="0.38"
+        app:layout_constraintWidth_percent="0.45"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Remote_button_quizmain"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="@+id/Remote_quizmain"
+        app:layout_constraintBottom_toBottomOf="@+id/Remote_quizmain"
+        app:layout_constraintLeft_toLeftOf="@+id/Remote_quizmain"
+        app:layout_constraintRight_toRightOf="@+id/Remote_quizmain"
+        >
+
+
+
+        <Button
+            android:id="@+id/Quiz_hint1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            android:background="@drawable/hint1_state"
+            android:soundEffectsEnabled="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.9"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintWidth_percent="0.26"
+            app:layout_constraintHeight_percent="0.2"
+
+            />
+
+        <Button
+            android:id="@+id/Quiz_hint2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/hint2_state"
+            android:soundEffectsEnabled="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.9"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintWidth_percent="0.26"
+            app:layout_constraintHeight_percent="0.2"
+            />
+
+        <Button
+            android:id="@+id/Quiz_hint3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/hint3_state"
+            android:soundEffectsEnabled="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.9"
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintWidth_percent="0.26"
+            app:layout_constraintHeight_percent="0.2"
+            />
+
+        <Button
+            android:id="@+id/confirmButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:background="@drawable/btn_remote"
+            android:textColor="@color/white"
+            android:fontFamily="@font/font_basic"
+            android:text="@string/Confirm"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.3"
+            />
+
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:background="@drawable/btn_remote"
+            android:textColor="@color/white"
+            android:fontFamily="@font/font_basic"
+            android:text="@string/Next"
+
+            app:layout_constraintTop_toBottomOf="@+id/confirmButton"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.1"
+            />
+
+        <TextView
+            android:id="@+id/txt_HintPoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:alpha="0.8"
+            android:text="Point"
+            android:textSize="24sp"
+            android:fontFamily="@font/font_digital"
+            android:gravity="center"
+            android:textColor="@color/white"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.1"
+
+            />
+
+        <TextView
+            android:id="@+id/txt_HintCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:alpha="0.8"
+            android:text="1/5"
+            android:textSize="20sp"
+            android:fontFamily="@font/font_digital"
+            android:gravity="center"
+            android:textColor="@color/white"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.1"
+            app:layout_constraintHorizontal_bias="0.9"
+
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

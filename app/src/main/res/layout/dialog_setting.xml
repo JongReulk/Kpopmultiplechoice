@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+
+    android:orientation="vertical"
+    android:background="@drawable/progress_wt">
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Setting"
+        android:textSize="30dp"
+        android:fontFamily="@font/font_basicbold"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="10dp"/>
+
+    <CheckBox
+        android:id="@+id/backgroundMusicCb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Bgm"
+        android:textStyle="bold"
+        android:fontFamily="@font/font_basic"
+        android:textSize="24dp"
+        android:padding="10dp"
+        android:textColor="@color/gray"
+        android:checked="true"
+        android:soundEffectsEnabled="false"
+        />
+
+    <CheckBox
+        android:id="@+id/effectCb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/SFX"
+        android:textStyle="bold"
+        android:fontFamily="@font/font_basic"
+        android:textSize="24dp"
+        android:padding="10dp"
+        android:textColor="@color/gray"
+        android:checked="true"
+        android:soundEffectsEnabled="false"
+        />
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="220dp"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:weightSum="4"
+
+        >
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_weight="2.2"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:text="@string/Cancel"
+            android:textColor="@color/gray"
+            android:fontFamily="@font/font_basic"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:soundEffectsEnabled="false"
+            style ="@style/Widget.AppCompat.Button.Borderless"
+            />
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_weight="1.8"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:text="@string/Ok"
+            android:textColor="@color/gray"
+            android:fontFamily="@font/font_basic"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:soundEffectsEnabled="false"
+            style ="@style/Widget.AppCompat.Button.Borderless"
+            />
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

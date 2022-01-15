@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+
+
+    <item android:state_pressed="true">
+        <shape >
+
+            <!-- 배경  -->
+            <solid android:color="#888888"/>
+
+
+            <!-- 테두리  -->
+            <stroke
+                android:width="2dp"
+                android:color="#fff"/>
+
+            <corners
+                android:radius="100dp" />
+        </shape>
+
+    </item>
+
+    <item android:state_pressed="false">
+        <shape >
+            <!-- 배경  -->
+            <solid android:color="#555" />
+
+
+            <!-- 테두리  -->
+            <stroke
+                android:width="2dp"
+                android:color="#fff"/>
+
+            <corners
+                android:radius="100dp" />
+        </shape>
+    </item>
+
+    <item android:state_focused="true">
+        <shape >
+
+            <!-- 배경  -->
+            <solid android:color="#888888"/>
+
+
+            <!-- 테두리  -->
+            <stroke
+                android:width="2dp"
+                android:color="#fff"/>
+
+            <corners
+                android:radius="10dp" />
+        </shape>
+
+    </item>
+
+
+
+
+
+
+</selector>
