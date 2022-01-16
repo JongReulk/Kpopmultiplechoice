@@ -25,4 +25,6 @@
     <color name="heavypink2">#80AEA3A1</color>
     <color name="consonants_color1">#CC70FD</color>
     <color name="consonants_color2">#9F93A3</color>
+    <color name="backgroundtop">#384152</color>
+    <color name="backgroundBottom">#13161D</color>
 </resources>
