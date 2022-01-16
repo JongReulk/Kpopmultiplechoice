@@ -148,6 +148,8 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
     private boolean isLoaded;
 
+    private boolean isWrong;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -339,6 +341,59 @@ public class quiz_beginner extends YouTubeBaseActivity {
             showNextQuestion();
         }
 
+        op1.setSingleLine(true);
+        op1.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+        op2.setSingleLine(true);
+        op2.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+        op3.setSingleLine(true);
+        op3.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+        op4.setSingleLine(true);
+        op4.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+
+        // 텍스트 길이가 길 경우 선택된 보기만 MARQUEE 나머지는 NOTMARQUEE
+        opGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
+                // MARQUEE 효과 초기화
+                op1.setSelected(false);
+                op2.setSelected(false);
+                op3.setSelected(false);
+                op4.setSelected(false);
+                switch (checkedId) {
+                    case R.id.option1:
+                        Log.d("옵션1", " 선택 !");
+                        op1.setSelected(true);
+                        op2.setSelected(false);
+                        op3.setSelected(false);
+                        op4.setSelected(false);
+                        break;
+                    case R.id.option2:
+                        Log.d("옵션2", " 선택 !");
+                        op1.setSelected(false);
+                        op2.setSelected(true);
+                        op3.setSelected(false);
+                        op4.setSelected(false);
+                        break;
+                    case R.id.option3:
+                        Log.d("옵션3", " 선택 !");
+                        op1.setSelected(false);
+                        op2.setSelected(false);
+                        op3.setSelected(true);
+                        op4.setSelected(false);
+                        break;
+                    case R.id.option4:
+                        Log.d("옵션4", " 선택 !");
+                        op1.setSelected(false);
+                        op2.setSelected(false);
+                        op3.setSelected(false);
+                        op4.setSelected(true);
+                        break;
+                }
+
+
+            }
+        });
+
 
 
         // 다시 듣기
@@ -396,6 +451,22 @@ public class quiz_beginner extends YouTubeBaseActivity {
                 if(player.isPlaying()){
                     player.pause();
                 }
+                // 터치 가능하게 변경
+                op1.setEnabled(true);
+                op2.setEnabled(true);
+                op3.setEnabled(true);
+                op4.setEnabled(true);
+
+                // 선택 초기화 ( MARQUEE 방지)
+                op1.setSelected(false);
+                op2.setSelected(false);
+                op3.setSelected(false);
+                op4.setSelected(false);
+                op1.setChecked(false);
+                op2.setChecked(false);
+                op3.setChecked(false);
+                op4.setChecked(false);
+
                 timeLeftInMillis = COUNTDOWN_IN_MILLIS;
                 txtHintPoint.setText(""+hintPoint);
 
@@ -597,22 +668,9 @@ public class quiz_beginner extends YouTubeBaseActivity {
             currentQuestion = questionList.get(questionCounter);
             question = currentQuestion.getQuestion(); // 유튜브 url
             op1.setText(currentQuestion.getOption1()); // 1번 보기
-            op1.setSingleLine(true);
-            op1.setEllipsize(TextUtils.TruncateAt.MARQUEE);
-            op1.setSelected(true);
             op2.setText(currentQuestion.getOption2());
-            op2.setSingleLine(true);
-            op2.setEllipsize(TextUtils.TruncateAt.MARQUEE);
-            op2.setSelected(true);// 2번 보기
             op3.setText(currentQuestion.getOption3());
-            op3.setSingleLine(true);
-            op3.setEllipsize(TextUtils.TruncateAt.MARQUEE);
-            op3.setSelected(true);// 3번 보기
             op4.setText(currentQuestion.getOption4());
-            op4.setSingleLine(true);
-            op4.setEllipsize(TextUtils.TruncateAt.MARQUEE);
-            op4.setSelected(true);// 4번 보기
-
 
             questionCounter ++;
             if(!isError){
@@ -740,6 +798,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
         else {
             if(opSelected !=null) {
                 opSelected.setTextColor(Color.RED);
+                isWrong = true;
             }
 
         }
@@ -753,25 +812,29 @@ public class quiz_beginner extends YouTubeBaseActivity {
     }
 
     private void showSolution() {
-        op1.setTextColor(Color.WHITE);
-        op2.setTextColor(Color.WHITE);
-        op3.setTextColor(Color.WHITE);
-        op4.setTextColor(Color.WHITE);
 
         switch (currentQuestion.getAnswerNr()) {
             case 1:
                 op1.setTextColor(Color.GREEN);
+                op1.setSelected(true);
                 break;
             case 2:
                 op2.setTextColor(Color.GREEN);
+                op2.setSelected(true);
                 break;
             case 3:
                 op3.setTextColor(Color.GREEN);
+                op3.setSelected(true);
                 break;
             case 4:
                 op4.setTextColor(Color.GREEN);
+                op4.setSelected(true);
                 break;
         }
+        op1.setEnabled(false);
+        op2.setEnabled(false);
+        op3.setEnabled(false);
+        op4.setEnabled(false);
         checkLast();
     }
 
@@ -896,6 +959,10 @@ public class quiz_beginner extends YouTubeBaseActivity {
                 LoadAD();
             }
         }
+
+    }
+
+    public void op1Click(View view) {
 
     }
 

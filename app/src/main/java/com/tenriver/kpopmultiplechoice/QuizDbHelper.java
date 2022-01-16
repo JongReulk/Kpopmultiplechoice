@@ -16,7 +16,7 @@ import java.util.List;
 
 public class QuizDbHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "MyKpopQuizMultipleChoice.db";
-    private static final int DATABASE_VERSION = 2; // 데이터베이스 버전 항상 다르게 하기
+    private static final int DATABASE_VERSION = 3; // 데이터베이스 버전 항상 다르게 하기
 
     private SQLiteDatabase db;
 
@@ -58,13 +58,13 @@ public class QuizDbHelper extends SQLiteOpenHelper {
     }
 
     private void fillQuestionsTable() {
-        Question q1 = new Question("WMweEpGlu_U", "Butter","Dynamite", "Permission to Dance", "소리꾼 (Thunderous)", 1,"BTS",2021);
+        Question q1 = new Question("WMweEpGlu_U", "Butter - BTS","Dynamite - BTS", "Permission to Dance - BTS", "소리꾼 (Thunderous) - 스트레이키즈", 1,"BTS",2021);
         addQuestion(q1);
-        Question q2 = new Question("4TWR90KJl84", "Savage","Next Level", "Not Shy", "Black Mamba", 2,"aespa (에스파)",2021);
+        Question q2 = new Question("4TWR90KJl84", "Savage - Aespa (에스파)","Next Level - Aespa (에스파)", "Not Shy - Aespa (에스파)", "Black Mamba - Aespa (에스파)", 2,"aespa (에스파)",2021);
         addQuestion(q2);
-        Question q3 = new Question("HzOjwL7IP_o", "LIAR LIAR","HAPPY", "Dun Dun Dance", "컬러링북 (Coloring Book)", 3,"OH MY GIRL(오마이걸)",2021);
+        Question q3 = new Question("HzOjwL7IP_o", "LIAR LIAR - OH MY GIRL(오마이걸)","HAPPY - OH MY GIRL(오마이걸)", "Dun Dun Dance - OH MY GIRL(오마이걸)", "컬러링북 (Coloring Book) - OH MY GIRL(오마이걸)", 3,"OH MY GIRL(오마이걸)",2021);
         addQuestion(q3);
-        Question q4 = new Question("v7bnOxV4jAc", "On The Ground","strawberry moon", "Coin", "라일락 (LILAC)", 4,"IU(아이유)",2021);
+        Question q4 = new Question("v7bnOxV4jAc", "On The Ground - IU(아이유)","strawberry moon - IU(아이유)", "Coin - IU(아이유)", "라일락 (LILAC) - IU(아이유)", 4,"IU(아이유)",2021);
         addQuestion(q4);
 
     }
