@@ -104,7 +104,6 @@ public class MainActivity extends AppCompatActivity {
     private Button quitButton;
 
     private AdView mAdview;
-    private Button rewardAdButton;
     private RewardedAd mRewardedAd;
     private boolean isEarned = false;
 
@@ -146,10 +145,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //리모컨 이미지
-        ImageView remote = (ImageView) findViewById(R.id.Remote_main);
-        ConstraintLayout remotebutton = (ConstraintLayout) findViewById(R.id.Remote_button_main);
-
 
         //텍스트 페이드인
         kpop1 = (TextView) findViewById((R.id.txtTitle1));
@@ -180,17 +175,6 @@ public class MainActivity extends AppCompatActivity {
         AdView adView = new AdView(this);
         adView.setAdSize(AdSize.BANNER);
         adView.setAdUnitId("\n" + BANNER_AD_ID);
-
-        rewardAdButton = findViewById(R.id.RewardAdButton);
-
-        //로그인 및 랭킹 관련
-        loginbtn = findViewById(R.id.login_btn);
-        submitbtn = findViewById(R.id.submit_btn);
-        boardbtn = findViewById(R.id.leaderboard_btn);
-        logoutbtn = findViewById(R.id.logout_btn);
-        achievementbtn = findViewById(R.id.achievement_btn);
-
-
 
 
         // BGN 실행
@@ -246,7 +230,6 @@ public class MainActivity extends AppCompatActivity {
         registerReceiver(receiver, intentFilter);
 
 
-        tipsButton = findViewById(R.id.Main_tips);
         startButton = findViewById(R.id.Main_start);
         txtbasicHighscore = findViewById(R.id.txtbasicbestScore);
         txtchallengeHighscore = findViewById(R.id.txtChallengebestScore);
@@ -284,8 +267,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        signinsilently();
-
         pointNow = 0;
         pointBeginner = 0;
 
@@ -299,42 +280,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-        tipsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                tipsButton.setEnabled(false);
-                startButton.setEnabled(false);
-                settingOpen.setEnabled(false);
-                quitButton.setEnabled(false);
-                startButton.setTextColor(Color.GRAY);
-                settingOpen.setTextColor(Color.GRAY);
-                quitButton.setTextColor(Color.GRAY);
-
-                /*
-                // 다시보지않기
-                SharedPreferences closef = getSharedPreferences(TitleActivity.SHARED_CLOSE,MODE_PRIVATE);
-                SharedPreferences.Editor closeEditor = closef.edit();
-                closeEditor.putBoolean("closeforever", true);
-                closeEditor.apply();*/
-
-                if(mediaplayer_main!=null)
-                {
-                    mediaplayer_main.stop();
-                    mediaplayer_main.release();
-                    mediaplayer_main = null;
-                }
-
-                Intent tipintent = new Intent(getApplicationContext(), TipsActivity.class);
-                tipintent.addFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION);
-                startActivity(tipintent);
-
-                finish();
-            }
-        });
-
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -347,15 +292,6 @@ public class MainActivity extends AppCompatActivity {
                 startButton.setTextColor(Color.GRAY);
                 settingOpen.setTextColor(Color.GRAY);
                 quitButton.setTextColor(Color.GRAY);
-
-                //리모컨이미지 내려감
-                Animation RemoteDown = AnimationUtils.loadAnimation(getApplication(), R.anim.remotemove_down);
-                remote.startAnimation(RemoteDown);
-
-                //리모컨버튼 내려감
-                Animation RemoteButtonDown = AnimationUtils.loadAnimation(getApplication(), R.anim.remotemove_down);
-                remotebutton.startAnimation(RemoteButtonDown);
-
 
 
                 Handler handler = new Handler();
@@ -402,50 +338,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        rewardAdButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showRewardedAd();
-            }
-        });
-
-
-        loginbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LoginIntent();
-            }
-        });
-
-        submitbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                submit();
-            }
-        });
-
-        boardbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                rank();
-            }
-        });
-
-        logoutbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                signout();
-            }
-        });
-
-        achievementbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showAchievements();
-            }
-        });
-
     }
 
     @Override
@@ -476,7 +368,6 @@ public class MainActivity extends AppCompatActivity {
 
         if (challengescore > challengehighscore) {
             updatechallengeHighscore(challengescore);
-            submit();
         }
 
 
@@ -509,37 +400,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        ImageView remote = (ImageView) findViewById(R.id.Remote_main);
-        ConstraintLayout remotebutton = (ConstraintLayout) findViewById(R.id.Remote_button_main);
-
-        //리모컨이미지 올라옴
-        Animation RemoteUp = AnimationUtils.loadAnimation(getApplication(), R.anim.remotemove_up);
-        remote.startAnimation(RemoteUp);
-        RemoteUp.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-                startButton.setEnabled(false);
-                settingOpen.setEnabled(false);
-                quitButton.setEnabled(false);
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                startButton.setEnabled(true);
-                settingOpen.setEnabled(true);
-                quitButton.setEnabled(true);
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-
-        //리모컨버튼 올라옴
-        Animation RemoteButtonUp = AnimationUtils.loadAnimation(getApplication(), R.anim.remotemove_up);
-        remotebutton.startAnimation(RemoteButtonUp);
 
         startButton.setEnabled(true);
         settingOpen.setEnabled(true);
@@ -574,7 +434,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
         challengehighscore = prefs.getInt(KEY_CHALLENGEHIGHSCORE, 0);
         if(challengehighscore <= 0) {
-            txtchallengeHighscore.setText("Challenge");
+            txtchallengeHighscore.setText("Chall");
         }
         else{
             txtchallengeHighscore.setText("" + challengehighscore);
@@ -598,32 +458,6 @@ public class MainActivity extends AppCompatActivity {
 
         totalPoint = point.getInt(KEY_POINT,100);
         txtpoint.setText(""+totalPoint);
-
-        try {
-            if(totalPoint >2000) {
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                        .increment(getString(R.string.achievement_many_drops_make_a_shower), 5);
-            }
-            else if(totalPoint >1000) {
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                        .increment(getString(R.string.achievement_many_drops_make_a_shower), 4);
-            }
-            else if(totalPoint >500) {
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                        .increment(getString(R.string.achievement_many_drops_make_a_shower), 3);
-            }
-            else if(totalPoint >300) {
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                        .increment(getString(R.string.achievement_many_drops_make_a_shower), 2);
-            }
-            else if(totalPoint >200) {
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                        .increment(getString(R.string.achievement_many_drops_make_a_shower), 5);
-            }
-
-        } catch(Exception e){
-            Log.d("로그", "포인트 업적 실패");
-        }
 
     }
 
@@ -679,28 +513,6 @@ public class MainActivity extends AppCompatActivity {
         ad_time = adtimes.getInt(KEY_AD_TIME,0);
         ad_time ++;
 
-        try {
-            if(ad_time >200) {
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                        .increment(getString(R.string.achievement_has_anyone_seen_more_ads_than_me), 4);
-            }
-            else if(ad_time >100) {
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                        .increment(getString(R.string.achievement_has_anyone_seen_more_ads_than_me), 3);
-            }
-            else if(ad_time >50) {
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                        .increment(getString(R.string.achievement_has_anyone_seen_more_ads_than_me), 2);
-            }
-            else if(ad_time >10) {
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                        .increment(getString(R.string.achievement_has_anyone_seen_more_ads_than_me), 1);
-            }
-
-
-        } catch(Exception e){
-            Log.d("로그", "포인트 업적 실패");
-        }
 
         SharedPreferences.Editor adEditor = adtimes.edit();
         adEditor.putInt(KEY_AD_TIME,ad_time);
@@ -893,115 +705,5 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void signout() {
-        GoogleSignInClient signInClient = GoogleSignIn.getClient(this, GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN);
-        signInClient.signOut().addOnSuccessListener(this, task -> {
-            findViewById(R.id.login_btn).setVisibility(View.VISIBLE);
-            findViewById(R.id.leaderboard_btn).setVisibility(View.INVISIBLE);
-            findViewById(R.id.logout_btn).setVisibility(View.INVISIBLE);
-            findViewById(R.id.submit_btn).setVisibility(View.INVISIBLE);
-            findViewById(R.id.achievement_btn).setVisibility(View.INVISIBLE);
-        });
-    }
 
-    private void submit() {
-        SharedPreferences prefs = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
-        challengehighscore = prefs.getInt(KEY_CHALLENGEHIGHSCORE, 0);
-
-        try {
-            // 여러 개의 리더보드를 만든다면 이 리더보드 ID를 여러 개 저장해야 함
-            Games.getLeaderboardsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                    .submitScore(getString(R.string.leaderboard_kpop_mv_quiz_challenge_highscore),challengehighscore);
-            Toast.makeText(this, R.string.updateSuccess,Toast.LENGTH_SHORT).show();
-        }catch (Exception e) {
-            Toast.makeText(this, R.string.updateFail,Toast.LENGTH_SHORT).show();
-
-        }
-    }
-
-    private void rank() {
-        try {
-            Games.getLeaderboardsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                    .getLeaderboardIntent(getString(R.string.leaderboard_kpop_mv_quiz_challenge_highscore))
-                    .addOnSuccessListener(intent -> {
-                        startActivityForResult(intent, RC_LEADERBOARD_UI);
-                    });
-        }catch(Exception e) {
-            Toast.makeText(this, getString(R.string.tryAgain), Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void LoginIntent() {
-        // 반드시 DEFAULT_GAMES_SIGN_IN 으로 해주기
-        GoogleSignInClient signInClient = GoogleSignIn.getClient(this, GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN);
-        Intent loginintent = signInClient.getSignInIntent();
-
-        startActivityForResult(loginintent, RC_SIGN_IN);
-    }
-
-    private void signinsilently(){
-        GoogleSignInOptions signInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN).build();
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-
-        if(GoogleSignIn.hasPermissions(account, signInOptions.getScopeArray())){
-            // 이미 로그인 되어있을 경우
-            googleSignInAccount = account;
-            findViewById(R.id.login_btn).setVisibility(View.INVISIBLE);
-            findViewById(R.id.leaderboard_btn).setVisibility(View.VISIBLE);
-            findViewById(R.id.logout_btn).setVisibility(View.VISIBLE);
-            findViewById(R.id.submit_btn).setVisibility(View.VISIBLE);
-            findViewById(R.id.achievement_btn).setVisibility(View.VISIBLE);
-
-
-        }
-        else{
-            // 로그인 안됨
-            Toast.makeText(this, getString(R.string.offline),Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void showAchievements() {
-        try {
-            Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                    .getAchievementsIntent()
-                    .addOnSuccessListener(new OnSuccessListener<Intent>() {
-                        @Override
-                        public void onSuccess(Intent intent) {
-                            startActivityForResult(intent, RC_ACHIEVEMENT_UI);
-                        }
-                    });
-        } catch (Exception e) {
-            Log.d("로그", "업적 불러오기 실패");
-        }
-
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        // 로그인 화면으로 얻은 계정을 'Task'를 이용해 받기
-        if(requestCode==RC_SIGN_IN){
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            // 오류 발생할 수 있으므로 예외 처리
-            try {
-                googleSignInAccount=task.getResult(ApiException.class);
-
-                // 로그인 성공 시시
-                findViewById(R.id.login_btn).setVisibility(View.INVISIBLE);
-                findViewById(R.id.logout_btn).setVisibility(View.VISIBLE);
-                findViewById(R.id.leaderboard_btn).setVisibility(View.VISIBLE);
-                findViewById(R.id.submit_btn).setVisibility(View.VISIBLE);
-                findViewById(R.id.achievement_btn).setVisibility(View.VISIBLE);
-                Toast.makeText(this, getString(R.string.loginsucceed),Toast.LENGTH_SHORT).show();
-
-            } catch (ApiException apiException){
-                String message = apiException.getMessage();
-                if(message==null || message.isEmpty()) {
-                    Toast.makeText(this, getString(R.string.loginFail),Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        }
-    }
 }
