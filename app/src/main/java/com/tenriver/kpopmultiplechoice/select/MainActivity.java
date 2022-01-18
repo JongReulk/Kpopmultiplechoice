@@ -23,6 +23,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -98,10 +99,8 @@ public class MainActivity extends AppCompatActivity {
 
     private long backPressedTime;
 
-    private Button tipsButton;
-    private Button startButton;
-    private Button settingOpen;
-    private Button quitButton;
+    private ImageButton startButton;
+    private ImageButton settingOpen;
 
     private AdView mAdview;
     private RewardedAd mRewardedAd;
@@ -231,11 +230,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         startButton = findViewById(R.id.Main_start);
+        settingOpen = findViewById(R.id.setting_Button);
         txtbasicHighscore = findViewById(R.id.txtbasicbestScore);
         txtchallengeHighscore = findViewById(R.id.txtChallengebestScore);
-
-        settingOpen = findViewById(R.id.setting_Button);
-        quitButton = findViewById(R.id.quit_Button);
 
 
         txtbasicHighscore.startAnimation(textfadein);
@@ -288,10 +285,6 @@ public class MainActivity extends AppCompatActivity {
 
                 startButton.setEnabled(false);
                 settingOpen.setEnabled(false);
-                quitButton.setEnabled(false);
-                startButton.setTextColor(Color.GRAY);
-                settingOpen.setTextColor(Color.GRAY);
-                quitButton.setTextColor(Color.GRAY);
 
 
                 Handler handler = new Handler();
@@ -307,7 +300,7 @@ public class MainActivity extends AppCompatActivity {
                         finish();
 
                     }
-                }, 600); //딜레이 타임 조절
+                }, 100); //딜레이 타임 조절
             }
         });
 
@@ -317,23 +310,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 soundPool.play(soundID,soundPoolVolume,soundPoolVolume,0,0,1f);
                 dial();
-
-            }
-        });
-
-        quitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                soundPool.play(soundID,soundPoolVolume,soundPoolVolume,0,0,1f);
-
-                // BGM 종료
-                if(mediaplayer_main!=null)
-                {
-                    mediaplayer_main.stop();
-                    mediaplayer_main.release();
-                    mediaplayer_main = null;
-                }
-                finish();
 
             }
         });
@@ -403,10 +379,6 @@ public class MainActivity extends AppCompatActivity {
 
         startButton.setEnabled(true);
         settingOpen.setEnabled(true);
-        quitButton.setEnabled(true);
-        startButton.setTextColor(Color.WHITE);
-        settingOpen.setTextColor(Color.WHITE);
-        quitButton.setTextColor(Color.WHITE);
     }
 
     private void updateHighscore(int highscoreNew){

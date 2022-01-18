@@ -27,8 +27,19 @@
     <color name="consonants_color2">#9F93A3</color>
     <color name="backgroundtop">#384152</color>
     <color name="backgroundBottom">#13161D</color>
-    <color name="littlewhite">#F2F2F0</color>
+    <color name="palewhite">#F2F2F0</color>
     <color name="palepink">#FF84BC</color>
     <color name="darkpink">#F04393</color>
+    <color name="darkpink2">#FE2790</color>
     <color name="palepink2">#F7A2C9</color>
+    <color name="pinkcombination">#FFADC5</color>
+    <color name="greencombination">#B8F3B8</color>
+    <color name="yellocombination">#FFFFB1</color>
+    <color name="darkpinkcombination">#FF7CCC</color>
+    <color name="darkpinkcombination2">#FF689F</color>
+    <color name="whitecombination">#E2E4E4</color>
+    <color name="whitetransparent">#00E2E4E4</color>
+    <color name="whitetransparent2">#4DE2E4E4</color>
+    <color name="circlebuttonnotEnabled">#B3E2E4E4</color>
+    <color name="title_text_color_pale">#F7C3B4</color>
 </resources>
