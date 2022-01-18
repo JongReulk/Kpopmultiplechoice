@@ -52,9 +52,6 @@
             android:name="com.tenriver.kpopmultiplechoice.TitleActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.tenriver.kpopmultiplechoice.TipsActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name="com.tenriver.kpopmultiplechoice.select.ModeActivity"
             android:screenOrientation="portrait" />
         <activity

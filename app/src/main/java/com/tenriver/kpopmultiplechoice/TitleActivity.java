@@ -144,47 +144,22 @@ public class TitleActivity extends AppCompatActivity {
 
     public void checkFirstRun() {
 
-        // Tips Activity 다시보지않기를 위한 변수
-        SharedPreferences closef = getSharedPreferences(SHARED_CLOSE,MODE_PRIVATE);
-        Boolean close_Tips = closef.getBoolean("closeforever",true);
 
-
-        if (close_Tips) {
-            if(mediaplayer_title!=null)
-            {
-                mediaplayer_title.stop();
-                mediaplayer_title.release();
-                mediaplayer_title = null;
-            }
-
-            Intent newIntent = new Intent(this, TipsActivity.class);
-            newIntent.addFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION);
-            startActivity(newIntent);
-
-            // 액티비티 이동시 페이드인아웃 연출
-            overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
-            finish();
-
-            //closef.putBoolean("isFirstRun", false).apply();
-        }
-
-        else
+        if(mediaplayer_title!=null)
         {
-            if(mediaplayer_title!=null)
-            {
-                mediaplayer_title.stop();
-                mediaplayer_title.release();
-                mediaplayer_title = null;
-            }
-
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION);
-            startActivity(intent);
-
-            // 액티비티 이동시 페이드인아웃 연출
-            overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
-            finish();
+            mediaplayer_title.stop();
+            mediaplayer_title.release();
+            mediaplayer_title = null;
         }
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION);
+        startActivity(intent);
+
+        // 액티비티 이동시 페이드인아웃 연출
+        overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+        finish();
+
     }
 
     @Override

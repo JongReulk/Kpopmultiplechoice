@@ -1,9 +1,7 @@
 package com.tenriver.kpopmultiplechoice.select;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -45,16 +43,10 @@ import com.google.android.gms.ads.rewarded.RewardedAd;
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.games.Games;
 import com.google.android.gms.games.GamesClient;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.tenriver.kpopmultiplechoice.R;
 import com.tenriver.kpopmultiplechoice.SettingDialog;
-import com.tenriver.kpopmultiplechoice.TipsActivity;
 import com.tenriver.kpopmultiplechoice.quizActivity.QuizChallenge;
 import com.tenriver.kpopmultiplechoice.quizActivity.QuizMain;
 import com.tenriver.kpopmultiplechoice.quizActivity.quiz_beginner;
