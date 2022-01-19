@@ -194,7 +194,7 @@
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/beginner_card"
+                android:id="@+id/card_baby"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:layout_margin="10dp"
@@ -218,15 +218,14 @@
                     android:orientation="vertical"
                     android:weightSum="3">
 
-                    <com.tenriver.kpopmultiplechoice.OutlineTextView
-                        android:id="@+id/txt_beginnermode"
+                    <TextView
+                        android:id="@+id/title_baby"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="10dp"
                         android:layout_weight="2"
-                        android:bufferType="spannable"
 
                         android:ellipsize="marquee"
                         android:fontFamily="@font/font_basic"
@@ -238,7 +237,7 @@
                         android:shadowRadius="10"
                         android:singleLine="true"
 
-                        android:text="케알못"
+                        android:text="@string/KPOP_BABY"
 
 
                         android:textColor="@color/yellocombination"
@@ -272,6 +271,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/card_classic"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:layout_margin="10dp"
@@ -295,22 +295,21 @@
                     android:orientation="vertical"
                     android:weightSum="3">
 
-                    <com.tenriver.kpopmultiplechoice.OutlineTextView
-                        android:id="@+id/txt_basicmode"
+                    <TextView
+                        android:id="@+id/title_classic"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="10dp"
                         android:layout_weight="2"
-                        android:bufferType="spannable"
                         android:ellipsize="marquee"
                         android:fontFamily="@font/font_basic"
                         android:gravity="center"
                         android:marqueeRepeatLimit="marquee_forever"
 
                         android:singleLine="true"
-                        android:text="클래식"
+                        android:text="@string/KPOP_CLASSIC"
                         android:textColor="@color/greencombination"
 
                         android:textSize="70sp"
@@ -347,6 +346,7 @@
 
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/card_master"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:layout_margin="10dp"
@@ -370,21 +370,22 @@
                     android:weightSum="3">
 
                     <com.tenriver.kpopmultiplechoice.OutlineTextView
+                        android:id="@+id/title_master"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="10dp"
                         android:layout_weight="2"
-                        android:bufferType="spannable"
+                        android:text="@string/KPOP_MASTER"
+                        android:textColor="@color/fog"
+
                         android:ellipsize="marquee"
                         android:fontFamily="@font/font_basic"
                         android:gravity="center"
                         android:marqueeRepeatLimit="marquee_forever"
 
                         android:singleLine="true"
-                        android:text="케잘알"
-                        android:textColor="@color/fog"
 
                         android:textSize="70sp"
                         android:textStyle="bold"
@@ -418,6 +419,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/card_god"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:layout_margin="10dp"
@@ -441,20 +443,21 @@
                     android:weightSum="3">
 
                     <com.tenriver.kpopmultiplechoice.OutlineTextView
+                        android:id="@+id/title_god"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="10dp"
                         android:layout_weight="2"
-                        android:bufferType="spannable"
+
                         android:ellipsize="marquee"
                         android:fontFamily="@font/font_basic"
                         android:gravity="center"
                         android:marqueeRepeatLimit="marquee_forever"
 
                         android:singleLine="true"
-                        android:text="GOD"
+                        android:text="@string/KPOP_GOD"
                         android:textColor="@color/charlotte"
 
                         android:textSize="70sp"
@@ -489,6 +492,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/card_challenge"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:layout_margin="10dp"
@@ -513,22 +517,20 @@
                     android:weightSum="3">
 
                     <com.tenriver.kpopmultiplechoice.OutlineTextView
-                        android:id="@+id/txt_challengemode"
+                        android:id="@+id/title_challenge"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="10dp"
                         android:layout_weight="2"
-                        android:bufferType="spannable"
                         android:ellipsize="marquee"
                         android:fontFamily="@font/font_basic"
                         android:gravity="center"
 
                         android:marqueeRepeatLimit="marquee_forever"
                         android:singleLine="true"
-                        android:text="챌린지"
-
+                        android:text="@string/KPOP_CHALLENGE"
 
                         android:textColor="@color/darkpink"
                         android:textSize="70sp"
@@ -539,7 +541,7 @@
                         android:shadowRadius="10" />
 
                     <com.tenriver.kpopmultiplechoice.OutlineTextView
-                        android:id="@+id/txt_challengemode2"
+                        android:id="@+id/text_challenge"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_marginLeft="10dp"
@@ -547,11 +549,14 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="20dp"
                         android:layout_weight="1"
-                        android:bufferType="spannable"
                         android:fontFamily="@font/font_basic"
                         android:gravity="center"
                         android:text="@string/challengemodedescription"
                         android:textColor="@color/white"
+
+                        android:ellipsize="marquee"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:singleLine="true"
 
                         android:textSize="25sp"
                         android:textStyle="bold"

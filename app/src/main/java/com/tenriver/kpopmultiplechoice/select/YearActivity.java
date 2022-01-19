@@ -65,7 +65,7 @@ public class YearActivity extends AppCompatActivity {
     SoundPool soundPool;	//작성
     int soundID;		    //작성
 
-    int mode_select;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +90,6 @@ public class YearActivity extends AppCompatActivity {
         // 모드 뭐 선택했는지 가져오기
         SharedPreferences mode_shared = getSharedPreferences(MODE_SHARED,MODE_PRIVATE);
 
-        mode_select = mode_shared.getInt(GAMEMODE_SELECT,-1);
 
         mAdview = findViewById(R.id.yearadView);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -334,26 +333,17 @@ public class YearActivity extends AppCompatActivity {
                             year_num = 101; // 전체면 101
                         }
 
-                        if (mode_select == 2) {
-                            Intent intent = new Intent(getApplicationContext(), QuizAlphabet.class);
-                            intent.putExtra("year_num", year_num); // 연도
-                            intent.addFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION);
-                            startActivityForResult(intent, MainActivity.REQUEST_CODE_QUIZ);
 
-                            // 액티비티 이동시 페이드인아웃 연출
-                            //overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
-                            finish();
-                        }
-                        else {
-                            Intent intent = new Intent(getApplicationContext(), DifficultyActivity.class);
-                            intent.putExtra("year_num", year_num); // 연도
-                            intent.addFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION);
-                            startActivityForResult(intent, MainActivity.REQUEST_CODE_QUIZ);
 
-                            // 액티비티 이동시 페이드인아웃 연출
-                            //overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
-                            finish();
-                        }
+                        Intent intent = new Intent(getApplicationContext(), DifficultyActivity.class);
+                        intent.putExtra("year_num", year_num); // 연도
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION);
+                        startActivityForResult(intent, MainActivity.REQUEST_CODE_QUIZ);
+
+                        // 액티비티 이동시 페이드인아웃 연출
+                        //overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+                        finish();
+
                     }
                 }, 600); //딜레이 타임 조절
             }

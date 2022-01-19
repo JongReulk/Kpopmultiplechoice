@@ -79,4 +79,9 @@
     <string name="videointernet">인터넷 연결이 되어 있지 않습니다. 인터넷 연결 후 게임을 다시 시작해주세요.</string>
     <string name="multiplechoice">객관식</string>
     <string name="kpopgodmode">15초 제한, 1초간 노래 듣기</string>
+    <string name="KPOP_BABY">케알못</string>
+    <string name="KPOP_CLASSIC">클래식</string>
+    <string name="KPOP_MASTER">케잘알</string>
+    <string name="KPOP_GOD">GOD</string>
+    <string name="KPOP_CHALLENGE">도전 100곡</string>
 </resources>
