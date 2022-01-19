@@ -158,6 +158,7 @@ public class YearActivity extends AppCompatActivity {
         kpop3 = (TextView) findViewById((R.id.txtTitle3));
         View year_v;
 
+        button_total = year_linear.getChildCount();
 
 
         //페이드인 애니메이션
@@ -251,7 +252,7 @@ public class YearActivity extends AppCompatActivity {
 
                 soundPool.play(soundID,soundPoolVolume,soundPoolVolume,0,0,1f);
 
-                year_num_string = getString(R.string.Random);
+                year_num_string = String.valueOf(year_num);
 
                 checkAndintent();
 
