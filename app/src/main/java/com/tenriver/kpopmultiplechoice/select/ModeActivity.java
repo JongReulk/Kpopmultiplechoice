@@ -74,7 +74,7 @@ public class ModeActivity extends AppCompatActivity {
     Animation anim;
 
     // 현재 골라진 모드를 숫자로 지정
-    private String currentMode = "";
+    private int currentMode = 10000;
 
     private static final String MODE_SHARED = "modeshared";
     private static final String GAMEMODE_SELECT = "gamemodeselect";
@@ -185,7 +185,7 @@ public class ModeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Log.d("로그", "baby_ 카드뷰 클릭!");
 
-                currentMode = "baby";
+                currentMode = 10000;
 
                 updateMode();
 
@@ -214,46 +214,46 @@ public class ModeActivity extends AppCompatActivity {
             }
         });
 
-//        classic_cardview.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Log.d("로그", "classic_ 카드뷰 클릭!");
-//
-//                currentMode = "classic";
-//
-//                updateMode();
-//
-//                classic_title.startAnimation(anim);
-//
-//                soundPool.play(soundID, soundPoolVolume, soundPoolVolume, 0, 0, 1f);
-//
-//
-//                Handler handler = new Handler();
-//                handler.postDelayed(new Runnable() {
-//                    @Override
-//                    public void run() {
-//
-//                        if (!isFinished) {
-//                            Intent Modeintent = new Intent(getApplicationContext(), YearActivity.class);
-//
-//                            Modeintent.addFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION);
-//                            startActivity(Modeintent);
-//                            finish();
-//                        } else {
-//                            handler.removeCallbacks(this);
-//                        }
-//
-//                    }
-//                }, 600);
-//            }
-//        });
+        classic_cardview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("로그", "classic_ 카드뷰 클릭!");
+
+                currentMode = 5000;
+
+                updateMode();
+
+                classic_title.startAnimation(anim);
+
+                soundPool.play(soundID, soundPoolVolume, soundPoolVolume, 0, 0, 1f);
+
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        if (!isFinished) {
+                            Intent Modeintent = new Intent(getApplicationContext(), YearActivity.class);
+
+                            Modeintent.addFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION);
+                            startActivity(Modeintent);
+                            finish();
+                        } else {
+                            handler.removeCallbacks(this);
+                        }
+
+                    }
+                }, 600);
+            }
+        });
 
         master_cardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d("로그", "master_ 카드뷰 클릭!");
 
-                currentMode = "master";
+                currentMode = 3000;
 
                 updateMode();
 
@@ -343,7 +343,7 @@ public class ModeActivity extends AppCompatActivity {
         SharedPreferences modeshared = getSharedPreferences(MODE_SHARED,MODE_PRIVATE);
 
         SharedPreferences.Editor modeEditor = modeshared.edit();
-        modeEditor.putString(GAMEMODE_SELECT,currentMode);
+        modeEditor.putInt(GAMEMODE_SELECT,currentMode);
         modeEditor.apply();
     }
 

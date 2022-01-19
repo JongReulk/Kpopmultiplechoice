@@ -155,6 +155,9 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
     private boolean isWrong;
 
+    private int modenum;
+    private int yearnum;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -164,6 +167,8 @@ public class quiz_beginner extends YouTubeBaseActivity {
         Log.d("start","quiz main activity start!");
 
         question_Num = 0;
+
+        getModeandYear();
 
 
         if(MainActivity.mediaplayer_main!=null)
@@ -178,7 +183,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
         Intent intent = getIntent();
 
-        videoLength = intent.getIntExtra("difficulty_time",10000);
+        videoLength = modenum; // 플레이 시간
 
 
 
@@ -200,7 +205,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
 
 
-        int year_num = intent.getIntExtra("year_num",2020);
+        int year_num = yearnum; // 연도
 
         confirmButton = findViewById(R.id.confirmButton);
         nextButton = findViewById(R.id.nextButton);
@@ -961,7 +966,14 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
     }
 
-    public void op1Click(View view) {
+    private void getModeandYear() {
+        // 모드 및 연도 가져오기
+        SharedPreferences modeandyear = getSharedPreferences(MODE_SHARED,MODE_PRIVATE);
+
+        modenum = modeandyear.getInt(GAMEMODE_SELECT,10000);
+
+        yearnum = modeandyear.getInt(YEAR_SELECT,2020);
+
 
     }
 
