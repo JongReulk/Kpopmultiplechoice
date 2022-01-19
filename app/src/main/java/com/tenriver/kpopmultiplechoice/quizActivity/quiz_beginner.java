@@ -65,6 +65,11 @@ public class quiz_beginner extends YouTubeBaseActivity {
     private static final String QUIZ_SHARED = "quizshared";
     private static final String BASIC_PLAY_TIME = "basicplaytime";
 
+    // SharedPreferences 변수선언
+    private static final String MODE_SHARED = "modeshared";
+    private static final String GAMEMODE_SELECT = "gamemodeselect";
+    private static final String YEAR_SELECT = "yearselect";
+
     YouTubePlayerView playerView;
     YouTubePlayer player;
 
@@ -176,27 +181,21 @@ public class quiz_beginner extends YouTubeBaseActivity {
         videoLength = intent.getIntExtra("difficulty_time",10000);
 
 
-        try {
-            GamesClient gamesClient = Games.getGamesClient(this,GoogleSignIn.getLastSignedInAccount(this));
-            gamesClient.setViewForPopups(findViewById(R.id.googlePopupQuizMain));
-            //gamesClient.setGravityForPopups(Gravity.TOP | Gravity.CENTER_HORIZONTAL);
-
-        } catch(Exception e){
-            Log.d("로그", "알림 불러오기 실패");
-        }
-
-
 
         if(videoLength == 10000){
             plus = 10;
         }
 
         if(videoLength == 5000){
-            plus = 20;
+            plus = 30;
         }
 
         if(videoLength == 3000){
-            plus = 30;
+            plus = 50;
+        }
+
+        if(videoLength == 1000){
+            plus = 70;
         }
 
 

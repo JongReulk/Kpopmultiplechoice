@@ -305,6 +305,8 @@ public class YearActivity extends AppCompatActivity {
         Log.d("연도", " : "+year_num);
         year_select.setText(year_num_string);
 
+        year_scroll.setVisibility(View.GONE);
+
         year_select.setVisibility(View.VISIBLE);
 
         updateYear();
