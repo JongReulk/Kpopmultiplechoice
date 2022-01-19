@@ -56,7 +56,6 @@ public class ModeActivity extends AppCompatActivity {
     private LinearLayout basic_linear;
     private LinearLayout challenge_linear;
     private LinearLayout beginner_linear;
-    private LinearLayout consonants_linear;
 
     private CardView beginner_cardview;
     
@@ -109,11 +108,10 @@ public class ModeActivity extends AppCompatActivity {
         basic_linear = findViewById(R.id.basic_linear);
         challenge_linear = findViewById(R.id.challenge_linear);
         beginner_linear = findViewById(R.id.beginner_linear);
-        consonants_linear = findViewById(R.id.consonants_linear);
+
         basic_text = findViewById(R.id.txt_basicmode);
         challenge_text = findViewById(R.id.txt_challengemode);
         beginner_text = findViewById(R.id.txt_beginnermode);
-        consonants_text = findViewById(R.id.txt_consonantsmode);
 
         beginner_cardview = findViewById(R.id.beginner_card);
 

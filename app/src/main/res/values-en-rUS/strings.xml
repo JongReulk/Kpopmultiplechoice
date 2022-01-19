@@ -63,7 +63,7 @@
     <string name="achievement">Achievement</string>
     <string name="beginnermodedescription">3 Levels, Free Hint\nMV and SONG</string>
     <string name="basicmodedescription">3 Levels, Free Hint\nSONG only</string>
-    <string name="challengemodedescription">100 Random Songs, 5 Hint only</string>
+    <string name="challengemodedescription">100 Random Songs, 1 Chance</string>
     <string name="ChallengemodeName">100\nChallenges</string>
     <string name="mode">Mode</string>
     <string name="Easy">EASY</string>
@@ -71,11 +71,12 @@
     <string name="Hard">HARD</string>
     <string name="Easy2">TIME LIMIT 30s, LISTENING 10s</string>
     <string name="Normal2">TIME LIMIT 30s, LISTENING 5s</string>
-    <string name="Hard2">TIME LIMIT 30s, LISTENING 3s</string>
+    <string name="Hard2">TIME LIMIT 15s, LISTENING 3s</string>
     <string name="Difficulty">DIFFICULTY</string>
     <string name="Gamestart">The Game will begin.\nGET READY!</string>
     <string name="consonantquiz">Consonant Quiz</string>
     <string name="consonant_description">Look at the consonants\nand guess the song title!</string>
     <string name="videointernet">There is no internet connection. Please restart the game after connecting to the internet.</string>
     <string name="multiplechoice">Multiple Choice</string>
+    <string name="kpopgodmode">TIME LIMIT 15s, LISTENING 1s</string>
 </resources>

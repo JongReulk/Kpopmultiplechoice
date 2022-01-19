@@ -29,7 +29,7 @@
     <color name="backgroundBottom">#13161D</color>
     <color name="palewhite">#F2F2F0</color>
     <color name="palepink">#FF84BC</color>
-    <color name="darkpink">#F04393</color>
+    <color name="darkpink">#FF689F</color>
     <color name="darkpink2">#FE2790</color>
     <color name="palepink2">#F7A2C9</color>
     <color name="pinkcombination">#FFADC5</color>
@@ -42,4 +42,18 @@
     <color name="whitetransparent2">#4DE2E4E4</color>
     <color name="circlebuttonnotEnabled">#B3E2E4E4</color>
     <color name="title_text_color_pale">#F7C3B4</color>
+    <color name="sundown">#fbb0ac</color>
+    <color name="lily">#cd92b2</color>
+    <color name="shocking">#eaa6c0</color>
+    <color name="charlotte">#96e0ed</color>
+    <color name="zircon">#d5e4e2</color>
+    <color name="anakiwa">#7ccfec</color>
+    <color name="dust_storm">#e0c6c3</color>
+    <color name="wewak">#f29396</color>
+    <color name="french_lilac">#e7bceb</color>
+    <color name="fog">#e3c1f1</color>
+    <color name="cupid">#fbb3c7</color>
+    <color name="chantilly">#efbbc1</color>
+    <color name="water">#a7ece2</color>
+    <color name="linkwater">#c5d3d6</color>
 </resources>

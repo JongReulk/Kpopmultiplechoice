@@ -62,7 +62,7 @@
     <string name="updateFail">점수 업데이트 실패!</string>
     <string name="achievement">업적</string>
     <string name="basicmodedescription">3가지 난이도, 힌트 무제한\n노래만</string>
-    <string name="challengemodedescription">랜덤 100곡, 5번의 힌트</string>
+    <string name="challengemodedescription">랜덤 100곡, 1번의 기회</string>
     <string name="ChallengemodeName">도전\n100곡</string>
     <string name="beginnermodedescription">3가지 난이도, 힌트 무제한\n뮤비와 노래</string>
     <string name="mode">모드</string>
@@ -71,11 +71,12 @@
     <string name="Hard">HARD</string>
     <string name="Easy2">30초 제한, 10초간 노래 듣기</string>
     <string name="Normal2">30초 제한, 5초간 노래 듣기</string>
-    <string name="Hard2">30초 제한, 3초간 노래 듣기</string>
+    <string name="Hard2">15초 제한, 3초간 노래 듣기</string>
     <string name="Difficulty">난이도</string>
     <string name="Gamestart">잠시 후 게임이 시작됩니다.\n준비하세요!</string>
     <string name="consonantquiz">초성 퀴즈</string>
     <string name="consonant_description">초성을 보고\n 노래 제목을 맞춰보세요!</string>
     <string name="videointernet">인터넷 연결이 되어 있지 않습니다. 인터넷 연결 후 게임을 다시 시작해주세요.</string>
     <string name="multiplechoice">객관식</string>
+    <string name="kpopgodmode">15초 제한, 1초간 노래 듣기</string>
 </resources>

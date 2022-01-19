@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/title_text_color">
+    android:background="@color/cupid">
 
 
 
@@ -172,17 +172,21 @@
         android:layout_marginBottom="20dp"
         />
 
+
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:fillViewport="true"
         android:layout_marginTop="30dp"
+        android:fillViewport="true"
 
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtMvQuiz"
-        >
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -192,63 +196,72 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/beginner_card"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
-                app:cardCornerRadius="30dp"
+                android:layout_height="250dp"
                 android:layout_margin="10dp"
-                android:elevation="10dp"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:focusable="true"
                 android:clickable="true"
-                app:cardBackgroundColor="@color/pinkcombination">
+                android:elevation="10dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/pinkcombination"
+                app:cardCornerRadius="30dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/modecardbackground" />
 
                 <LinearLayout
                     android:id="@+id/beginner_linear"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:weightSum="3"
                     android:gravity="center"
                     android:orientation="vertical"
-                    >
+                    android:weightSum="3">
 
                     <com.tenriver.kpopmultiplechoice.OutlineTextView
                         android:id="@+id/txt_beginnermode"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="10dp"
                         android:layout_weight="2"
                         android:bufferType="spannable"
-                        android:fontFamily="@font/font_digital"
+
+                        android:ellipsize="marquee"
+                        android:fontFamily="@font/font_basic"
                         android:gravity="center"
-                        android:text="Beginner"
-                        android:textColor="@color/greencombination"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginTop="5dp"
-                        android:textStyle="bold"
 
-                        android:textSize="80dp"
-
-
+                        android:marqueeRepeatLimit="marquee_forever"
                         android:shadowColor="@color/challenge_color2"
+                        android:shadowDy="5"
                         android:shadowRadius="10"
-                        android:shadowDy="5" />
+                        android:singleLine="true"
+
+                        android:text="케알못"
+
+
+                        android:textColor="@color/yellocombination"
+                        android:textSize="70dp"
+                        android:textStyle="bold" />
 
                     <com.tenriver.kpopmultiplechoice.OutlineTextView
                         android:id="@+id/txt_beginnermode2"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_weight="1"
+
                         android:bufferType="spannable"
                         android:fontFamily="@font/font_basic"
                         android:gravity="center"
-                        android:layout_weight="1"
-
-                        android:text="@string/beginnermodedescription"
+                        android:text="@string/Easy2"
                         android:textColor="@color/white"
-                        android:layout_marginBottom="15dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
 
 
-                        android:textSize="30sp"
+                        android:textSize="25sp"
 
                         android:textStyle="bold"
 
@@ -260,14 +273,19 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
-                app:cardCornerRadius="30dp"
+                android:layout_height="250dp"
                 android:layout_margin="10dp"
-                android:elevation="10dp"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:focusable="true"
                 android:clickable="true"
-                app:cardBackgroundColor="@color/pinkcombination">
+                android:elevation="10dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/pinkcombination"
+                app:cardCornerRadius="30dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/modecardbackground" />
 
                 <LinearLayout
                     android:id="@+id/basic_linear"
@@ -275,45 +293,49 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:weightSum="3"
-                    >
+                    android:weightSum="3">
 
                     <com.tenriver.kpopmultiplechoice.OutlineTextView
                         android:id="@+id/txt_basicmode"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:bufferType="spannable"
-                        android:fontFamily="@font/font_digital"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="10dp"
                         android:layout_weight="2"
+                        android:bufferType="spannable"
+                        android:ellipsize="marquee"
+                        android:fontFamily="@font/font_basic"
                         android:gravity="center"
-                        android:text="BASIC"
-                        android:textColor="@color/basic_color1"
+                        android:marqueeRepeatLimit="marquee_forever"
 
-                        android:layout_marginRight="5dp"
-                        android:layout_marginLeft="5dp"
+                        android:singleLine="true"
+                        android:text="클래식"
+                        android:textColor="@color/greencombination"
 
-                        android:textSize="80sp"
+                        android:textSize="70sp"
                         android:textStyle="bold"
+                        android:shadowColor="@color/challenge_color2"
+                        android:shadowDy="5"
+                        android:shadowRadius="10"
 
-                        app:textStroke="true"
-                        app:textStrokeColor="@color/basic_color2"
-                        app:textStrokeWidth="6.0" />
+                         />
 
                     <com.tenriver.kpopmultiplechoice.OutlineTextView
                         android:id="@+id/txt_basicmode2"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_weight="1"
                         android:bufferType="spannable"
                         android:fontFamily="@font/font_basic"
                         android:gravity="center"
-                        android:text="@string/basicmodedescription"
+                        android:text="@string/Normal2"
                         android:textColor="@color/white"
-                        android:layout_weight="1"
-                        android:layout_marginBottom="15dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
 
-                        android:textSize="30sp"
+                        android:textSize="25sp"
                         android:textStyle="bold"
 
                         app:textStroke="true"
@@ -321,145 +343,228 @@
                         app:textStrokeWidth="3.0" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:elevation="10dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/pinkcombination"
+                app:cardCornerRadius="30dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/modecardbackground" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:weightSum="3">
+
+                    <com.tenriver.kpopmultiplechoice.OutlineTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="2"
+                        android:bufferType="spannable"
+                        android:ellipsize="marquee"
+                        android:fontFamily="@font/font_basic"
+                        android:gravity="center"
+                        android:marqueeRepeatLimit="marquee_forever"
+
+                        android:singleLine="true"
+                        android:text="케잘알"
+                        android:textColor="@color/fog"
+
+                        android:textSize="70sp"
+                        android:textStyle="bold"
+
+                        android:shadowColor="@color/challenge_color2"
+                        android:shadowDy="5"
+                        android:shadowRadius="10"
+
+                        />
+
+                    <com.tenriver.kpopmultiplechoice.OutlineTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_weight="1"
+                        android:bufferType="spannable"
+                        android:fontFamily="@font/font_basic"
+                        android:gravity="center"
+                        android:text="@string/Hard2"
+                        android:textColor="@color/white"
+
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+
+                        app:textStroke="true"
+                        app:textStrokeColor="@color/title_text_color"
+                        app:textStrokeWidth="3.0" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:elevation="10dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/pinkcombination"
+                app:cardCornerRadius="30dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/modecardbackground" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:weightSum="3">
+
+                    <com.tenriver.kpopmultiplechoice.OutlineTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="2"
+                        android:bufferType="spannable"
+                        android:ellipsize="marquee"
+                        android:fontFamily="@font/font_basic"
+                        android:gravity="center"
+                        android:marqueeRepeatLimit="marquee_forever"
+
+                        android:singleLine="true"
+                        android:text="GOD"
+                        android:textColor="@color/charlotte"
+
+                        android:textSize="70sp"
+                        android:textStyle="bold"
+
+                        android:shadowColor="@color/challenge_color2"
+                        android:shadowDy="5"
+                        android:shadowRadius="10"
+
+                        />
+
+                    <com.tenriver.kpopmultiplechoice.OutlineTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_weight="1"
+                        android:bufferType="spannable"
+                        android:fontFamily="@font/font_basic"
+                        android:gravity="center"
+                        android:text="@string/kpopgodmode"
+                        android:textColor="@color/white"
+
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+
+                        app:textStroke="true"
+                        app:textStrokeColor="@color/title_text_color"
+                        app:textStrokeWidth="3.0" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:elevation="10dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/pinkcombination"
+                app:cardCornerRadius="30dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/modecardbackground" />
+
+                <LinearLayout
+                    android:id="@+id/challenge_linear"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:weightSum="3">
+
+                    <com.tenriver.kpopmultiplechoice.OutlineTextView
+                        android:id="@+id/txt_challengemode"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="2"
+                        android:bufferType="spannable"
+                        android:ellipsize="marquee"
+                        android:fontFamily="@font/font_basic"
+                        android:gravity="center"
+
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:singleLine="true"
+                        android:text="챌린지"
+
+
+                        android:textColor="@color/darkpink"
+                        android:textSize="70sp"
+                        android:textStyle="bold"
+
+                        android:shadowColor="@color/challenge_color2"
+                        android:shadowDy="5"
+                        android:shadowRadius="10" />
+
+                    <com.tenriver.kpopmultiplechoice.OutlineTextView
+                        android:id="@+id/txt_challengemode2"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_weight="1"
+                        android:bufferType="spannable"
+                        android:fontFamily="@font/font_basic"
+                        android:gravity="center"
+                        android:text="@string/challengemodedescription"
+                        android:textColor="@color/white"
+
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+
+                        app:textStroke="true"
+                        app:textStrokeColor="@color/title_text_color"
+                        app:textStrokeWidth="3.0" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
         </LinearLayout>
 
     </ScrollView>
-
-
-
-
-    <LinearLayout
-        android:id="@+id/challenge_linear"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:weightSum="3"
-        android:visibility="gone"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtMvQuiz">
-
-
-        <com.tenriver.kpopmultiplechoice.OutlineTextView
-            android:id="@+id/txt_challengemode"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:bufferType="spannable"
-            android:fontFamily="@font/font_digital"
-            android:gravity="center"
-            android:layout_marginTop="15dp"
-            android:text="100\nChallenges"
-            android:textColor="@color/challenge_color1"
-
-
-            android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="20sp"
-            android:autoSizeMaxTextSize="100sp"
-            android:autoSizeStepGranularity="2sp"
-
-            android:textStyle="bold"
-
-            app:textStroke="true"
-            app:textStrokeColor="@color/challenge_color2"
-            app:textStrokeWidth="6.0" />
-
-        <com.tenriver.kpopmultiplechoice.OutlineTextView
-            android:id="@+id/txt_challengemode2"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="10dp"
-            android:bufferType="spannable"
-            android:layout_weight="1"
-            android:fontFamily="@font/font_basic"
-            android:gravity="center"
-            android:text="@string/challengemodedescription"
-            android:textColor="@color/white"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-
-            android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="20sp"
-            android:autoSizeMaxTextSize="100sp"
-            android:autoSizeStepGranularity="2sp"
-            android:textStyle="bold"
-
-            app:textStroke="true"
-            app:textStrokeColor="@color/title_text_color"
-            app:textStrokeWidth="3.0" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/consonants_linear"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:weightSum="3"
-        android:visibility="gone"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="parent">
-
-        <com.tenriver.kpopmultiplechoice.OutlineTextView
-
-            android:id="@+id/txt_consonantsmode"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:bufferType="spannable"
-            android:fontFamily="@font/font_digital"
-            android:gravity="center"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/consonantquiz"
-            android:textColor="@color/consonants_color1"
-
-
-            android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="20sp"
-            android:autoSizeMaxTextSize="100sp"
-            android:autoSizeStepGranularity="2sp"
-
-            android:textStyle="bold"
-
-            app:textStroke="true"
-            app:textStrokeColor="@color/consonants_color2"
-            app:textStrokeWidth="6.0" />
-
-        <com.tenriver.kpopmultiplechoice.OutlineTextView
-            android:id="@+id/txt_consonantsmode2"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-
-            android:bufferType="spannable"
-            android:layout_weight="1"
-            android:fontFamily="@font/font_basic"
-            android:gravity="center"
-            android:text="@string/consonant_description"
-            android:textColor="@color/white"
-            android:layout_marginBottom="15dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-
-            android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="15sp"
-            android:autoSizeMaxTextSize="100sp"
-            android:autoSizeStepGranularity="2sp"
-            android:textStyle="bold"
-
-            app:textStroke="true"
-            app:textStrokeColor="@color/title_text_color"
-            app:textStrokeWidth="3.0" />
-    </LinearLayout>
-
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/mode_adView"

@@ -387,7 +387,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
         basichighscore = prefs.getInt(KEY_HIGHSCORE, 0);
         if(basichighscore <= 0) {
-            txtbasicHighscore.setText("Basic");
+            txtbasicHighscore.setText("Classic");
         }
         else{
             txtbasicHighscore.setText("" + basichighscore);
