@@ -4,163 +4,170 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".select.YearActivity">
+    tools:context=".select.YearActivity"
+    android:background="@color/cupid">
 
-    <!-- 모니터 이미지 -->
-    <ImageView
-        android:id="@+id/Image_TV_year"
+    <com.tenriver.kpopmultiplechoice.OutlineTextView
+        android:id="@+id/txtTitle1"
+        android:text="K"
+        android:fontFamily="@font/font_basicbold"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/tvframefullfinal"
+        android:textColor="@color/palepink2"
+
+        android:gravity="center"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="28sp"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeStepGranularity="2sp"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="0.18"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintWidth_percent="0.15"
+        app:layout_constraintHorizontal_bias="0.2"
+        android:shadowColor="@color/title_text_color_pale"
+        android:shadowRadius="8"
+        android:shadowDy="10"
+
+        app:textStroke="true"
+        app:textStrokeWidth="8.0"
+        app:textStrokeColor="@color/palewhite"/>
+
+    <com.tenriver.kpopmultiplechoice.OutlineTextView
+        android:id="@+id/txtTitle2"
+        android:text="P"
+        android:fontFamily="@font/font_basicbold"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:textColor="@color/palewhite"
+
+
+        android:gravity="center"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="28sp"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeStepGranularity="2sp"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="0.18"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintWidth_percent="0.15"
+        app:layout_constraintHorizontal_bias="0.42"
+        android:shadowColor="@color/title_text_color_pale"
+        android:shadowRadius="8"
+        android:shadowDy="10"
+
+        app:textStroke="true"
+        app:textStrokeWidth="8.0"
+        app:textStrokeColor="@color/palewhite"
+
+
+        />
+
+
+    <ImageView
+        android:id="@+id/imageView_lp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:srcCompat="@drawable/musiclp"
+
+
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.20"
-        app:layout_constraintHeight_percent="0.4"
-        app:layout_constraintWidth_percent="1"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintWidth_percent="0.25"
+        app:layout_constraintVertical_bias="0.18"
+        app:layout_constraintHorizontal_bias="0.63"
+
         />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.tenriver.kpopmultiplechoice.OutlineTextView
+        android:id="@+id/txtTitle3"
+        android:text="P"
+        android:fontFamily="@font/font_basicbold"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:textColor="@color/palewhite"
+
         android:gravity="center"
-        app:layout_constraintTop_toTopOf="@+id/Image_TV_year"
-        app:layout_constraintBottom_toBottomOf="@+id/Image_TV_year"
-        app:layout_constraintLeft_toLeftOf="@+id/Image_TV_year"
-        app:layout_constraintRight_toRightOf="@+id/Image_TV_year">
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="28sp"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeStepGranularity="2sp"
 
-        <com.tenriver.kpopmultiplechoice.OutlineTextView
-            android:id="@+id/txtTitle1"
-            android:text="K"
-            android:fontFamily="@font/font_basicbold"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:textColor="@color/title_text_color"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="0.18"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintWidth_percent="0.15"
+        app:layout_constraintHorizontal_bias="0.81"
+        android:shadowColor="@color/title_text_color_pale"
+        android:shadowRadius="8"
+        android:shadowDy="10"
 
-            android:gravity="center"
-            android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="28sp"
-            android:autoSizeMaxTextSize="100sp"
-            android:autoSizeStepGranularity="2sp"
-
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.05"
-            app:layout_constraintHeight_percent="0.2"
-            app:layout_constraintWidth_percent="0.15"
-            app:layout_constraintHorizontal_bias="0.25"
-            app:textStroke="true"
-            app:textStrokeWidth="8.0"
-            app:textStrokeColor="@color/white"/>
-
-
-        <com.tenriver.kpopmultiplechoice.OutlineTextView
-            android:id="@+id/txtTitle2"
-            android:text="P"
-            android:fontFamily="@font/font_basicbold"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:textColor="@color/title_text_color"
-
-
-            android:gravity="center"
-            android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="28sp"
-            android:autoSizeMaxTextSize="100sp"
-            android:autoSizeStepGranularity="2sp"
-
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.05"
-            app:layout_constraintHeight_percent="0.2"
-            app:layout_constraintWidth_percent="0.15"
-            app:layout_constraintHorizontal_bias="0.42"
-
-            app:textStroke="true"
-            app:textStrokeWidth="8.0"
-            app:textStrokeColor="@color/white"/>
-
-
-        <ImageView
-            android:id="@+id/imageView_lp"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:srcCompat="@drawable/musiclp"
-
-
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_percent="0.2"
-            app:layout_constraintWidth_percent="0.2"
-            app:layout_constraintVertical_bias="0.05"
-            app:layout_constraintHorizontal_bias="0.59"
-            />
-
-        <com.tenriver.kpopmultiplechoice.OutlineTextView
-            android:id="@+id/txtTitle3"
-            android:text="P"
-            android:fontFamily="@font/font_basicbold"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:textColor="@color/title_text_color"
-
-            android:gravity="center"
-            android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="28sp"
-            android:autoSizeMaxTextSize="100sp"
-            android:autoSizeStepGranularity="2sp"
-
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.05"
-            app:layout_constraintHeight_percent="0.2"
-            app:layout_constraintWidth_percent="0.15"
-            app:layout_constraintHorizontal_bias="0.76"
-
-            app:textStroke="true"
-            app:textStrokeWidth="8.0"
-            app:textStrokeColor="@color/white"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:textStroke="true"
+        app:textStrokeWidth="8.0"
+        app:textStrokeColor="@color/palewhite"/>
 
     <com.tenriver.kpopmultiplechoice.OutlineTextView
-        android:id="@+id/year_Title"
+        android:id="@+id/txtMvQuiz"
+        android:text="@string/MvQuiz"
         android:layout_width="0dp"
         android:layout_height="0dp"
-
+        android:textStyle="bold"
         android:gravity="center"
-        android:text="@string/Year"
-        android:fontFamily="@font/font_basicbold"
+        android:textColor="@color/palewhite"
+        android:bufferType="spannable"
+        android:fontFamily="@font/font_basic"
         android:autoSizeTextType="uniform"
         android:autoSizeMinTextSize="24sp"
         android:autoSizeMaxTextSize="100sp"
         android:autoSizeStepGranularity="2sp"
 
-        android:textColor="@color/white"
-        app:layout_constraintVertical_bias="0.28"
-        app:layout_constraintHeight_percent="0.07"
-        app:layout_constraintWidth_percent="0.5"
-
-
-        app:layout_constraintTop_toTopOf="@id/Image_TV_year"
-        app:layout_constraintLeft_toLeftOf="@id/Image_TV_year"
-        app:layout_constraintRight_toRightOf="@id/Image_TV_year"
-        app:layout_constraintBottom_toBottomOf="@id/Image_TV_year"
+        app:layout_constraintTop_toBottomOf="@id/txtTitle1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.04"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintWidth_percent="1"
+        android:shadowColor="@color/title_text_color_pale"
+        android:shadowRadius="8"
+        android:shadowDy="10"
 
         app:textStroke="true"
-        app:textStrokeWidth="10.0"
-        app:textStrokeColor="@color/title_text_color"/>
+        app:textStrokeWidth="8.0"
+        app:textStrokeColor="@color/palewhite"/>
 
+    <TextView
+        android:id="@+id/gamemodeView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:alpha="0.8"
+        android:text="@string/Year"
+        android:textSize="28sp"
+        android:fontFamily="@font/font_digital"
+        android:gravity="center"
+        android:textColor="@color/palewhite"
+
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/imageView_lp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="20dp"
+        />
 
     <TextView
         android:layout_width="0dp"
@@ -172,17 +179,19 @@
         android:text="2016"
         android:textStyle="bold"
         android:fontFamily="@font/font_digital"
-        android:textColor="@color/yellow"
+        android:textColor="@color/yellocombination"
 
         android:autoSizeTextType="uniform"
         android:autoSizeMinTextSize="24sp"
         android:autoSizeMaxTextSize="120sp"
         android:autoSizeStepGranularity="2sp"
 
-        app:layout_constraintTop_toBottomOf="@+id/year_Title"
-        app:layout_constraintLeft_toLeftOf="@id/Image_TV_year"
-        app:layout_constraintRight_toRightOf="@id/Image_TV_year"
-        app:layout_constraintBottom_toBottomOf="@id/Image_TV_year">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtMvQuiz">
 
     </TextView>
 
@@ -190,13 +199,16 @@
         android:id="@+id/year_Scrollview"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.2"
-        app:layout_constraintWidth_percent="0.9"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:fillViewport="true"
 
-        app:layout_constraintTop_toBottomOf="@+id/year_Title"
-        app:layout_constraintLeft_toLeftOf="@id/Image_TV_year"
-        app:layout_constraintRight_toRightOf="@id/Image_TV_year"
-        app:layout_constraintBottom_toBottomOf="@id/Image_TV_year"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtMvQuiz"
         >
 
         <LinearLayout
@@ -210,10 +222,10 @@
             <Button
                 android:id="@+id/year_2016"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:background="@drawable/btn_year"
                 android:text="2016"
-                android:textSize="18dp"
+                android:textSize="42dp"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:fontFamily="@font/font_digital"
@@ -224,10 +236,10 @@
             <Button
                 android:id="@+id/year_2017"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:background="@drawable/btn_year"
                 android:text="2017"
-                android:textSize="18dp"
+                android:textSize="42dp"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:fontFamily="@font/font_digital"
@@ -239,10 +251,10 @@
             <Button
                 android:id="@+id/year_2018"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:background="@drawable/btn_year"
                 android:text="2018"
-                android:textSize="18dp"
+                android:textSize="42dp"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:fontFamily="@font/font_digital"
@@ -253,10 +265,10 @@
             <Button
                 android:id="@+id/year_2019"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:background="@drawable/btn_year"
                 android:text="2019"
-                android:textSize="18dp"
+                android:textSize="42dp"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:fontFamily="@font/font_digital"
@@ -267,10 +279,10 @@
             <Button
                 android:id="@+id/year_2020"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:background="@drawable/btn_year"
                 android:text="2020"
-                android:textSize="18dp"
+                android:textSize="42dp"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:fontFamily="@font/font_digital"
@@ -281,22 +293,24 @@
             <Button
                 android:id="@+id/year_2021"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:layout_marginBottom="5dp"
                 android:background="@drawable/btn_year"
                 android:fontFamily="@font/font_digital"
                 android:text="2021"
                 android:textColor="@color/white"
-                android:textSize="18dp"
-                android:textStyle="bold"></Button>
+                android:textSize="42dp"
+                android:textStyle="bold">
+
+            </Button>
 
             <Button
                 android:id="@+id/year_random"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:background="@drawable/btn_year"
                 android:text="@string/Random"
-                android:textSize="18dp"
+                android:textSize="42dp"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:fontFamily="@font/font_digital"
@@ -307,10 +321,10 @@
             <Button
                 android:id="@+id/year_all"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:background="@drawable/btn_year"
                 android:text="@string/All"
-                android:textSize="18dp"
+                android:textSize="42dp"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:fontFamily="@font/font_digital"
@@ -322,113 +336,6 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- 배경 이미지 -->
-    <ImageView
-        android:id="@+id/bookcase"
-        android:src="@drawable/bookcase2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scaleType="fitXY"
-
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-
-        app:layout_constraintVertical_bias="1"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHeight_percent="0.42"
-        app:layout_constraintWidth_percent="0.85"
-        />
-
-    <!-- 리모컨 이미지 -->
-    <ImageView
-        android:id="@+id/Remote_year"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:src="@drawable/remotecontrol"
-        android:scaleType="fitXY"
-
-        app:layout_constraintTop_toBottomOf="@id/Image_TV_year"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="1"
-        app:layout_constraintHeight_percent="0.38"
-        app:layout_constraintWidth_percent="0.45"
-        />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/Remote_button_year"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="@+id/Remote_year"
-        app:layout_constraintBottom_toBottomOf="@+id/Remote_year"
-        app:layout_constraintLeft_toLeftOf="@+id/Remote_year"
-        app:layout_constraintRight_toRightOf="@+id/Remote_year"
-        >
-
-    <ImageButton
-        android:id="@+id/year_up"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:scaleType="fitXY"
-        android:background="@android:color/transparent"
-
-        android:soundEffectsEnabled="false"
-
-        android:src="@drawable/uparrow"
-        android:text="up"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/year_confirm"
-        app:layout_constraintVertical_bias="1"
-        >
-
-    </ImageButton>
-
-    <Button
-        android:id="@+id/year_confirm"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:background="@drawable/btn_remote_circle"
-        android:soundEffectsEnabled="false"
-
-        android:text="OK"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:fontFamily="@font/font_basic"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.5"
-
-
-        >
-    </Button>
-
-    <ImageButton
-        android:id="@+id/year_down"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:scaleType="fitXY"
-
-        android:background="@android:color/transparent"
-        android:src="@drawable/downarrow"
-        app:layout_constraintTop_toBottomOf="@id/year_confirm"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0"
-        >
-    </ImageButton>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/yearadView"

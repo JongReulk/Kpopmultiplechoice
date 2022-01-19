@@ -31,6 +31,7 @@ import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.tenriver.kpopmultiplechoice.R;
 import com.tenriver.kpopmultiplechoice.quizActivity.QuizAlphabet;
+import com.tenriver.kpopmultiplechoice.quizActivity.quiz_beginner;
 
 import java.util.Random;
 
@@ -39,9 +40,7 @@ public class YearActivity extends AppCompatActivity {
     private static final String BANNER_AD_ID = "ca-app-pub-3940256099942544/6300978111";
 
     private ScrollView year_scroll;
-    private ImageButton year_up;
-    private ImageButton year_down;
-    private Button year_confirm;
+
     private LinearLayout year_linear;
     private int button_total;
     private int button_num;
@@ -57,13 +56,26 @@ public class YearActivity extends AppCompatActivity {
 
     // 모드 선택 변수
     private static final String MODE_SHARED = "modeshared";
-    private static final String GAMEMODE_SELECT = "gamemodeselect";
+    private static final String YEAR_SELECT = "yearselect";
 
     private static boolean isClicked;
 
     private float soundPoolVolume;
     SoundPool soundPool;	//작성
     int soundID;		    //작성
+
+    // 연도별 버튼들
+    private Button year_2016;
+    private Button year_2017;
+    private Button year_2018;
+    private Button year_2019;
+    private Button year_2020;
+    private Button year_2021;
+    private Button year_random;
+    private Button year_all;
+
+    private int year_num; // 연도 선택 Int
+    private String year_num_string; // 선택 후 표시될 연도 String
 
 
 
@@ -72,6 +84,15 @@ public class YearActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_year_new);
         getWindow().setWindowAnimations(0);
+
+        year_2016 = findViewById(R.id.year_2016);
+        year_2017 = findViewById(R.id.year_2017);
+        year_2018 = findViewById(R.id.year_2018);
+        year_2019 = findViewById(R.id.year_2019);
+        year_2020 = findViewById(R.id.year_2020);
+        year_2021 = findViewById(R.id.year_2021);
+        year_random = findViewById(R.id.year_random);
+        year_all = findViewById(R.id.year_all);
 
         SharedPreferences music = getSharedPreferences(MainActivity.SHARED_MUSIC,MODE_PRIVATE);
         Boolean bgmCb_difficulty = music.getBoolean("bgmCb",true);
@@ -126,15 +147,9 @@ public class YearActivity extends AppCompatActivity {
             }
         }
 
-        //리모컨 이미지
-        ImageView remote = (ImageView) findViewById(R.id.Remote_year);
-        ConstraintLayout remotebutton_year = (ConstraintLayout) findViewById(R.id.Remote_button_year);
 
-        year_Title = findViewById(R.id.year_Title);
         year_scroll = findViewById(R.id.year_Scrollview);
-        year_up = findViewById(R.id.year_up);
-        year_down = findViewById(R.id.year_down);
-        year_confirm = findViewById(R.id.year_confirm);
+
         year_linear = findViewById(R.id.year_linearlayout);
         year_select = findViewById(R.id.txt_selectYear);
 
@@ -143,255 +158,115 @@ public class YearActivity extends AppCompatActivity {
         kpop3 = (TextView) findViewById((R.id.txtTitle3));
         View year_v;
 
-        year_up.setEnabled(true);
-        year_down.setEnabled(true);
-        year_confirm.setEnabled(true);
+
 
         //페이드인 애니메이션
         Animation textfadein = AnimationUtils.loadAnimation(getApplication(), R.anim.fade_in_text);
-        year_Title.startAnimation(textfadein);
         kpop1.startAnimation(textfadein);
         kpop2.startAnimation(textfadein);
         kpop3.startAnimation(textfadein);
 
-        // 리모콘 애니메이션
-        Animation RemoteUp = AnimationUtils.loadAnimation(getApplication(), R.anim.remotemove_up);
-        remote.startAnimation(RemoteUp);
-
-        RemoteUp.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-                year_down.setEnabled(false);
-                year_confirm.setEnabled(false);
-                year_up.setEnabled(false);
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                year_down.setEnabled(true);
-                year_confirm.setEnabled(true);
-                year_up.setEnabled(true);
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-
-        Animation RemoteButtonUp = AnimationUtils.loadAnimation(getApplication(), R.anim.remotemove_up);
-        remotebutton_year.startAnimation(RemoteButtonUp);
-
-        Button year_b;
-
-        button_num = 0;
-
-        button_total = year_linear.getChildCount();
-        button_num = button_total/2;
-
-        Log.e("total : " ," : " +button_total);
-
-        year_v = year_linear.getChildAt(button_num);
-
-        year_v.setSelected(true);
-        year_b = (Button)year_v;
-        year_b.setTextColor(getResources().getColor(R.color.black));
-        year_b.setTextSize(24);
-
         year_select.setVisibility(View.GONE);
 
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
+        year_2016.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
+            public void onClick(View view) {
+                year_num = 2016;
+                soundPool.play(soundID,soundPoolVolume,soundPoolVolume,0,0,1f);
+                year_num_string = String.valueOf(year_num);
 
-                Log.e("Num "," : " + button_num);
-                View year_v = year_linear.getChildAt(button_num-1);
-                year_scroll.smoothScrollTo(0, year_v.getTop());
-
-            }
-        }, 50);
-
-
-        year_scroll.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return true;
-            }
-        });
-
-
-        year_down.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (button_num < button_total-1) {
-
-                    View year_v = year_linear.getChildAt(button_num);
-
-                    year_v.setSelected(false);
-
-                    Button year_b = (Button)year_v;
-                    year_b.setTextColor(getResources().getColor(R.color.white));
-                    year_b.setTextSize(18);
-
-                    button_num++;
-
-                    year_v = year_linear.getChildAt(button_num);
-                    year_v.setSelected(true);
-
-                    year_b = (Button)year_v;
-                    year_b.setTextColor(getResources().getColor(R.color.black));
-                    year_b.setTextSize(24);
-
-                    year_down.setEnabled(false);
-
-                    Handler handler = new Handler();
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-
-                            View year_v = year_linear.getChildAt(button_num-1);
-                            year_scroll.smoothScrollTo(0, year_v.getTop());
-                            year_down.setEnabled(true);
-
-                        }
-                    }, 100);
-
-
-                    Log.e("Button : " ," : " +button_num);
-                }
+                checkAndintent();
 
             }
         });
 
-
-
-        year_confirm.setOnClickListener(new View.OnClickListener() {
+        year_2017.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
+                year_num = 2017;
+                soundPool.play(soundID,soundPoolVolume,soundPoolVolume,0,0,1f);
+                year_num_string = String.valueOf(year_num);
+
+                checkAndintent();
+
+            }
+        });
+
+        year_2018.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                year_num = 2018;
+                soundPool.play(soundID,soundPoolVolume,soundPoolVolume,0,0,1f);
+                year_num_string = String.valueOf(year_num);
+
+                checkAndintent();
+
+            }
+        });
+
+        year_2019.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                year_num = 2019;
+                soundPool.play(soundID,soundPoolVolume,soundPoolVolume,0,0,1f);
+                year_num_string = String.valueOf(year_num);
+
+                checkAndintent();
+
+            }
+        });
+
+        year_2020.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                year_num = 2020;
+                soundPool.play(soundID,soundPoolVolume,soundPoolVolume,0,0,1f);
+
+                year_num_string = String.valueOf(year_num);
+
+                checkAndintent();
+
+            }
+        });
+
+        year_2021.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                year_num = 2021;
+                soundPool.play(soundID,soundPoolVolume,soundPoolVolume,0,0,1f);
+
+                year_num_string = String.valueOf(year_num);
+
+                checkAndintent();
+
+            }
+        });
+
+        year_random.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Random random = new Random();
+                int random_year = random.nextInt(button_total-2);
+                year_num = random_year + 2016;
 
                 soundPool.play(soundID,soundPoolVolume,soundPoolVolume,0,0,1f);
 
-                year_down.setEnabled(false);
-                year_up.setEnabled(false);
-                year_confirm.setEnabled(false);
-                year_scroll.setVisibility(View.GONE);
-                year_confirm.setTextColor(Color.GRAY);
+                year_num_string = getString(R.string.Random);
 
+                checkAndintent();
 
-                // 리모콘 애니메이션
-                Animation RemoteDown = AnimationUtils.loadAnimation(getApplication(), R.anim.remotemove_down);
-                remote.startAnimation(RemoteDown);
-
-                Animation RemoteButtonDown = AnimationUtils.loadAnimation(getApplication(), R.anim.remotemove_down);
-                remotebutton_year.startAnimation(RemoteButtonDown);
-
-
-                int year_num = button_num + 2016;
-                String year_num_string = String.valueOf(year_num);
-
-                year_select.setText(year_num_string);
-
-                if(button_num == button_total-2)
-                {
-                    Random random = new Random();
-                    int random_year = random.nextInt(button_total-2);
-                    year_num = random_year + 2016;
-                    year_num_string = String.valueOf(year_num);
-
-                    year_select.setText(year_num_string);
-                }
-
-
-                if(button_num == button_total-1)
-                {
-                    year_select.setText(getString(R.string.All));
-                }
-
-
-                year_select.setVisibility(View.VISIBLE);
-
-
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-
-                        int year_num = button_num + 2016;
-
-                        if(button_num == button_total-2)
-                        {
-                            Random random = new Random();
-                            int random_year = random.nextInt(button_total-2);
-                            year_num = random_year + 2016;
-                            Log.e("RANDOM YEAR", " : " + year_num);
-                        }
-
-                        else if(button_num == button_total-1)
-                        {
-                            year_num = 101; // 전체면 101
-                        }
-
-
-
-                        Intent intent = new Intent(getApplicationContext(), DifficultyActivity.class);
-                        intent.putExtra("year_num", year_num); // 연도
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION);
-                        startActivityForResult(intent, MainActivity.REQUEST_CODE_QUIZ);
-
-                        // 액티비티 이동시 페이드인아웃 연출
-                        //overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
-                        finish();
-
-                    }
-                }, 600); //딜레이 타임 조절
             }
         });
 
-        year_up.setOnClickListener(new View.OnClickListener() {
+        year_all.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                if(button_num > 0)
-                {
-                    View year_v = year_linear.getChildAt(button_num);
+            public void onClick(View view) {
+                year_num = 101; // 전체면 101
+                soundPool.play(soundID,soundPoolVolume,soundPoolVolume,0,0,1f);
 
-                    year_v.setSelected(false);
+                year_num_string = getString(R.string.All);
 
-                    Button year_b = (Button)year_v;
-                    year_b.setTextColor(getResources().getColor(R.color.white));
-                    year_b.setTextSize(18);
-
-                    button_num--;
-                    year_v = year_linear.getChildAt(button_num);
-                    year_v.setSelected(true);
-
-                    year_b = (Button)year_v;
-                    year_b.setTextColor(getResources().getColor(R.color.black));
-                    year_b.setTextSize(24);
-
-                    year_up.setEnabled(false);
-
-                    Handler handler = new Handler();
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-
-                            if(button_num == 0){
-                                View year_v = year_linear.getChildAt(button_num);
-                                year_scroll.smoothScrollTo(0, year_v.getTop());
-                            }
-                            else {
-                                View year_v = year_linear.getChildAt(button_num - 1);
-                                year_scroll.smoothScrollTo(0, year_v.getTop());
-                            }
-
-                            year_up.setEnabled(true);
-
-                        }
-                    }, 100);
-                    Log.e("Button : " ," : " +button_num);
-                }
+                checkAndintent();
 
             }
         });
@@ -399,23 +274,6 @@ public class YearActivity extends AppCompatActivity {
 
     }
 
-    /*
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == MainActivity.REQUEST_CODE_QUIZ){
-            if (resultCode == RESULT_OK){
-                int score = data.getIntExtra(QuizMain.HIGH_SCORE, 0);
-                Log.e("점수를 받았는가33","?" + score);
-                Intent resultIntent = new Intent();
-                resultIntent.putExtra(QuizMain.HIGH_SCORE, score);
-                Log.e("최고 점수",":" + score);
-                setResult(RESULT_OK, resultIntent);
-                finish();
-            }
-        }
-    }*/
 
     @Override
     protected void onStart() {
@@ -441,6 +299,38 @@ public class YearActivity extends AppCompatActivity {
         super.onUserLeaveHint();
 
         MainActivity.mediaplayer_main.pause();
+    }
+
+    private void checkAndintent() {
+        Log.d("연도", " : "+year_num);
+        year_select.setText(year_num_string);
+
+        year_select.setVisibility(View.VISIBLE);
+
+        updateYear();
+
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                Intent intent = new Intent(getApplicationContext(), quiz_beginner.class);
+
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION);
+                startActivityForResult(intent, MainActivity.REQUEST_CODE_QUIZ);
+
+                finish();
+            }
+        }, 600); //딜레이 타임 조절
+    }
+
+    private void updateYear() {
+        SharedPreferences modeshared = getSharedPreferences(MODE_SHARED,MODE_PRIVATE);
+
+        SharedPreferences.Editor modeEditor = modeshared.edit();
+        modeEditor.putInt(YEAR_SELECT,year_num);
+        modeEditor.apply();
     }
 
 }

@@ -1,53 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:state_selected="true">
+    <item android:state_pressed="true">
         <shape >
             <!-- 배경  -->
             <solid android:color="#F8F8F8"/>
 
             <!-- 테두리  -->
             <stroke
-                android:width="2dp"
-                android:color="#fff"/>
+                android:width="5dp"
+                android:color="#000"/>
 
             <corners
                 android:radius="10dp" />
         </shape>
     </item>
 
-    <item android:state_selected="false">
+    <item android:state_pressed="false">
         <shape >
 
             <!-- 배경  -->
-            <solid android:color="#C3000000"/>
+            <solid android:color="@color/title_color"/>
 
 
             <!-- 테두리  -->
             <stroke
-                android:width="2dp"
-                android:color="#555"/>
+                android:width="5dp"
+                android:color="@color/palewhite"/>
 
             <corners
                 android:radius="10dp" />
         </shape>
     </item>
 
-    <item android:state_pressed="true">
-        <shape >
 
-            <!-- 배경  -->
-            <solid android:color="#1B9A4A"/>
-
-
-            <!-- 테두리  -->
-            <stroke
-                android:width="2dp"
-                android:color="#fff"/>
-
-            <corners
-                android:radius="10dp" />
-        </shape>
-    </item>
 
 </selector>
