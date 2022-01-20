@@ -287,7 +287,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
         confirmButton.setEnabled(false);
         confirmButton.setTextColor(Color.GRAY);
 
-        // 힌트 버튼 활성화
+        // 힌트 버튼 비활성화
         HintButton1.setEnabled(false);
         Hint_remove.setEnabled(false);
         Hint_pass.setEnabled(false);

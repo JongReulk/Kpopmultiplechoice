@@ -4,7 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/cupid">
+
+    <FrameLayout
+        android:id="@+id/quiz_Frame"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+
+        android:background="@drawable/beginnercardbackground"
+
+
+        app:layout_constraintTop_toBottomOf="@id/txtCountDown"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
     <ImageView
@@ -19,7 +38,11 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.03"
-        app:layout_constraintHeight_percent="0.44"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        app:layout_constraintHeight_percent="0.45"
         app:layout_constraintWidth_percent="1" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,44 +60,32 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/txt_hintall"
+                android:id="@+id/textView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/black"/>
 
-                android:autoSizeTextType="uniform"
-                android:textColor="@color/white"
-                android:layout_gravity="bottom"
-                android:layout_marginBottom="20dp"
-                android:textSize="25sp"
-
-                android:ellipsize="marquee"
-                android:fontFamily="@font/font_basicbold"
-                android:gravity="center_horizontal|center_vertical"
-                android:marqueeRepeatLimit="marquee_forever"
-                android:singleLine="true"
-
-                android:text="ANSWER"
-                />
-
+            <!-- 모니터 이미지 -->
             <ProgressBar
                 android:id="@+id/musicProgressBar"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:background="@color/gray"
+                android:background="@color/black"
                 android:progress="0"
-                />
+                android:alpha="1"/>
 
-
-            <!-- 모니터 이미지 -->
             <view
                 android:id="@+id/youtubeView"
                 class="com.google.android.youtube.player.YouTubePlayerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:alpha="0"
-                />
+                android:alpha="1"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
 
             <ImageView
                 android:id="@+id/EndImage"
@@ -84,6 +95,8 @@
                 android:scaleType="fitXY"
                 android:visibility="gone"
                 />
+
+
 
 
         </FrameLayout>
@@ -100,6 +113,7 @@
         android:layout_height="wrap_content"
         android:textSize="30dp"
         android:text="1/100"
+        android:textColor="@color/palewhite"
         android:fontFamily="@font/font_basic"
 
         app:layout_constraintTop_toTopOf="parent"
@@ -108,6 +122,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.04"
         app:layout_constraintHorizontal_bias="0.1"
+
+        android:shadowColor="@color/title_text_color_pale"
+        android:shadowRadius="8"
+        android:shadowDy="10"
         />
 
     <TextView
@@ -117,6 +135,11 @@
         android:text="30"
         android:textSize="30dp"
         android:fontFamily="@font/font_basic"
+        android:textColor="@color/palewhite"
+
+        android:shadowColor="@color/title_text_color_pale"
+        android:shadowRadius="8"
+        android:shadowDy="10"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -131,7 +154,7 @@
         android:layout_height="wrap_content"
         android:text="+"
         android:textSize="30dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginRight="10dp"
         android:textColor="@color/teal_200"
         android:fontFamily="@font/font_basic"
 
@@ -153,203 +176,143 @@
         android:textSize="30dp"
         android:fontFamily="@font/font_basic"
 
+        android:shadowColor="@color/title_text_color_pale"
+        android:shadowRadius="8"
+        android:shadowDy="10"
+
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.04"
         app:layout_constraintHorizontal_bias="0.9"
+        android:textColor="@color/palewhite"
 
         />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="fill_parent"
+    <LinearLayout
+        android:id="@+id/point_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:hint="@string/nextlevelexample"
-        android:inputType="text"
-        android:fontFamily="@font/font_basic"
-        android:ellipsize="end"
-
-        app:layout_constraintTop_toBottomOf="@+id/Image_TV_quizmain"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0"
-        />
-
-    <TextView
-        android:id="@+id/txt_answer"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:autoSizeMaxTextSize="100sp"
-        android:autoSizeMinTextSize="18sp"
-        android:autoSizeStepGranularity="2sp"
-        android:autoSizeTextType="uniform"
-
-        android:ellipsize="marquee"
-        android:fontFamily="@font/font_basic"
-        android:gravity="center_horizontal|center_vertical"
-        android:marqueeRepeatLimit="marquee_forever"
-        android:singleLine="true"
-
-        android:text="ANSWER"
-        app:layout_constraintBottom_toTopOf="@id/Remote_quizmain"
-        app:layout_constraintHeight_percent="0.04"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Image_TV_quizmain"
-        app:layout_constraintVertical_bias="0.2" />
-
-    <ImageView
-        android:id="@+id/imageView_speakerall"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/allspeaker"
-
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="1"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintHeight_percent="0.37"
-        app:layout_constraintWidth_percent="1"
-        />
-
-    <!-- 리모컨 이미지 -->
-    <ImageView
-        android:id="@+id/Remote_quizmain"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:src="@drawable/remotecontrol"
-        android:scaleType="fitXY"
-
-        app:layout_constraintTop_toBottomOf="@id/editText"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="1"
-        app:layout_constraintHeight_percent="0.38"
-        app:layout_constraintWidth_percent="0.45"
-        />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/Remote_button_quizmain"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="@+id/Remote_quizmain"
-        app:layout_constraintBottom_toBottomOf="@+id/Remote_quizmain"
-        app:layout_constraintLeft_toLeftOf="@+id/Remote_quizmain"
-        app:layout_constraintRight_toRightOf="@+id/Remote_quizmain"
-        >
-
-
-
-        <Button
-            android:id="@+id/Quiz_hint1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-
-            android:background="@drawable/hint1_state"
-            android:soundEffectsEnabled="false"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.9"
-            app:layout_constraintHorizontal_bias="0.1"
-            app:layout_constraintWidth_percent="0.26"
-            app:layout_constraintHeight_percent="0.2"
-
-            />
-
-        <Button
-            android:id="@+id/Quiz_hint2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:soundEffectsEnabled="false"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.9"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintWidth_percent="0.26"
-            app:layout_constraintHeight_percent="0.2"
-            />
-
-        <Button
-            android:id="@+id/Quiz_hint3"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:soundEffectsEnabled="false"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.9"
-            app:layout_constraintHorizontal_bias="0.9"
-            app:layout_constraintWidth_percent="0.26"
-            app:layout_constraintHeight_percent="0.2"
-            />
-
-        <Button
-            android:id="@+id/confirmButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:background="@drawable/btn_remote"
-            android:textColor="@color/white"
-            android:fontFamily="@font/font_basic"
-            android:text="@string/Confirm"
-
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.3"
-            />
-
-        <Button
-            android:id="@+id/nextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:background="@drawable/btn_remote"
-            android:textColor="@color/white"
-            android:fontFamily="@font/font_basic"
-            android:text="@string/Next"
-
-            app:layout_constraintTop_toBottomOf="@+id/confirmButton"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.1"
-            />
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/Image_TV_quizmain"
+        android:background="#000000"
+        android:weightSum="4"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/txt_HintPoint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:gravity="center"
 
+            android:textSize="28sp"
             android:alpha="0.8"
             android:text="Point"
-            android:textSize="24sp"
             android:fontFamily="@font/font_digital"
-            android:gravity="center"
             android:textColor="@color/white"
-
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.1"
-
             />
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.9"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+            <Button
+                android:id="@+id/Quiz_hint1"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:background="@drawable/hint1_state"
+                android:soundEffectsEnabled="false"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="10 POINT"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:fontFamily="@font/font_basic"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.9"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            >
+
+            <Button
+                android:id="@+id/hint_remove"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:background="@drawable/hint_remove_state"
+                android:soundEffectsEnabled="false"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="50 POINT"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:fontFamily="@font/font_basic"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.9"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            >
+
+            <Button
+                android:id="@+id/hint_pass"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:background="@drawable/hint_pass_state"
+                android:soundEffectsEnabled="false"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="100 POINT"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:fontFamily="@font/font_basic"/>
+
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:gravity="center">
 
         <TextView
             android:id="@+id/txt_HintCount"
@@ -362,21 +325,165 @@
             android:fontFamily="@font/font_digital"
             android:gravity="center"
             android:textColor="@color/white"
+            />
 
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.1"
-            app:layout_constraintHorizontal_bias="0.9"
+    </LinearLayout>
+
+
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/point_layout"
+        android:background="#000000">
+
+        <RadioButton
+            android:id="@+id/option1"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Option 1"
+            android:ellipsize="marquee"
+            android:fontFamily="@font/font_basic"
+            android:gravity="center_horizontal|center_vertical"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:background="@drawable/selector_radio_button"
+            android:textColor="@drawable/selector_text_radio_button"
+            android:buttonTint="@color/white"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+
+            android:textSize="22sp"
+            />
+        <RadioButton
+            android:id="@+id/option2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Option 2"
+            android:ellipsize="marquee"
+            android:fontFamily="@font/font_basic"
+            android:gravity="center_horizontal|center_vertical"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/selector_radio_button"
+            android:textColor="@drawable/selector_text_radio_button"
+            android:buttonTint="@color/white"
+
+            android:textSize="22sp"/>
+        <RadioButton
+            android:id="@+id/option3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Option 3"
+            android:ellipsize="marquee"
+            android:fontFamily="@font/font_basic"
+            android:gravity="center_horizontal|center_vertical"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/selector_radio_button"
+            android:textColor="@drawable/selector_text_radio_button"
+            android:buttonTint="@color/white"
+
+            android:textSize="22sp"/>
+
+        <RadioButton
+            android:id="@+id/option4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Option 4"
+            android:ellipsize="marquee"
+            android:fontFamily="@font/font_basic"
+            android:gravity="center_horizontal|center_vertical"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/selector_radio_button"
+            android:textColor="@drawable/selector_text_radio_button"
+            android:buttonTint="@color/white"
+
+            android:textSize="22sp"/>
+
+    </RadioGroup>
+
+
+    <LinearLayout
+        android:id="@+id/answer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:background="@drawable/answer_layout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radio_group"
+        app:layout_constraintBottom_toBottomOf="@id/quiz_Frame"
+
+
+        android:gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="15dp"
+        >
+
+        <Button
+            android:id="@+id/confirmButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:background="@drawable/btn_remote"
+            android:textColor="@color/white"
+            android:fontFamily="@font/font_basic"
+            android:layout_gravity="center"
+            android:text="@string/Confirm"
+            android:layout_marginRight="40dp"
+
 
             />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:background="@drawable/btn_remote"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:fontFamily="@font/font_basic"
+            android:text="@string/Next"
+            />
+
+    </LinearLayout>
 
 
 
+    <FrameLayout
+        android:id="@+id/googlePopupQuizMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
 
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 

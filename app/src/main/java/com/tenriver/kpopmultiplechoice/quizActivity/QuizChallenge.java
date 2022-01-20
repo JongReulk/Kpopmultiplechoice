@@ -23,6 +23,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -68,6 +70,11 @@ public class QuizChallenge extends YouTubeBaseActivity {
     private static final String QUIZ_SHARED = "quizshared";
     private static final String CHALLENGE_PLAY_TIME = "challengeplaytime";
 
+    // SharedPreferences 변수선언
+    private static final String MODE_SHARED = "modeshared";
+    private static final String GAMEMODE_SELECT = "gamemodeselect";
+    private static final String YEAR_SELECT = "yearselect";
+
     YouTubePlayerView playerView;
     YouTubePlayer player;
 
@@ -78,10 +85,6 @@ public class QuizChallenge extends YouTubeBaseActivity {
     static int videoLength;// 이지 노말 하드에 따라서 바뀜
 
     private String question;
-    private String korean_Answer;
-    private String english_Answer;
-    private String real_Answer;
-    private String hint_all;
 
     private InterstitialAd screenAd;
 
@@ -99,8 +102,13 @@ public class QuizChallenge extends YouTubeBaseActivity {
     private TextView txtCountDown;
     private TextView scoreText;
     private TextView correctText;
-    private EditText answerText;
-    private TextView hintText;
+
+    private RadioButton op1;
+    private RadioButton op2;
+    private RadioButton op3;
+    private RadioButton op4;
+    private RadioGroup opGroup;
+    private RadioButton opRemove;
 
     private Button confirmButton;
     private Button nextButton;
@@ -120,20 +128,12 @@ public class QuizChallenge extends YouTubeBaseActivity {
     private boolean isCountStart;
     private boolean isFirst = true;
 
-    private ImageView allSpeaker;
-
-
     boolean isStarted =true;
-
-    boolean isEasy=false;
 
     private static int[] arr = {51000,61000,71000};
 
 
     private ProgressBar musicProgressbar;
-
-    private TextView txt_answer;
-
 
     boolean isChallengefinish = false;
     boolean isBackPressed = false;
@@ -145,8 +145,8 @@ public class QuizChallenge extends YouTubeBaseActivity {
 
     // hint button
     private Button HintButton1; // 다시 듣기
-    private Button HintButton2; // 뮤비 보기
-    private Button HintButton3; // 초성 보기
+    private Button Hint_remove; // 보기 하나 지우기
+    private Button Hint_pass; // 문제 패스
 
     // point
     private static int hintPoint;
@@ -165,6 +165,8 @@ public class QuizChallenge extends YouTubeBaseActivity {
     private int randomAd;
 
     private boolean isLoaded = false;
+
+    private boolean isPassed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -190,9 +192,6 @@ public class QuizChallenge extends YouTubeBaseActivity {
 
         videoLength = intent.getIntExtra("difficulty_time",10000);
 
-
-        int year_num = intent.getIntExtra("year_num",2020);
-
         confirmButton = findViewById(R.id.confirmButton);
         nextButton = findViewById(R.id.nextButton);
         scoreText = findViewById(R.id.scoreText);
@@ -202,12 +201,7 @@ public class QuizChallenge extends YouTubeBaseActivity {
         playerView = findViewById(R.id.youtubeView);
 
 
-        answerText = findViewById(R.id.editText);
-        txt_answer = findViewById(R.id.txt_answer);
 
-        txt_answer.setVisibility(View.GONE);
-
-        answerText.getBackground().setColorFilter(null);
         //textColorDefaultCd = txtCountDown.getTextColors();
 
         txtQuestionCount = findViewById(R.id.txtQuestionCount);
@@ -215,10 +209,16 @@ public class QuizChallenge extends YouTubeBaseActivity {
 
         // Hint Button
         HintButton1 = findViewById(R.id.Quiz_hint1);  // 다시 듣기
-        HintButton2 = findViewById(R.id.Quiz_hint2);  // 뮤비 보기
-        HintButton3 = findViewById(R.id.Quiz_hint3);  // 초성 보기
+        Hint_remove = findViewById(R.id.hint_remove);
+        Hint_pass = findViewById(R.id.hint_pass);
 
-        hintText = findViewById(R.id.txt_hintall);
+        op1 = findViewById(R.id.option1);
+        op2 = findViewById(R.id.option2);
+        op3 = findViewById(R.id.option3);
+        op4 = findViewById(R.id.option4);
+        opGroup = findViewById(R.id.radio_group);
+        textColorDefaultRb = op1.getTextColors();
+
         txtHintPoint = findViewById(R.id.txt_HintPoint);
         txthintCount = findViewById(R.id.txt_HintCount);
 
@@ -228,19 +228,12 @@ public class QuizChallenge extends YouTubeBaseActivity {
         QuizDbHelper dbHelper = new QuizDbHelper(this);
 
         // challenge 모드 전용 선언
-        plus = 10;
+        plus = 50;
         questionList = dbHelper.getAllQuestions();
         questionCountTotal = 100;
 
 
         Collections.shuffle(questionList);
-
-        // 스피커 애니메이션
-        allSpeaker = findViewById(R.id.imageView_speakerall);
-
-        Animation allSpeaker_anim = AnimationUtils.loadAnimation(getApplication(), R.anim.speaker_allspeaker);
-        allSpeaker.startAnimation(allSpeaker_anim);
-
 
 
         // 다음 버튼 비활성화
@@ -249,19 +242,9 @@ public class QuizChallenge extends YouTubeBaseActivity {
 
         isHandler = true;
 
-        ImageView remote_quiz = (ImageView) findViewById(R.id.Remote_quizmain);
-        ConstraintLayout remotebutton_quiz = (ConstraintLayout) findViewById(R.id.Remote_button_quizmain);
-
-        Animation RemoteUp = AnimationUtils.loadAnimation(getApplication(), R.anim.remotemove_up);
-        remote_quiz.startAnimation(RemoteUp);
-
-        Animation RemoteButtonUp = AnimationUtils.loadAnimation(getApplication(), R.anim.remotemove_up);
-        remotebutton_quiz.startAnimation(RemoteButtonUp);
-
         // 음악 로딩 다이얼로그 불러오기
         customProgressDialog = new ProgressDialog(this);
         customProgressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-
 
         Random random = new Random();
         int randomInt = random.nextInt(max_num_value - min_num_value);
@@ -278,10 +261,7 @@ public class QuizChallenge extends YouTubeBaseActivity {
 
         // 힌트 버튼 활성화
         HintButton1.setEnabled(false);
-        HintButton2.setEnabled(false);
-        HintButton3.setEnabled(false);
 
-        hintText.setVisibility(View.GONE);
 
         // 포인트 가져오기
         SharedPreferences point = getSharedPreferences(SHARED_POINT,MODE_PRIVATE);
@@ -325,17 +305,6 @@ public class QuizChallenge extends YouTubeBaseActivity {
             });
         }
 
-        try {
-            GamesClient gamesClient = Games.getGamesClient(this,GoogleSignIn.getLastSignedInAccount(this));
-            gamesClient.setViewForPopups(findViewById(R.id.content));
-            gamesClient.setGravityForPopups(Gravity.TOP | Gravity.CENTER_HORIZONTAL);
-
-        } catch(Exception e){
-            Log.d("로그", "알림 불러오기 실패");
-        }
-
-
-
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(@NonNull InitializationStatus initializationStatus) {
@@ -353,6 +322,60 @@ public class QuizChallenge extends YouTubeBaseActivity {
             initPlayer();
             showNextQuestion();
         }
+
+        op1.setSingleLine(true);
+        op1.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+        op2.setSingleLine(true);
+        op2.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+        op3.setSingleLine(true);
+        op3.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+        op4.setSingleLine(true);
+        op4.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+
+
+        // 텍스트 길이가 길 경우 선택된 보기만 MARQUEE 나머지는 NOTMARQUEE
+        opGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
+                // MARQUEE 효과 초기화
+                op1.setSelected(false);
+                op2.setSelected(false);
+                op3.setSelected(false);
+                op4.setSelected(false);
+                switch (checkedId) {
+                    case R.id.option1:
+                        Log.d("옵션1", " 선택 !");
+                        op1.setSelected(true);
+                        op2.setSelected(false);
+                        op3.setSelected(false);
+                        op4.setSelected(false);
+                        break;
+                    case R.id.option2:
+                        Log.d("옵션2", " 선택 !");
+                        op1.setSelected(false);
+                        op2.setSelected(true);
+                        op3.setSelected(false);
+                        op4.setSelected(false);
+                        break;
+                    case R.id.option3:
+                        Log.d("옵션3", " 선택 !");
+                        op1.setSelected(false);
+                        op2.setSelected(false);
+                        op3.setSelected(true);
+                        op4.setSelected(false);
+                        break;
+                    case R.id.option4:
+                        Log.d("옵션4", " 선택 !");
+                        op1.setSelected(false);
+                        op2.setSelected(false);
+                        op3.setSelected(false);
+                        op4.setSelected(true);
+                        break;
+                }
+
+
+            }
+        });
 
 
 
@@ -388,95 +411,115 @@ public class QuizChallenge extends YouTubeBaseActivity {
                     }
                     HintButton1.setEnabled(false);
 
-                    allSpeaker.startAnimation(allSpeaker_anim);
-
                     playVideo();
                 }
 
             }
         });
 
-        // 뮤비 보기
-        HintButton2.setOnClickListener(new View.OnClickListener() {
+        // 보기 지우기 힌트
+        Hint_remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (hintCount <= 0){
-                    Toast.makeText(getApplicationContext(), getString(R.string.lessCount), Toast.LENGTH_SHORT).show();
-                    Log.v("힌트횟수소진","힌트사용횟수 모두 사용");
-                }
-
-                else if (hintPoint < 20){
+                if (hintPoint < 50){
                     Toast.makeText(getApplicationContext(), getString(R.string.lessPoint), Toast.LENGTH_SHORT).show();
-                    Log.v("포인트부족","포인트가 부족함");
+
                 }
                 else {
-                    hintPoint = hintPoint - 20;
+                    hintPoint = hintPoint - 50;
 
                     txtHintPoint.setText(""+hintPoint);
                     Toast.makeText(getApplicationContext(), getString(R.string.currentPoint) + hintPoint, Toast.LENGTH_SHORT).show();
-                    Log.v("뮤비 보기", "뮤비보기 버튼 클릭");
-                    hintCount--; // 힌트사용
-                    txthintCount.setText(hintCount + "/" + hintCountTotal);
-                    Log.v("남은 힌트횟수", "남은 힌트 횟수 : "+ hintCount);
+                    Log.v("보기 지우기", "보기 지우기 버튼 클릭");
 
-                    playerView.setAlpha(1.0f);
+                    int randomRemove;
 
-                    HintButton2.setEnabled(false);
-                    HintButton3.setEnabled(false);
+                    while(true) {
+                        Random Adrandom = new Random();
+                        randomRemove = Adrandom.nextInt(4) + 1;
+
+                        int hintAnswer = currentQuestion.getAnswerNr();
+                        if (hintAnswer == randomRemove) {
+                            Log.d("로그", " 숫자가 같습니다. ");
+                        }
+                        else {
+                            Log.d("로그", " remove 힌트 : " + randomRemove);
+                            break;
+                        }
+                    }
+
+                    if (randomRemove == 1) {
+                        opRemove = op1;
+                    }
+                    else if (randomRemove ==2 ) {
+                        opRemove = op2;
+                    }
+                    else if (randomRemove ==3 ) {
+                        opRemove = op3;
+                    }
+                    else {
+                        opRemove = op4;
+                    }
+
+                    opRemove.setEnabled(false);
+                    opRemove.setTextColor(Color.GRAY);
                 }
+
+                Hint_remove.setEnabled(false);
 
             }
         });
 
-        // 초성 보기
-        HintButton3.setOnClickListener(new View.OnClickListener() {
+        // 보기 지우기 힌트
+        Hint_pass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (hintCount <= 0){
-                    Toast.makeText(getApplicationContext(), getString(R.string.lessCount), Toast.LENGTH_SHORT).show();
-                    Log.v("힌트횟수소진","힌트사용횟수 모두 사용");
-                }
-
-                else if (hintPoint < 30){
+                if (hintPoint < 100){
                     Toast.makeText(getApplicationContext(), getString(R.string.lessPoint), Toast.LENGTH_SHORT).show();
-                    Log.v("포인트부족","포인트가 부족함");
+
                 }
                 else {
-                    hintPoint = hintPoint - 30;
+                    hintPoint = hintPoint - 100;
 
                     txtHintPoint.setText(""+hintPoint);
-
                     Toast.makeText(getApplicationContext(), getString(R.string.currentPoint) + hintPoint, Toast.LENGTH_SHORT).show();
-                    Log.v("초성 보기", "초성보기 버튼 클릭");
-                    hintCount--; // 힌트사용
-                    txthintCount.setText(hintCount + "/" + hintCountTotal);
-                    Log.v("남은 힌트횟수", "남은 힌트 횟수 : "+ hintCount);
+                    Log.v("문제 패스", "패스 버튼 클릭");
 
-                    hintText.setVisibility(View.VISIBLE);
-                    hintText.setText(hint_all);
-                    hintText.setSingleLine(true);
-                    hintText.setEllipsize(TextUtils.TruncateAt.MARQUEE);
-                    hintText.setSelected(true);
+                    isPassed = true;
 
-                    HintButton2.setEnabled(false);
-                    HintButton3.setEnabled(false);
+                    isStarted = true;
+                    musicProgressbar.setAlpha(0.0f);
+
+                    if (player.isPlaying()) {
+                        player.pause();
+                    }
+
+                    countDownTimer.cancel();
+                    showNextQuestion();
+                    playVideo();
                 }
+
+                Hint_pass.setEnabled(false);
 
             }
         });
-
-
-
 
 
         // 정답 확인 버튼 checkAnswer 함수 불러오기
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (op1.isChecked() || op2.isChecked() || op3.isChecked() || op4.isChecked()) {
 
-                musicProgressbar.setAlpha(0.0f);
-                checkAnswer();
-                allSpeaker.startAnimation(allSpeaker_anim);
+                    musicProgressbar.setAlpha(0.0f);
+
+                    //musicProgressbar.clearAnimation();
+                    //musicProgressbar.setProgress(musicProgressbar.getMax());
+                    checkAnswer();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(),"정답을 골라주세요", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -488,20 +531,10 @@ public class QuizChallenge extends YouTubeBaseActivity {
                 }
                 timeLeftInMillis = COUNTDOWN_IN_MILLIS;
 
-
-                hintText.setVisibility(View.GONE);
-
-
-
-                playerView.setAlpha(0.0f);
-
-                txt_answer.setBackground(null);
+                playerView.setAlpha(1.0f);
 
                 nextButton.setEnabled(false);
                 nextButton.setTextColor(Color.GRAY);
-                answerText.setText("");
-                answerText.setVisibility(View.VISIBLE);
-                txt_answer.setVisibility(View.GONE);
 
                 if(isChallengefinish){
                     //AdRequest adRequest = new AdRequest.Builder().build();
@@ -519,8 +552,6 @@ public class QuizChallenge extends YouTubeBaseActivity {
                     },2000);
                 }
 
-
-
                 else {
                     if (questionCounter >= questionCountTotal) {
                         isFinished=true;
@@ -536,7 +567,6 @@ public class QuizChallenge extends YouTubeBaseActivity {
                         },2000);
                     } else {
                         showNextQuestion();
-                        allSpeaker.startAnimation(allSpeaker_anim);
 
                         playVideo();
 
@@ -625,9 +655,7 @@ public class QuizChallenge extends YouTubeBaseActivity {
 
                     }
                 });
-
                 playVideo();
-
 
             }
 
@@ -663,15 +691,9 @@ public class QuizChallenge extends YouTubeBaseActivity {
             player.loadVideo(question, randomStart);
 
 
-
-
-
-
             ObjectAnimator progressAnimation = ObjectAnimator.ofInt(musicProgressbar, "progress", 0,musicProgressbar.getMax() );
             progressAnimation.setDuration(musicProgressbar.getMax());
             progressAnimation.setInterpolator(new LinearInterpolator());
-
-
 
 
             // 지정 시간동안 동영상 재생하기
@@ -699,7 +721,6 @@ public class QuizChallenge extends YouTubeBaseActivity {
                             player.pause();
                             musicProgressbar.setProgress(musicProgressbar.getMax());
                             musicProgressbar.clearAnimation();
-                            allSpeaker.clearAnimation();
                         }
                     }
 
@@ -718,9 +739,18 @@ public class QuizChallenge extends YouTubeBaseActivity {
 
     private void showNextQuestion() {
         if (questionCounter < questionCountTotal) {
+            op1.setTextColor(textColorDefaultRb);
+            op2.setTextColor(textColorDefaultRb);
+            op3.setTextColor(textColorDefaultRb);
+            op4.setTextColor(textColorDefaultRb);
+            opGroup.clearCheck();
+
             currentQuestion = questionList.get(questionCounter);
             question = currentQuestion.getQuestion(); // 유튜브 url
-
+            op1.setText(currentQuestion.getOption1()); // 1번 보기
+            op2.setText(currentQuestion.getOption2());
+            op3.setText(currentQuestion.getOption3());
+            op4.setText(currentQuestion.getOption4());
 
             questionCounter ++;
             if(!isError){
@@ -728,6 +758,11 @@ public class QuizChallenge extends YouTubeBaseActivity {
             }
             else{
                 isError = false;
+            }
+
+            if(isPassed) {
+                question_Num--;
+                isPassed = false;
             }
             txtQuestionCount.setText(question_Num + " / " + questionCountTotal); // 문제 수 확인
             confirmButton.setText(getString(R.string.Confirm));
@@ -750,8 +785,19 @@ public class QuizChallenge extends YouTubeBaseActivity {
         if(isCountStart) {
             // 힌트 버튼 활성화
             HintButton1.setEnabled(true);
-            HintButton2.setEnabled(true);
-            HintButton3.setEnabled(true);
+            Hint_remove.setEnabled(true);
+            Hint_pass.setEnabled(true);
+
+            // 포인트 부족할 시 힌트 버튼 비활성화
+            if (hintPoint < 100 ) {
+                Hint_pass.setEnabled(false);
+                if (hintPoint < 50) {
+                    Hint_remove.setEnabled(false);
+                }
+                if (hintPoint < 10) {
+                    HintButton1.setEnabled(false);
+                }
+            }
 
             handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -808,12 +854,12 @@ public class QuizChallenge extends YouTubeBaseActivity {
             player.pause();
         }
         countDownTimer.cancel(); // 타이머 종료
+        txtHintPoint.setText("POINT");
 
         // 힌트 버튼 비활성화
         HintButton1.setEnabled(false);
-        HintButton2.setEnabled(false);
-        HintButton3.setEnabled(false);
-
+        Hint_remove.setEnabled(false);
+        Hint_pass.setEnabled(false);
 
         playerView.setAlpha(1.0f);
 
@@ -830,18 +876,13 @@ public class QuizChallenge extends YouTubeBaseActivity {
         confirmButton.setEnabled(false);
         confirmButton.setTextColor(Color.GRAY);
 
-        //좌우 공백 및 띄어쓰기 공백 없애기
-        String answer = answerText.getText().toString().trim().replace(" ","");
-        //answer.replaceAll(" ","");
-        answer = answer.toLowerCase();
-        Log.e("쓴 답"," : "+answer);
-        Log.e("답"," : "+korean_Answer);
-        Log.e("답"," : "+english_Answer);
+        RadioButton opSelected = findViewById(opGroup.getCheckedRadioButtonId());
+        int answerNr = opGroup.indexOfChild(opSelected) + 1;
 
-        // 내용 비교 위해서 equals 사용
-        if(answer.equals(korean_Answer) || answer.equals(english_Answer)){
+        // 보기 안에 있는 내용 보고 정답 확인
+        if (answerNr == currentQuestion.getAnswerNr()) {
             correctText.setVisibility(View.VISIBLE);
-            txt_answer.setBackground(getResources().getDrawable(R.drawable.border_button_green));
+            opSelected.setTextColor(Color.GREEN);
             score_challenge = score_challenge+plus; // 점수 책정 방식
             handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -851,11 +892,12 @@ public class QuizChallenge extends YouTubeBaseActivity {
 
                 }
             }, 1000);
-
-
         }
 
         else {
+            if(opSelected !=null) {
+                opSelected.setTextColor(Color.RED);
+            }
             nextButton.setText(getString(R.string.Finish));
             isChallengefinish = true;
             if(randomAd == 0){
@@ -865,7 +907,6 @@ public class QuizChallenge extends YouTubeBaseActivity {
                 LoadAD();
             }
 
-            txt_answer.setBackground(getResources().getDrawable(R.drawable.border_button_red));
         }
 
         scoreText.setText(""+score_challenge); // 점수 텍스트 변경
@@ -873,13 +914,34 @@ public class QuizChallenge extends YouTubeBaseActivity {
 
         playVideo(); // 비디오 재생
         //nextButton.setVisibility(View.VISIBLE);
-        answerText.setVisibility(View.GONE);
-        txt_answer.setVisibility(View.VISIBLE);
-        txt_answer.setText(real_Answer);
-        txt_answer.setSingleLine(true);
-        txt_answer.setEllipsize(TextUtils.TruncateAt.MARQUEE);
-        txt_answer.setSelected(true);
+        showSolution();
+    }
 
+    private void showSolution() {
+
+        switch (currentQuestion.getAnswerNr()) {
+            case 1:
+                op1.setTextColor(Color.GREEN);
+                op1.setSelected(true);
+                break;
+            case 2:
+                op2.setTextColor(Color.GREEN);
+                op2.setSelected(true);
+                break;
+            case 3:
+                op3.setTextColor(Color.GREEN);
+                op3.setSelected(true);
+                break;
+            case 4:
+                op4.setTextColor(Color.GREEN);
+                op4.setSelected(true);
+                break;
+        }
+        op1.setEnabled(false);
+        op2.setEnabled(false);
+        op3.setEnabled(false);
+        op4.setEnabled(false);
+        checkLast();
     }
 
 
@@ -900,52 +962,6 @@ public class QuizChallenge extends YouTubeBaseActivity {
         isHandler = false;
 
         challenge_playtime++;
-
-        try {
-            if (score_challenge > 1000) {
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                        .increment(getString(R.string.achievement_road_to_challenge_master), 4);
-            }
-            else if (score_challenge > 500) {
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                        .increment(getString(R.string.achievement_road_to_challenge_master), 3);
-            }
-            else if (score_challenge > 300) {
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                        .increment(getString(R.string.achievement_road_to_challenge_master), 2);
-            }
-            else if (score_challenge > 100) {
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                        .increment(getString(R.string.achievement_road_to_challenge_master), 1);
-            }
-        } catch(Exception e){
-            Log.d("로그", "챌린지 업적 불러오기 실패");
-        }
-
-        try {
-            if (challenge_playtime > 100) {
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                        .increment(getString(R.string.achievement_a_challenger_is_beautiful), 4);
-            }
-            else if (challenge_playtime > 50) {
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                        .increment(getString(R.string.achievement_a_challenger_is_beautiful), 3);
-            }
-            else if (challenge_playtime > 30) {
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                        .increment(getString(R.string.achievement_a_challenger_is_beautiful), 2);
-            }
-            else if (challenge_playtime > 10) {
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                        .increment(getString(R.string.achievement_a_challenger_is_beautiful), 1);
-            }
-            else {
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                        .unlock(getString(R.string.achievement_can_you_challenge));
-            }
-        } catch(Exception e){
-            Log.d("로그", "챌린지 업적 불러오기 실패");
-        }
 
 
         if (isBackPressed) {
