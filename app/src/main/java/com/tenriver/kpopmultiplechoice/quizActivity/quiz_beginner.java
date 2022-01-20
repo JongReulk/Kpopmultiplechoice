@@ -104,6 +104,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
     private RadioButton op3;
     private RadioButton op4;
     private RadioGroup opGroup;
+    private RadioButton opRemove;
 
     private Button confirmButton;
     private Button nextButton;
@@ -141,6 +142,10 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
     // hint button
     private Button HintButton1; // 다시 듣기
+    private Button Hint_remove; // 보기 하나 지우기
+    private Button Hint_pass; // 문제 패스
+    
+    private boolean isPassed = false; // 패스 힌트 사용 유무
 
     // point
     private int hintPoint;
@@ -200,7 +205,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
         }
 
         if(videoLength == 1000){
-            plus = 70;
+            plus = 100;
         }
 
 
@@ -223,6 +228,8 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
         // Hint Button
         HintButton1 = findViewById(R.id.Quiz_hint1);  // 다시 듣기
+        Hint_remove = findViewById(R.id.hint_remove);
+        Hint_pass = findViewById(R.id.hint_pass);
 
         op1 = findViewById(R.id.option1);
         op2 = findViewById(R.id.option2);
@@ -282,6 +289,8 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
         // 힌트 버튼 활성화
         HintButton1.setEnabled(false);
+        Hint_remove.setEnabled(false);
+        Hint_pass.setEnabled(false);
 
         // end Image
         endimage = findViewById(R.id.EndImage);
@@ -353,6 +362,8 @@ public class quiz_beginner extends YouTubeBaseActivity {
         op3.setEllipsize(TextUtils.TruncateAt.MARQUEE);
         op4.setSingleLine(true);
         op4.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+
+
 
         // 텍스트 길이가 길 경우 선택된 보기만 MARQUEE 나머지는 NOTMARQUEE
         opGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -427,6 +438,93 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
                     playVideo();
                 }
+
+            }
+        });
+
+        // 보기 지우기 힌트
+        Hint_remove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (hintPoint < 50){
+                    Toast.makeText(getApplicationContext(), getString(R.string.lessPoint), Toast.LENGTH_SHORT).show();
+
+                }
+                else {
+                    hintPoint = hintPoint - 50;
+
+                    txtHintPoint.setText(""+hintPoint);
+                    Toast.makeText(getApplicationContext(), getString(R.string.currentPoint) + hintPoint, Toast.LENGTH_SHORT).show();
+                    Log.v("보기 지우기", "보기 지우기 버튼 클릭");
+
+                    int randomRemove;
+
+                    while(true) {
+                        Random Adrandom = new Random();
+                        randomRemove = Adrandom.nextInt(4) + 1;
+
+                        int hintAnswer = currentQuestion.getAnswerNr();
+                        if (hintAnswer == randomRemove) {
+                            Log.d("로그", " 숫자가 같습니다. ");
+                        }
+                        else {
+                            Log.d("로그", " remove 힌트 : " + randomRemove);
+                            break;
+                        }
+                    }
+
+                    if (randomRemove == 1) {
+                        opRemove = op1;
+                    }
+                    else if (randomRemove ==2 ) {
+                        opRemove = op2;
+                    }
+                    else if (randomRemove ==3 ) {
+                        opRemove = op3;
+                    }
+                    else {
+                        opRemove = op4;
+                    }
+
+                    opRemove.setEnabled(false);
+                    opRemove.setTextColor(Color.GRAY);
+                }
+
+                Hint_remove.setEnabled(false);
+
+            }
+        });
+
+        // 보기 지우기 힌트
+        Hint_pass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (hintPoint < 100){
+                    Toast.makeText(getApplicationContext(), getString(R.string.lessPoint), Toast.LENGTH_SHORT).show();
+
+                }
+                else {
+                    hintPoint = hintPoint - 100;
+
+                    txtHintPoint.setText(""+hintPoint);
+                    Toast.makeText(getApplicationContext(), getString(R.string.currentPoint) + hintPoint, Toast.LENGTH_SHORT).show();
+                    Log.v("문제 패스", "패스 버튼 클릭");
+
+                    isPassed = true;
+
+                    isStarted = true;
+                    musicProgressbar.setAlpha(0.0f);
+
+                    if (player.isPlaying()) {
+                        player.pause();
+                    }
+
+                    countDownTimer.cancel();
+                    showNextQuestion();
+                    playVideo();
+                }
+
+                Hint_pass.setEnabled(false);
 
             }
         });
@@ -683,6 +781,11 @@ public class quiz_beginner extends YouTubeBaseActivity {
             else{
                 isError = false;
             }
+
+            if(isPassed) {
+                question_Num--;
+                isPassed = false;
+            }
             txtQuestionCount.setText(question_Num + " / " + questionCountTotal); // 문제 수 확인
             confirmButton.setText(getString(R.string.Confirm));
 
@@ -704,6 +807,19 @@ public class quiz_beginner extends YouTubeBaseActivity {
         if(isCountStart) {
             // 힌트 버튼 활성화
             HintButton1.setEnabled(true);
+            Hint_remove.setEnabled(true);
+            Hint_pass.setEnabled(true);
+
+            // 포인트 부족할 시 힌트 버튼 비활성화
+            if (hintPoint < 100 ) {
+                Hint_pass.setEnabled(false);
+                if (hintPoint < 50) {
+                    Hint_remove.setEnabled(false);
+                }
+                if (hintPoint < 10) {
+                    HintButton1.setEnabled(false);
+                }
+            }
 
             handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -764,6 +880,8 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
         // 힌트 버튼 비활성화
         HintButton1.setEnabled(false);
+        Hint_remove.setEnabled(false);
+        Hint_pass.setEnabled(false);
 
         playerView.setAlpha(1.0f);
 
