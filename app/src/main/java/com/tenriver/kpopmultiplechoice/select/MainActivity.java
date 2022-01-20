@@ -56,7 +56,11 @@ import com.google.android.play.core.install.InstallStateUpdatedListener;
 import com.google.android.play.core.install.model.AppUpdateType;
 import com.google.android.play.core.install.model.InstallStatus;
 import com.google.android.play.core.install.model.UpdateAvailability;
+import com.google.android.play.core.review.ReviewInfo;
+import com.google.android.play.core.review.ReviewManager;
+import com.google.android.play.core.review.ReviewManagerFactory;
 import com.google.android.play.core.tasks.OnSuccessListener;
+import com.google.android.play.core.tasks.Task;
 import com.tenriver.kpopmultiplechoice.R;
 import com.tenriver.kpopmultiplechoice.SettingDialog;
 import com.tenriver.kpopmultiplechoice.quizActivity.QuizChallenge;
@@ -147,6 +151,10 @@ public class MainActivity extends AppCompatActivity {
     private AppUpdateManager mAppUpdateManager;
     private static final int RC_APP_UPDATE = 100;
 
+    // 앱 리뷰 작성
+    private ReviewInfo reviewInfo;
+    private ReviewManager reviewManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -185,6 +193,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //mAppUpdateManager.registerListener(installStateUpdatedListener);
+
+        // 리뷰 활성화
+        activateReviewInfo();
 
 
 
@@ -755,5 +766,30 @@ public class MainActivity extends AppCompatActivity {
         }
 
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void activateReviewInfo() {
+        reviewManager = ReviewManagerFactory.create(this);
+        Task<ReviewInfo> managerInfoTask = reviewManager.requestReviewFlow();
+        managerInfoTask.addOnCompleteListener((task)-> {
+            if(task.isSuccessful()){
+                reviewInfo = task.getResult();
+            }
+            else
+            {
+                Toast.makeText(this, "Review Failed to start", Toast.LENGTH_SHORT).show();
+            }
+
+        });
+    }
+
+    void startReviewFlow() {
+        if(reviewInfo != null)
+        {
+            Task<Void> flow = reviewManager.launchReviewFlow(this,reviewInfo);
+            flow.addOnCompleteListener(task -> {
+                Toast.makeText(this, "Rating is completed", Toast.LENGTH_SHORT).show();
+            });
+        }
     }
 }
