@@ -1,12 +1,14 @@
 package com.tenriver.kpopmultiplechoice.select;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -45,6 +47,16 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.games.Games;
 import com.google.android.gms.games.GamesClient;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.play.core.appupdate.AppUpdateInfo;
+import com.google.android.play.core.appupdate.AppUpdateManager;
+import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
+import com.google.android.play.core.install.InstallState;
+import com.google.android.play.core.install.InstallStateUpdatedListener;
+import com.google.android.play.core.install.model.AppUpdateType;
+import com.google.android.play.core.install.model.InstallStatus;
+import com.google.android.play.core.install.model.UpdateAvailability;
+import com.google.android.play.core.tasks.OnSuccessListener;
 import com.tenriver.kpopmultiplechoice.R;
 import com.tenriver.kpopmultiplechoice.SettingDialog;
 import com.tenriver.kpopmultiplechoice.quizActivity.QuizChallenge;
@@ -131,6 +143,10 @@ public class MainActivity extends AppCompatActivity {
     private BroadcastReceiver receiver;
     private IntentFilter intentFilter;
 
+    // 인앱 업데이트
+    private AppUpdateManager mAppUpdateManager;
+    private static final int RC_APP_UPDATE = 100;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -150,6 +166,24 @@ public class MainActivity extends AppCompatActivity {
         kpop3.startAnimation(textfadein);
         mvquiz.startAnimation(textfadein);
         txtpoint.startAnimation(textfadein);
+
+        // 인앱 업데이트
+        mAppUpdateManager = AppUpdateManagerFactory.create(this);
+        mAppUpdateManager.getAppUpdateInfo().addOnSuccessListener(new OnSuccessListener<AppUpdateInfo>() {
+            @Override
+            public void onSuccess(AppUpdateInfo result) {
+                if(result.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE && result.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE))
+                {
+                    try {
+                        mAppUpdateManager.startUpdateFlowForResult(result, AppUpdateType.FLEXIBLE, MainActivity.this,
+                                RC_APP_UPDATE);
+                    } catch (IntentSender.SendIntentException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        mAppUpdateManager.registerListener(installStateUpdatedListener);
 
 
 
@@ -669,5 +703,40 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private InstallStateUpdatedListener installStateUpdatedListener = new InstallStateUpdatedListener() {
+        @Override
+        public void onStateUpdate(@NonNull InstallState state) {
+            if(state.installStatus() == InstallStatus.DOWNLOADED){
+                showCompletedUpdate();
+            }
+        }
+    };
 
+    @Override
+    protected void onStop() {
+        if(mAppUpdateManager != null) mAppUpdateManager.unregisterListener(installStateUpdatedListener);
+        super.onStop();
+    }
+
+    private void showCompletedUpdate() {
+        Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "New app is Ready!",
+                Snackbar.LENGTH_INDEFINITE);
+        snackbar.setAction("Install", new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                mAppUpdateManager.completeUpdate();
+            }
+        });
+        snackbar.show();
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if(requestCode == RC_APP_UPDATE && resultCode != RESULT_OK){
+            Toast.makeText(this,"Cancel", Toast.LENGTH_SHORT).show();
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 }
