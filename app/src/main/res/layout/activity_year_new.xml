@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".select.YearActivity"
-    android:background="@color/cupid">
+    >
 
     <com.tenriver.kpopmultiplechoice.OutlineTextView
         android:id="@+id/txtTitle1"
@@ -180,7 +180,7 @@
         android:fontFamily="@font/font_digital"
         android:textColor="@color/yellocombination"
 
-        android:textSize="140sp"
+        android:textSize="130sp"
 
 
         app:layout_constraintLeft_toLeftOf="parent"
