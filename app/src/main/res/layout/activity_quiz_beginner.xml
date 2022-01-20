@@ -4,9 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/cupid">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+
+        android:background="@drawable/beginnercardbackground"
 
 
+        app:layout_constraintTop_toBottomOf="@id/txtCountDown"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
     <ImageView
@@ -21,6 +37,10 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.03"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         app:layout_constraintHeight_percent="0.45"
         app:layout_constraintWidth_percent="1" />
 
@@ -61,7 +81,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:alpha="1"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
 
             <ImageView
                 android:id="@+id/EndImage"
@@ -89,6 +112,7 @@
         android:layout_height="wrap_content"
         android:textSize="30dp"
         android:text="1/10"
+        android:textColor="@color/palewhite"
         android:fontFamily="@font/font_basic"
 
         app:layout_constraintTop_toTopOf="parent"
@@ -106,6 +130,7 @@
         android:text="30"
         android:textSize="30dp"
         android:fontFamily="@font/font_basic"
+        android:textColor="@color/palewhite"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -120,7 +145,7 @@
         android:layout_height="wrap_content"
         android:text="+"
         android:textSize="30dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginRight="10dp"
         android:textColor="@color/teal_200"
         android:fontFamily="@font/font_basic"
 
@@ -148,19 +173,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.04"
         app:layout_constraintHorizontal_bias="0.9"
+        android:textColor="@color/palewhite"
 
         />
 
     <LinearLayout
         android:id="@+id/point_layout"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="50dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:gravity="center_horizontal"
         app:layout_constraintTop_toBottomOf="@id/Image_TV_quizmain"
         android:background="#000000"
         android:weightSum="4"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:orientation="horizontal">
 
         <TextView
@@ -191,9 +219,6 @@
             android:layout_marginLeft="40dp"
             />
 
-
-
-
     </LinearLayout>
 
     <RadioGroup
@@ -201,6 +226,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
 
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -222,7 +249,8 @@
             android:textColor="@drawable/selector_text_radio_button"
             android:buttonTint="@color/white"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
             />
         <RadioButton
             android:id="@+id/option2"
@@ -236,7 +264,8 @@
             android:marqueeRepeatLimit="marquee_forever"
             android:singleLine="true"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
             android:background="@drawable/selector_radio_button"
             android:textColor="@drawable/selector_text_radio_button"
             android:buttonTint="@color/white" />
@@ -252,7 +281,8 @@
             android:marqueeRepeatLimit="marquee_forever"
             android:singleLine="true"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
             android:background="@drawable/selector_radio_button"
             android:textColor="@drawable/selector_text_radio_button"
             android:buttonTint="@color/white" />
@@ -269,16 +299,13 @@
             android:marqueeRepeatLimit="marquee_forever"
             android:singleLine="true"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
             android:background="@drawable/selector_radio_button"
             android:textColor="@drawable/selector_text_radio_button"
             android:buttonTint="@color/white" />
 
     </RadioGroup>
-
-
-
-
 
 
     <LinearLayout
@@ -292,6 +319,9 @@
         app:layout_constraintTop_toBottomOf="@id/radio_group"
         app:layout_constraintBottom_toBottomOf="parent"
         android:gravity="center_horizontal"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
         >
 
         <Button
