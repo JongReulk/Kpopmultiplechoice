@@ -172,10 +172,11 @@ public class MainActivity extends AppCompatActivity {
         mAppUpdateManager.getAppUpdateInfo().addOnSuccessListener(new OnSuccessListener<AppUpdateInfo>() {
             @Override
             public void onSuccess(AppUpdateInfo result) {
-                if(result.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE && result.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE))
+                if(result.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
+                        && result.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE))
                 {
                     try {
-                        mAppUpdateManager.startUpdateFlowForResult(result, AppUpdateType.FLEXIBLE, MainActivity.this,
+                        mAppUpdateManager.startUpdateFlowForResult(result, AppUpdateType.IMMEDIATE, MainActivity.this,
                                 RC_APP_UPDATE);
                     } catch (IntentSender.SendIntentException e) {
                         e.printStackTrace();
@@ -183,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        mAppUpdateManager.registerListener(installStateUpdatedListener);
+        //mAppUpdateManager.registerListener(installStateUpdatedListener);
 
 
 
@@ -691,6 +692,22 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        mAppUpdateManager.getAppUpdateInfo().addOnSuccessListener(new OnSuccessListener<AppUpdateInfo>() {
+            @Override
+            public void onSuccess(AppUpdateInfo result) {
+                if(result.updateAvailability() == UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS)
+                {
+                    try {
+                        mAppUpdateManager.startUpdateFlowForResult(result, AppUpdateType.IMMEDIATE, MainActivity.this,
+                                RC_APP_UPDATE);
+                    } catch (IntentSender.SendIntentException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
         if(mediaplayer_main!=null) {
 
             if (!mediaplayer_main.isPlaying()) {
@@ -714,7 +731,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onStop() {
-        if(mAppUpdateManager != null) mAppUpdateManager.unregisterListener(installStateUpdatedListener);
+        //if(mAppUpdateManager != null) mAppUpdateManager.unregisterListener(installStateUpdatedListener);
         super.onStop();
     }
 
