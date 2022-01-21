@@ -282,6 +282,40 @@ public class ModeActivity extends AppCompatActivity {
             }
         });
 
+        god_cardview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("로그", "master_ 카드뷰 클릭!");
+
+                currentMode = 1000;
+
+                updateMode();
+
+                master_title.startAnimation(anim);
+
+                soundPool.play(soundID, soundPoolVolume, soundPoolVolume, 0, 0, 1f);
+
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        if (!isFinished) {
+                            Intent Modeintent = new Intent(getApplicationContext(), YearActivity.class);
+
+                            Modeintent.addFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION);
+                            startActivity(Modeintent);
+                            finish();
+                        } else {
+                            handler.removeCallbacks(this);
+                        }
+
+                    }
+                }, 600);
+            }
+        });
+
         challenge_cardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

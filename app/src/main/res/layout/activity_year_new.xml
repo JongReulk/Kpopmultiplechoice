@@ -121,7 +121,7 @@
         app:textStrokeColor="@color/palewhite"/>
 
     <com.tenriver.kpopmultiplechoice.OutlineTextView
-        android:id="@+id/txtMvQuiz"
+        android:id="@+id/year_MvQuiz"
         android:text="@string/MvQuiz"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -151,7 +151,7 @@
         app:textStrokeColor="@color/palewhite"/>
 
     <TextView
-        android:id="@+id/gamemodeView"
+        android:id="@+id/yearView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
@@ -185,7 +185,7 @@
 
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtMvQuiz"
+        app:layout_constraintTop_toBottomOf="@id/year_MvQuiz"
         android:layout_marginTop="70dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -209,7 +209,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtMvQuiz"
+        app:layout_constraintTop_toBottomOf="@id/year_MvQuiz"
         >
 
         <LinearLayout
@@ -227,7 +227,7 @@
                 android:background="@drawable/btn_year"
                 android:text="2016"
                 android:textSize="42dp"
-                android:textColor="@color/white"
+                android:textColor="@drawable/selector_text_year"
                 android:textStyle="bold"
                 android:fontFamily="@font/font_digital"
                 android:layout_marginBottom="5dp"
@@ -241,7 +241,7 @@
                 android:background="@drawable/btn_year"
                 android:text="2017"
                 android:textSize="42dp"
-                android:textColor="@color/white"
+                android:textColor="@drawable/selector_text_year"
                 android:textStyle="bold"
                 android:fontFamily="@font/font_digital"
                 android:layout_marginBottom="5dp"
@@ -256,7 +256,7 @@
                 android:background="@drawable/btn_year"
                 android:text="2018"
                 android:textSize="42dp"
-                android:textColor="@color/white"
+                android:textColor="@drawable/selector_text_year"
                 android:textStyle="bold"
                 android:fontFamily="@font/font_digital"
                 android:layout_marginBottom="5dp"
@@ -270,7 +270,7 @@
                 android:background="@drawable/btn_year"
                 android:text="2019"
                 android:textSize="42dp"
-                android:textColor="@color/white"
+                android:textColor="@drawable/selector_text_year"
                 android:textStyle="bold"
                 android:fontFamily="@font/font_digital"
                 android:layout_marginBottom="5dp"
@@ -284,7 +284,7 @@
                 android:background="@drawable/btn_year"
                 android:text="2020"
                 android:textSize="42dp"
-                android:textColor="@color/white"
+                android:textColor="@drawable/selector_text_year"
                 android:textStyle="bold"
                 android:fontFamily="@font/font_digital"
                 android:layout_marginBottom="5dp"
@@ -299,7 +299,7 @@
                 android:background="@drawable/btn_year"
                 android:fontFamily="@font/font_digital"
                 android:text="2021"
-                android:textColor="@color/white"
+                android:textColor="@drawable/selector_text_year"
                 android:textSize="42dp"
                 android:textStyle="bold">
 
@@ -312,7 +312,7 @@
                 android:background="@drawable/btn_year"
                 android:text="@string/Random"
                 android:textSize="42dp"
-                android:textColor="@color/white"
+                android:textColor="@drawable/selector_text_year"
                 android:textStyle="bold"
                 android:fontFamily="@font/font_digital"
                 android:layout_marginBottom="5dp"
@@ -326,7 +326,7 @@
                 android:background="@drawable/btn_year"
                 android:text="@string/All"
                 android:textSize="42dp"
-                android:textColor="@color/white"
+                android:textColor="@drawable/selector_text_year"
                 android:textStyle="bold"
                 android:fontFamily="@font/font_digital"
                 android:layout_marginBottom="5dp"

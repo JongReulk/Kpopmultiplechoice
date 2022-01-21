@@ -518,7 +518,7 @@ public class QuizChallenge extends YouTubeBaseActivity {
                     checkAnswer();
                 }
                 else {
-                    Toast.makeText(getApplicationContext(),"정답을 골라주세요", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),getString(R.string.chooseAnswer), Toast.LENGTH_SHORT).show();
                 }
             }
         });

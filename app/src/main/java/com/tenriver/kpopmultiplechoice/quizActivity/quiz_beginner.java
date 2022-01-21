@@ -63,7 +63,11 @@ public class quiz_beginner extends YouTubeBaseActivity {
     private static final long COUNTDOWN_IN_MILLIS = 30500;
 
     private static final String QUIZ_SHARED = "quizshared";
-    private static final String BASIC_PLAY_TIME = "basicplaytime";
+    private String QuizHighscore;
+    private static final String BABY_HIGH_SCORE = "babyhighscore";
+    private static final String CLASSIC_HIGH_SCORE = "classicplaytime";
+    private static final String MASTER_HIGH_SCORE = "masterplaytime";
+    private static final String GOD_HIGH_SCORE = "godplaytime";
 
     // SharedPreferences 변수선언
     private static final String MODE_SHARED = "modeshared";
@@ -194,18 +198,22 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
         if(videoLength == 10000){
             plus = 10;
+            QuizHighscore = BABY_HIGH_SCORE;
         }
 
         if(videoLength == 5000){
             plus = 30;
+            QuizHighscore = CLASSIC_HIGH_SCORE;
         }
 
         if(videoLength == 3000){
             plus = 50;
+            QuizHighscore = MASTER_HIGH_SCORE;
         }
 
         if(videoLength == 1000){
             plus = 100;
+            QuizHighscore = GOD_HIGH_SCORE;
         }
 
 
@@ -541,7 +549,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
                     checkAnswer();
                 }
                 else {
-                    Toast.makeText(getApplicationContext(),R.string.chooseAnswer, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),getString(R.string.chooseAnswer), Toast.LENGTH_SHORT).show();
                 }
             }
         });
