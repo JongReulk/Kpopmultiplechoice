@@ -65,9 +65,9 @@ public class quiz_beginner extends YouTubeBaseActivity {
     private static final String QUIZ_SHARED = "quizshared";
     private String QuizHighscore;
     private static final String BABY_HIGH_SCORE = "babyhighscore";
-    private static final String CLASSIC_HIGH_SCORE = "classicplaytime";
-    private static final String MASTER_HIGH_SCORE = "masterplaytime";
-    private static final String GOD_HIGH_SCORE = "godplaytime";
+    private static final String CLASSIC_HIGH_SCORE = "classichighscore";
+    private static final String MASTER_HIGH_SCORE = "masterhighscore";
+    private static final String GOD_HIGH_SCORE = "godhighscore";
 
     // SharedPreferences 변수선언
     private static final String MODE_SHARED = "modeshared";
@@ -166,6 +166,9 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
     private int modenum;
     private int yearnum;
+
+    // 점수 비교용 변수
+    private int currentHighScore;
 
 
     @Override
@@ -997,8 +1000,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
         Intent resultIntent = new Intent(this, MainActivity.class);
 
-        resultIntent.putExtra(BEGINNERHIGH_SCORE, score);
-
+        updateQuizHighScore();
         updateHintPoint();
         startActivity(resultIntent);
 
@@ -1098,6 +1100,19 @@ public class quiz_beginner extends YouTubeBaseActivity {
         modenum = modeandyear.getInt(GAMEMODE_SELECT,10000);
 
         yearnum = modeandyear.getInt(YEAR_SELECT,2020);
+
+    }
+
+    private void updateQuizHighScore() {
+        SharedPreferences quizshared = getSharedPreferences(QUIZ_SHARED,MODE_PRIVATE);
+
+        currentHighScore = quizshared.getInt(QuizHighscore,0);
+
+        if(score > currentHighScore) {
+            SharedPreferences.Editor quizEditor = quizshared.edit();
+            quizEditor.putInt(QuizHighscore,score);
+            quizEditor.apply();
+        }
 
 
     }

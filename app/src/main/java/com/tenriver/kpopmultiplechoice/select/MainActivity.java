@@ -80,8 +80,21 @@ public class MainActivity extends AppCompatActivity {
     public static final String KEY_POINT = "keypoint";
     public static final String KEY_AD_TIME = "adtime";
 
-    public static final String BASICMODE_HIGHSCORE = "basichighscore";
-    public static final String CHALLENGEMODE_HIGHSCORE = "challengehighscore";
+    // 각 모드 별 퀴즈 점수
+    private static final String QUIZ_SHARED = "quizshared";
+    private static final String BABY_HIGH_SCORE = "babyhighscore";
+    private static final String CLASSIC_HIGH_SCORE = "classichighscore";
+    private static final String MASTER_HIGH_SCORE = "masterhighscore";
+    private static final String GOD_HIGH_SCORE = "godhighscore";
+    private static final String CHALLENGE_HIGH_SCORE = "challengehighScore";
+    private static final String TOTAL_HIGH_SCORE = "totalhighscore";
+    private int totalHighScore;
+
+    private int baby_highscore;
+    private int classic_highscore;
+    private int master_highscore;
+    private int god_highscore;
+    private int challengehighscore;
 
     private static final String REWARD_AD_ID = "ca-app-pub-3940256099942544/5224354917";
     private static final String BANNER_AD_ID = "ca-app-pub-3940256099942544/6300978111";
@@ -92,11 +105,6 @@ public class MainActivity extends AppCompatActivity {
     private static final int RC_LEADERBOARD_UI = 9004;
     static GoogleSignInAccount googleSignInAccount=null;
 
-    private int beginnerscore;
-    private int basichighscore;
-    private int challengehighscore;
-    private TextView txtbasicHighscore;
-    private TextView txtchallengeHighscore;
     private TextView kpop1;
     private TextView kpop2;
     private TextView kpop3;
@@ -203,6 +211,9 @@ public class MainActivity extends AppCompatActivity {
 
         // 리뷰 활성화
         activateReviewInfo();
+
+        // 퀴즈 별 하이스코어 확인 후 토탈 점수 갱신
+        updateQuizHighscore();
 
 
 
@@ -379,12 +390,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         Intent intent = getIntent();
-        int score = intent.getIntExtra(QuizMain.HIGH_SCORE, 0);
-        int challengescore = intent.getIntExtra(QuizChallenge.CHALLENGE_HIGH_SCORE, 0);
 
         updatePoint();
-
-        Log.e("점수를 받았는가","?" + score);
 
 
         SharedPreferences music = getSharedPreferences(SHARED_MUSIC,MODE_PRIVATE);
@@ -421,25 +428,24 @@ public class MainActivity extends AppCompatActivity {
         settingOpen.setEnabled(true);
     }
 
-    private void updateHighscore(int highscoreNew){
-        basichighscore = highscoreNew;
-        txtbasicHighscore.setText("" + basichighscore);
+    private void updateQuizHighscore(){
+        SharedPreferences quizshared = getSharedPreferences(QUIZ_SHARED,MODE_PRIVATE);
+        baby_highscore = quizshared.getInt(BABY_HIGH_SCORE,0);
+        classic_highscore = quizshared.getInt(CLASSIC_HIGH_SCORE,0);
+        master_highscore = quizshared.getInt(MASTER_HIGH_SCORE,0);
+        god_highscore = quizshared.getInt(GOD_HIGH_SCORE,0);
+        challengehighscore = quizshared.getInt(CHALLENGE_HIGH_SCORE,0);
 
-        SharedPreferences prefs = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putInt(KEY_HIGHSCORE,basichighscore);
-        editor.apply();
-    }
-
-
-
-    private void updatechallengeHighscore(int challengeNew){
-        challengehighscore = challengeNew;
-        txtchallengeHighscore.setText("" + challengehighscore);
-
-        SharedPreferences prefs = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putInt(KEY_CHALLENGEHIGHSCORE,challengehighscore);
+        totalHighScore = baby_highscore + classic_highscore
+                + master_highscore + god_highscore + challengehighscore;
+        SharedPreferences.Editor editor = quizshared.edit();
+        Log.d("베이비", " 점수"+ baby_highscore);
+        Log.d("클래식", " 점수"+ classic_highscore);
+        Log.d("마스터", " 점수"+ master_highscore);
+        Log.d("갓", " 점수"+ god_highscore);
+        Log.d("챌린지", " 점수"+ challengehighscore);
+        Log.d("토탈", " 점수"+ totalHighScore);
+        editor.putInt(TOTAL_HIGH_SCORE,totalHighScore);
         editor.apply();
     }
 
@@ -454,20 +460,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updatePoint() {
-        Intent intent = getIntent();
-        int score = intent.getIntExtra(QuizMain.HIGH_SCORE, 0);
-        int beginnerscore = intent.getIntExtra(quiz_beginner.BEGINNERHIGH_SCORE, 0);
-        if(score > 0) {
-            pointNow = score / 5;
-        }
-        else if(beginnerscore > 0){
-            pointBeginner = beginnerscore / 5;
-        }
-
         SharedPreferences point = getSharedPreferences(SHARED_POINT,MODE_PRIVATE);
-
-        totalPoint = totalPoint + pointNow + pointBeginner;
-        //totalPoint = 1000;
 
         SharedPreferences.Editor pointEditor = point.edit();
         pointEditor.putInt(KEY_POINT,totalPoint);

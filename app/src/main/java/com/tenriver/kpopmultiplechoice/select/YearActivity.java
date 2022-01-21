@@ -45,6 +45,8 @@ public class YearActivity extends AppCompatActivity {
     private int button_total;
     private int button_num;
     private TextView year_Title;
+    private TextView year_mvquiz;
+    private TextView year_view;
 
     private TextView kpop1;
     private TextView kpop2;
@@ -93,6 +95,8 @@ public class YearActivity extends AppCompatActivity {
         year_2021 = findViewById(R.id.year_2021);
         year_random = findViewById(R.id.year_random);
         year_all = findViewById(R.id.year_all);
+
+
 
         SharedPreferences music = getSharedPreferences(MainActivity.SHARED_MUSIC,MODE_PRIVATE);
         Boolean bgmCb_difficulty = music.getBoolean("bgmCb",true);
@@ -156,6 +160,8 @@ public class YearActivity extends AppCompatActivity {
         kpop1 = (TextView) findViewById((R.id.txtTitle1));
         kpop2 = (TextView) findViewById((R.id.txtTitle2));
         kpop3 = (TextView) findViewById((R.id.txtTitle3));
+        year_mvquiz = findViewById(R.id.year_MvQuiz);
+        year_view = findViewById(R.id.yearView);
         View year_v;
 
         button_total = year_linear.getChildCount();
@@ -166,6 +172,8 @@ public class YearActivity extends AppCompatActivity {
         kpop1.startAnimation(textfadein);
         kpop2.startAnimation(textfadein);
         kpop3.startAnimation(textfadein);
+        year_mvquiz.startAnimation(textfadein);
+        year_view.startAnimation(textfadein);
 
         year_select.setVisibility(View.GONE);
 

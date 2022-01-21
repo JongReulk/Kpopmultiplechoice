@@ -63,17 +63,13 @@ import static com.tenriver.kpopmultiplechoice.select.MainActivity.SHARED_POINT;
 
 public class QuizChallenge extends YouTubeBaseActivity {
     public static final String HIGH_SCORE = "highScore";
-    public static final String CHALLENGE_HIGH_SCORE = "challengehighScore";
+
     private static final long COUNTDOWN_IN_MILLIS = 30500;
     private static final String INTERSTITIAL_AD_ID = "ca-app-pub-3940256099942544/1033173712";
 
     private static final String QUIZ_SHARED = "quizshared";
-    private static final String CHALLENGE_PLAY_TIME = "challengeplaytime";
+    private static final String CHALLENGE_HIGH_SCORE = "challengehighScore";
 
-    // SharedPreferences 변수선언
-    private static final String MODE_SHARED = "modeshared";
-    private static final String GAMEMODE_SELECT = "gamemodeselect";
-    private static final String YEAR_SELECT = "yearselect";
 
     YouTubePlayerView playerView;
     YouTubePlayer player;
@@ -152,10 +148,6 @@ public class QuizChallenge extends YouTubeBaseActivity {
     private static int hintPoint;
     private TextView txtHintPoint;
 
-    // hint count : 챌린지모드는 힌트횟수제한 5개
-    private int hintCount = 5;
-    private int hintCountTotal = 5;
-    private TextView txthintCount;
 
     // 플레이 횟수
     private int challenge_playtime = 0;
@@ -167,6 +159,8 @@ public class QuizChallenge extends YouTubeBaseActivity {
     private boolean isLoaded = false;
 
     private boolean isPassed = false;
+
+    private int currentChallengeHighscore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -220,7 +214,6 @@ public class QuizChallenge extends YouTubeBaseActivity {
         textColorDefaultRb = op1.getTextColors();
 
         txtHintPoint = findViewById(R.id.txt_HintPoint);
-        txthintCount = findViewById(R.id.txt_HintCount);
 
         endimage = findViewById(R.id.EndImage);
 
@@ -228,7 +221,7 @@ public class QuizChallenge extends YouTubeBaseActivity {
         QuizDbHelper dbHelper = new QuizDbHelper(this);
 
         // challenge 모드 전용 선언
-        plus = 50;
+        plus = 100;
         questionList = dbHelper.getAllQuestions();
         questionCountTotal = 100;
 
@@ -270,11 +263,8 @@ public class QuizChallenge extends YouTubeBaseActivity {
 
         txtHintPoint.setText(""+hintPoint);
 
-        txthintCount.setText(hintCount + "/" + hintCountTotal);
 
         SharedPreferences quiz_shared = getSharedPreferences(QUIZ_SHARED,MODE_PRIVATE);
-
-        challenge_playtime = quiz_shared.getInt(CHALLENGE_PLAY_TIME,0);
 
 
         InternetDialog internetDialog;
@@ -383,12 +373,8 @@ public class QuizChallenge extends YouTubeBaseActivity {
         HintButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (hintCount <= 0){
-                    Toast.makeText(getApplicationContext(), getString(R.string.lessCount), Toast.LENGTH_SHORT).show();
-                    Log.v("힌트횟수소진","힌트사용횟수 모두 사용");
-                }
 
-                else if (hintPoint < 10){
+                if (hintPoint < 10){
                     Toast.makeText(getApplicationContext(), getString(R.string.lessPoint), Toast.LENGTH_SHORT).show();
                     Log.v("포인트부족","포인트가 부족함");
                 }
@@ -398,9 +384,6 @@ public class QuizChallenge extends YouTubeBaseActivity {
                     txtHintPoint.setText(""+hintPoint);
                     Toast.makeText(getApplicationContext(), getString(R.string.currentPoint) + hintPoint, Toast.LENGTH_SHORT).show();
                     Log.v("다시 듣기", "다시듣기 버튼 클릭");
-                    hintCount--; // 힌트사용
-                    txthintCount.setText(hintCount + "/" + hintCountTotal);
-                    Log.v("남은 힌트횟수", "남은 힌트 횟수 : "+ hintCount);
 
                     musicProgressbar.setAlpha(0);
 
@@ -529,7 +512,25 @@ public class QuizChallenge extends YouTubeBaseActivity {
                 if(player.isPlaying()){
                     player.pause();
                 }
+
+                // 터치 가능하게 변경
+                op1.setEnabled(true);
+                op2.setEnabled(true);
+                op3.setEnabled(true);
+                op4.setEnabled(true);
+
+                // 선택 초기화 ( MARQUEE 방지)
+                op1.setSelected(false);
+                op2.setSelected(false);
+                op3.setSelected(false);
+                op4.setSelected(false);
+                op1.setChecked(false);
+                op2.setChecked(false);
+                op3.setChecked(false);
+                op4.setChecked(false);
+
                 timeLeftInMillis = COUNTDOWN_IN_MILLIS;
+                txtHintPoint.setText(""+hintPoint);
 
                 playerView.setAlpha(1.0f);
 
@@ -970,10 +971,9 @@ public class QuizChallenge extends YouTubeBaseActivity {
         }
 
         Intent resultIntent = new Intent(this, MainActivity.class);
-        resultIntent.putExtra(CHALLENGE_HIGH_SCORE, score_challenge);
 
         updateHintPoint();
-        updateChallengePlayTime();
+        updateChallengeHighScore();
         startActivity(resultIntent);
 
         Log.e("최고 점수", ":" + score_challenge);
@@ -987,13 +987,6 @@ public class QuizChallenge extends YouTubeBaseActivity {
         }, 1000);
     }
 
-    private void updateChallengePlayTime() {
-        SharedPreferences quiz_shared = getSharedPreferences(QUIZ_SHARED,MODE_PRIVATE);
-
-        SharedPreferences.Editor quizeditor = quiz_shared.edit();
-        quizeditor.putInt(CHALLENGE_PLAY_TIME,challenge_playtime);
-        quizeditor.apply();
-    }
 
     private void updateHintPoint() {
 
@@ -1069,6 +1062,20 @@ public class QuizChallenge extends YouTubeBaseActivity {
                 LoadAD();
             }
         }
+
+    }
+
+    private void updateChallengeHighScore() {
+        SharedPreferences quizshared = getSharedPreferences(QUIZ_SHARED,MODE_PRIVATE);
+
+        currentChallengeHighscore = quizshared.getInt(CHALLENGE_HIGH_SCORE,0);
+
+        if(score_challenge > currentChallengeHighscore) {
+            SharedPreferences.Editor quizEditor = quizshared.edit();
+            quizEditor.putInt(CHALLENGE_HIGH_SCORE,score_challenge);
+            quizEditor.apply();
+        }
+
 
     }
 
