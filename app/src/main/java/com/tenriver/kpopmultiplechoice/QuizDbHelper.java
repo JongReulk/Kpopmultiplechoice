@@ -215,7 +215,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         Question q155 = new Question("Z1pGxkXyDvc", "나비효과 (Butterfly Effect)", "남이 될 수 있을까(We Loved) ", "소리 (Sori) ", "홀로 (HOLO) ",2,"볼빨간사춘기, 스무살(BOL4, 20 Years Of Age)",2017);	addQuestion(q155);
         Question q156 = new Question("Z3INNjAEqHk", "Face ID", "Rosario ", "연애소설 (LOVE STORY) ", "IndiGO ",3,"에픽하이 (EPIK HIGH)",2017);	addQuestion(q156);
         Question q157 = new Question("rRzxEiBLQCA", "Heart Shaker", "FINGERTIP ", "LIKEY ", "KNOCK KNOCK ",1,"트와이스(TWICE)",2017);	addQuestion(q157);
-        Question q158 = new Question("Amq-qlqbjYA", "불장난 (Playing With Fire)", "LALISA ", "휘파람 (WHISTLE) ", "Hey - Mama!",4,"BLACKPINK",2017);	addQuestion(q158);
+        Question q158 = new Question("Amq-qlqbjYA", "불장난 (Playing With Fire)", "LALISA ", "휘파람 (WHISTLE) ", "마지막처럼 (AS IF IT'S YOUR LAST)",4,"BLACKPINK",2017);	addQuestion(q158);
         Question q159 = new Question("b22Ed7f0D-0", "FIVE", "짐살라빔 (Zimzalabim) ", "응응(%%)(Eung Eung) ", "덤더럼(Dumhdurum) ",1,"에이핑크(Apink)",2017);	addQuestion(q159);
         Question q160 = new Question("IdssuxDdqKk", "Tempo", "Obsession ", "Don't fight the feeling ", "Ko Ko Bop ",4,"EXO(엑소)",2017);	addQuestion(q160);
         Question q161 = new Question("lnXXfYA91Y8", "FINGERTIP", "여름여름해 (Sunny Summer) ", "귀를 기울이면(LOVE WHISPER) ", "유리구슬 (Glass Bead) ",3,"여자친구(GFRIEND)",2017);	addQuestion(q161);
@@ -265,7 +265,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         Question q205 = new Question("VWqxvBQKwKQ", "LAST DANCE", "센치해(SENTIMENTAL) ", "아예 (AH YEAH) ", "꽃 길 (Flower Road) ",4,"BIGBANG",2018);	addQuestion(q205);
         Question q206 = new Question("pHtxTSiPh5I", "매일 봐요 (Everyday)", "Wind flower ", "별이 빛나는 밤 (Starry Night) ", "너나 해 (Egotistic) ",4,"마마무 (MAMAMOO)",2018);	addQuestion(q206);
         Question q207 = new Question("YBzJ0jmHv-4", "너를 만나 (Me After You)", "허전해 (empty) ", "우리 만남이 (But I'll Miss You) ", "Loveship ",1,"Paul Kim(폴킴)",2018);	addQuestion(q207);
-        Question q208 = new Question("fHQkdIGue3k", "봄날의 기억(Remember that)", "몇 년 후에 (A Few Years Later) ", "MOVIE ", "몰랐니 (Lil' Touch)",4,"BTOB(비투비)",2018);	addQuestion(q208);
+        Question q208 = new Question("fHQkdIGue3k", "봄날의 기억(Remember that)", "몇 년 후에 (A Few Years Later) ", "MOVIE ", "너 없인 안 된다 (Only one for me)",4,"BTOB(비투비)",2018);	addQuestion(q208);
         Question q209 = new Question("Fm5iP0S1z9w", "Dance The Night Away", "YES or YES ", "What is Love? ", "Feel Special ",1,"TWICE(트와이스)",2018);	addQuestion(q209);
         Question q210 = new Question("IHNzOHi8sJs", "Ice Cream (with Selena Gomez)", "Lovesick Girls ", "Kill This Love ", "뚜두뚜두 (DDU-DU DDU-DU)",4,"BLACKPINK",2018);	addQuestion(q210);
         Question q211 = new Question("pSudEWBAYRE", "Love Shot", "Monster ", "For Life ", "Lotto ",1,"EXO (엑소)",2018);	addQuestion(q211);
@@ -411,7 +411,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         Question q351 = new Question("uxmP4b2a0uY", "Tempo", "Obsession ", "Don't fight the feeling ", "Ko Ko Bop ",2,"EXO (엑소)",2019);	addQuestion(q351);
         Question q352 = new Question("AtNBhPxVwh0", "너를 위해 (For You)", "Dancing King ", "What a life ", "있어 희미하게 (Just us 2)",3,"세훈&찬열 (EXO-SC)",2019);	addQuestion(q352);
         Question q353 = new Question("I66oFXdf0KU", "화(火花)(HWAA)", "Oh my god", "Uh-Oh", "DUN DUN",3,"(여자)아이들((G)I-DLE)",2019);	addQuestion(q353);
-        Question q354 = new Question("mrAIqeULUL0", "썸 탈꺼야 (SOME)", "여행 (Travel) ", "나만, 봄 (Bom) ", "쏘쏘(SO-SO)",4,"BOL4(볼빨간사춘기)",2019);	addQuestion(q354);
+        Question q354 = new Question("mrAIqeULUL0", "썸 탈꺼야 (SOME)", "여행 (Travel) ", "나만, 봄 (Bom) ", "워커홀릭 (Workaholic)",4,"BOL4(볼빨간사춘기)",2019);	addQuestion(q354);
         Question q355 = new Question("ByHNlfmmT-w", "We don't talk together", "비가 오는 날엔 (2021)(On Rainy Day) ", "헤픈 우연 (HAPPEN) ", "Jenga (Feat. Gaeko) ",1,"헤이즈 (Heize)",2019);	addQuestion(q355);
         Question q356 = new Question("PdDfuWJc9dA", "홀로 (HOLO)", "소리 (Sori) ", "We All Lie ", "니 소식 (Your regards) ",3,"하진 (Ha Jin)",2019);	addQuestion(q356);
         Question q357 = new Question("vHS9E6JFja8", "Psycho", "음파음파 (Umpah Umpah) ", "짐살라빔 (Zimzalabim) ", "Queendom ",2,"Red Velvet (레드벨벳)",2019);	addQuestion(q357);
@@ -442,7 +442,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         Question q382 = new Question("ZvhpjERxJlQ", "No", "미 (Me) ", "BLACK DRESS ", "Excuse Me ",1,"CLC",2019);	addQuestion(q382);
         Question q383 = new Question("R3Fwdnij49o", "응응(%%)(Eung Eung)", "시간의 바깥 (above the time) ", "Coin ", "라일락 (LILAC) ",2,"아이유(IU)",2019);	addQuestion(q383);
         Question q384 = new Question("nUOeg1LYF7Y", "빔밤붐 (BIM BAM BUM)", "Ring Ring ", "Why Not ", "PTT (Paint The Town) ",1,"로켓펀치 (Rocket Punch)",2019);	addQuestion(q384);
-        Question q385 = new Question("8n9wklIG9qU", "Dancing Cartoon", "품 (Hug) ", "나비와 고양이 (Leo) ", "몰랐니 (Lil' Touch)",4,"BOL4(볼빨간사춘기)",2019);	addQuestion(q385);
+        Question q385 = new Question("8n9wklIG9qU", "Dancing Cartoon", "품 (Hug) ", "나비와 고양이 (Leo) ", "별 보러 갈래? (Stars over me)",4,"BOL4(볼빨간사춘기)",2019);	addQuestion(q385);
         Question q386 = new Question("3ymwOvzhwHs", "Dance The Night Away", "YES or YES ", "What is Love? ", "Feel Special ",4,"TWICE(트와이스)",2019);	addQuestion(q386);
         Question q387 = new Question("isls26FGUaA", "Destiny (나의 지구)", "종소리 (Twinkle) ", "Obliviate ", "그 시절 우리가 사랑했던 우리(Beautiful Days) ",4,"러블리즈(Lovelyz)",2019);	addQuestion(q387);
         Question q388 = new Question("TbuP2ypiTRc", "Freeze (꼼짝마)", "Wonderful love (어마어마해) ", "Thumbs Up ", "Ready Or Not ",3,"MOMOLAND(모모랜드)",2019);	addQuestion(q388);
@@ -667,6 +667,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         Question q607 = new Question("-OfOkiVFmhM", "BAD LOVE", "WANT ", "MOVE ", "Press Your Number ",2,"TAEMIN (태민)",2019);	addQuestion(q607);
         Question q608 = new Question("-EfjXQgE1e8", "Bambi", "UN Village ", "비가와 (Rain) ", "Dream ",2,"BAEKHYUN (백현)",2019);	addQuestion(q608);
         Question q609 = new Question("-Ih5UArd4zk", "Like Water", "봄인가 봐 (Spring Love) ", "RBB (Really Bad Boy) ", "Power Up ",1,"WENDY (웬디)",2021);	addQuestion(q609);
+
 
 
     }

@@ -85,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
     private static final String BABY_HIGH_SCORE = "babyhighscore";
     private static final String CLASSIC_HIGH_SCORE = "classichighscore";
     private static final String MASTER_HIGH_SCORE = "masterhighscore";
-    private static final String GOD_HIGH_SCORE = "godhighscore";
     private static final String CHALLENGE_HIGH_SCORE = "challengehighScore";
     private static final String TOTAL_HIGH_SCORE = "totalhighscore";
     private int totalHighScore;
@@ -93,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
     private int baby_highscore;
     private int classic_highscore;
     private int master_highscore;
-    private int god_highscore;
     private int challengehighscore;
 
     private static final String REWARD_AD_ID = "ca-app-pub-3940256099942544/5224354917";
@@ -433,16 +431,14 @@ public class MainActivity extends AppCompatActivity {
         baby_highscore = quizshared.getInt(BABY_HIGH_SCORE,0);
         classic_highscore = quizshared.getInt(CLASSIC_HIGH_SCORE,0);
         master_highscore = quizshared.getInt(MASTER_HIGH_SCORE,0);
-        god_highscore = quizshared.getInt(GOD_HIGH_SCORE,0);
         challengehighscore = quizshared.getInt(CHALLENGE_HIGH_SCORE,0);
 
         totalHighScore = baby_highscore + classic_highscore
-                + master_highscore + god_highscore + challengehighscore;
+                + master_highscore + challengehighscore;
         SharedPreferences.Editor editor = quizshared.edit();
         Log.d("베이비", " 점수"+ baby_highscore);
         Log.d("클래식", " 점수"+ classic_highscore);
         Log.d("마스터", " 점수"+ master_highscore);
-        Log.d("갓", " 점수"+ god_highscore);
         Log.d("챌린지", " 점수"+ challengehighscore);
         Log.d("토탈", " 점수"+ totalHighScore);
         editor.putInt(TOTAL_HIGH_SCORE,totalHighScore);

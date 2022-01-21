@@ -60,14 +60,13 @@ import static com.tenriver.kpopmultiplechoice.select.MainActivity.SHARED_POINT;
 
 public class quiz_beginner extends YouTubeBaseActivity {
     public static final String BEGINNERHIGH_SCORE = "beginnerhighScore";
-    private static final long COUNTDOWN_IN_MILLIS = 30500;
+    private long COUNTDOWN_IN_MILLIS = 30500;
 
     private static final String QUIZ_SHARED = "quizshared";
     private String QuizHighscore;
     private static final String BABY_HIGH_SCORE = "babyhighscore";
     private static final String CLASSIC_HIGH_SCORE = "classichighscore";
     private static final String MASTER_HIGH_SCORE = "masterhighscore";
-    private static final String GOD_HIGH_SCORE = "godhighscore";
 
     // SharedPreferences 변수선언
     private static final String MODE_SHARED = "modeshared";
@@ -179,6 +178,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
         Log.d("start","quiz main activity start!");
 
         question_Num = 0;
+        pointplus = 0;
 
         getModeandYear();
 
@@ -196,29 +196,6 @@ public class quiz_beginner extends YouTubeBaseActivity {
         Intent intent = getIntent();
 
         videoLength = modenum; // 플레이 시간
-
-
-
-        if(videoLength == 10000){
-            plus = 10;
-            QuizHighscore = BABY_HIGH_SCORE;
-        }
-
-        if(videoLength == 5000){
-            plus = 30;
-            QuizHighscore = CLASSIC_HIGH_SCORE;
-        }
-
-        if(videoLength == 3000){
-            plus = 50;
-            QuizHighscore = MASTER_HIGH_SCORE;
-        }
-
-        if(videoLength == 1000){
-            plus = 100;
-            QuizHighscore = GOD_HIGH_SCORE;
-        }
-
 
 
         int year_num = yearnum; // 연도
@@ -267,8 +244,6 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
         questionCountTotal = 10;
 
-
-
         Collections.shuffle(questionList);
 
         // 다음 버튼 비활성화
@@ -307,8 +282,26 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
         // 포인트 가져오기
         SharedPreferences point = getSharedPreferences(SHARED_POINT,MODE_PRIVATE);
-
         hintPoint = point.getInt(KEY_POINT,100);
+
+        if(videoLength == 10000){
+            plus = 10;
+            QuizHighscore = BABY_HIGH_SCORE;
+        }
+
+        if(videoLength == 5000){
+            plus = 30;
+            QuizHighscore = CLASSIC_HIGH_SCORE;
+        }
+
+        if(videoLength == 3000){
+            plus = 50;
+            COUNTDOWN_IN_MILLIS = 15500;
+            QuizHighscore = MASTER_HIGH_SCORE;
+            hintPoint = hintPoint - 10;
+            Toast.makeText(getApplicationContext(), getString(R.string.deducted10points), Toast.LENGTH_SHORT).show();
+            updateHintPoint();
+        }
 
         txtHintPoint.setText(""+hintPoint);
 
@@ -990,8 +983,17 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
     private void finishQuiz() {
         isHandler = false;
-
         pointplus = 10;
+
+        if (plus == 10) {
+            pointplus = 10;
+        }
+        else if (plus == 30) {
+            pointplus = 20;
+        }
+        else if (plus == 50) {
+            pointplus = 30;
+        }
 
         if (isBackPressed) {
             score = 0;

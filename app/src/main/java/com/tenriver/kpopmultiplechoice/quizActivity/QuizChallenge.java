@@ -261,6 +261,10 @@ public class QuizChallenge extends YouTubeBaseActivity {
 
         hintPoint = point.getInt(KEY_POINT,100);
 
+        hintPoint = hintPoint - 30;
+        Toast.makeText(getApplicationContext(), getString(R.string.deducted30points), Toast.LENGTH_SHORT).show();
+        updateHintPoint();
+
         txtHintPoint.setText(""+hintPoint);
 
 

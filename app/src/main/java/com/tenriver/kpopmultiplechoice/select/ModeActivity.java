@@ -19,6 +19,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,6 +35,9 @@ import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.tenriver.kpopmultiplechoice.R;
 import com.tenriver.kpopmultiplechoice.quizActivity.QuizChallenge;
+
+import static com.tenriver.kpopmultiplechoice.select.MainActivity.KEY_POINT;
+import static com.tenriver.kpopmultiplechoice.select.MainActivity.SHARED_POINT;
 
 public class ModeActivity extends AppCompatActivity {
 
@@ -52,22 +56,26 @@ public class ModeActivity extends AppCompatActivity {
     private TextView kpop2;
     private TextView kpop3;
     private TextView mode_Title;
+    private TextView txt_modequiz;
 
     // 각 모드 카드뷰
     private CardView baby_cardview;
     private CardView classic_cardview;
     private CardView master_cardview;
-    private CardView god_cardview;
     private CardView challenge_cardview;
 
     // 각 모드 타이틀
     private TextView baby_title;
     private TextView classic_title;
     private TextView master_title;
-    private TextView god_title;
     private TextView challenge_title;
 
     private TextView challenge_text;
+    private TextView master_text;
+
+    // 포인트 관련
+    private TextView txtHintPoint;
+    private int hintPoint;
 
 
 
@@ -113,22 +121,25 @@ public class ModeActivity extends AppCompatActivity {
         baby_cardview = findViewById(R.id.card_baby);
         classic_cardview = findViewById(R.id.card_classic);
         master_cardview = findViewById(R.id.card_master);
-        god_cardview = findViewById(R.id.card_god);
         challenge_cardview = findViewById(R.id.card_challenge);
 
         baby_title = findViewById(R.id.title_baby);
         classic_title = findViewById(R.id.title_classic);
         master_title = findViewById(R.id.title_master);
-        god_title = findViewById(R.id.title_god);
         challenge_title = findViewById(R.id.title_challenge);
 
         challenge_text = findViewById(R.id.text_challenge);
+        master_text = findViewById(R.id.text_master);
+
+
+        txtHintPoint = findViewById(R.id.txtPoint);
 
 
         kpop1 = (TextView) findViewById((R.id.txtTitle1));
         kpop2 = (TextView) findViewById((R.id.txtTitle2));
         kpop3 = (TextView) findViewById((R.id.txtTitle3));
         mode_Title = findViewById(R.id.gamemodeView);
+        txt_modequiz = findViewById(R.id.txtMvQuiz);
 
 
         // text blink animation
@@ -144,10 +155,18 @@ public class ModeActivity extends AppCompatActivity {
         kpop2.startAnimation(textfadein);
         kpop3.startAnimation(textfadein);
         mode_Title.startAnimation(textfadein);
+        txt_modequiz.startAnimation(textfadein);
         //basic_linear.setVisibility(View.GONE);
         //challenge_linear.setVisibility(View.GONE); // 처음 시작은 beginner이므로 챌린지는 보이지않게
         //consonants_linear.setVisibility(View.GONE);
 
+
+        // 포인트 가져오기
+        SharedPreferences point = getSharedPreferences(SHARED_POINT,MODE_PRIVATE);
+
+        hintPoint = point.getInt(KEY_POINT,100);
+
+        txtHintPoint.setText(""+hintPoint + " POINTS");
 
 
         SharedPreferences music = getSharedPreferences(MainActivity.SHARED_MUSIC, MODE_PRIVATE);
@@ -177,6 +196,15 @@ public class ModeActivity extends AppCompatActivity {
         }
 
         titleMarquee();
+
+        if (hintPoint < 30){
+            challenge_title.setAlpha(0.5f);
+            challenge_text.setAlpha(0.5f);
+            if (hintPoint < 10) {
+                master_title.setAlpha(0.5f);
+                master_text.setAlpha(0.5f);
+            }
+        }
 
 
         // 각 모드들 카드 클릭
@@ -251,94 +279,73 @@ public class ModeActivity extends AppCompatActivity {
         master_cardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("로그", "master_ 카드뷰 클릭!");
+                if (hintPoint < 10) {
+                    Toast.makeText(getApplicationContext(), getString(R.string.need10points), Toast.LENGTH_SHORT).show();
+                } else {
+                    Log.d("로그", "master_ 카드뷰 클릭!");
 
-                currentMode = 3000;
+                    currentMode = 3000;
 
-                updateMode();
+                    updateMode();
 
-                master_title.startAnimation(anim);
+                    master_title.startAnimation(anim);
 
-                soundPool.play(soundID, soundPoolVolume, soundPoolVolume, 0, 0, 1f);
+                    soundPool.play(soundID, soundPoolVolume, soundPoolVolume, 0, 0, 1f);
 
 
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
 
-                        if (!isFinished) {
-                            Intent Modeintent = new Intent(getApplicationContext(), YearActivity.class);
+                            if (!isFinished) {
+                                Intent Modeintent = new Intent(getApplicationContext(), YearActivity.class);
 
-                            Modeintent.addFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION);
-                            startActivity(Modeintent);
-                            finish();
-                        } else {
-                            handler.removeCallbacks(this);
+                                Modeintent.addFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION);
+                                startActivity(Modeintent);
+                                finish();
+                            } else {
+                                handler.removeCallbacks(this);
+                            }
+
                         }
-
-                    }
-                }, 600);
-            }
-        });
-
-        god_cardview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d("로그", "master_ 카드뷰 클릭!");
-
-                currentMode = 1000;
-
-                updateMode();
-
-                master_title.startAnimation(anim);
-
-                soundPool.play(soundID, soundPoolVolume, soundPoolVolume, 0, 0, 1f);
-
-
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-
-                        if (!isFinished) {
-                            Intent Modeintent = new Intent(getApplicationContext(), YearActivity.class);
-
-                            Modeintent.addFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION);
-                            startActivity(Modeintent);
-                            finish();
-                        } else {
-                            handler.removeCallbacks(this);
-                        }
-
-                    }
-                }, 600);
+                    }, 600);
+                }
             }
         });
 
         challenge_cardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                challenge_title.startAnimation(anim);
+                if (hintPoint < 30){
+                    Toast.makeText(getApplicationContext(), getString(R.string.need30points), Toast.LENGTH_SHORT).show();
+                }
 
-                soundPool.play(soundID, soundPoolVolume, soundPoolVolume, 0, 0, 1f);
+                else {
 
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
+                    challenge_title.startAnimation(anim);
 
-                        if (!isFinished) {
-                            Intent Modeintent = new Intent(getApplicationContext(), QuizChallenge.class);
+                    soundPool.play(soundID, soundPoolVolume, soundPoolVolume, 0, 0, 1f);
 
-                            Modeintent.addFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION);
-                            startActivity(Modeintent);
-                            finish();
-                        } else {
-                            handler.removeCallbacks(this);
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            if (!isFinished) {
+                                Intent Modeintent = new Intent(getApplicationContext(), QuizChallenge.class);
+
+                                Modeintent.addFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION);
+                                startActivity(Modeintent);
+                                finish();
+                            } else {
+                                handler.removeCallbacks(this);
+                            }
                         }
-                    }
-                }, 600);
+                    }, 600);
+                }
+
+
             }
         });
 
@@ -395,17 +402,16 @@ public class ModeActivity extends AppCompatActivity {
         master_title.setEllipsize(TextUtils.TruncateAt.MARQUEE);
         master_title.setSelected(true);
 
-        god_title.setSingleLine(true);
-        god_title.setEllipsize(TextUtils.TruncateAt.MARQUEE);
-        god_title.setSelected(true);
 
         challenge_title.setSingleLine(true);
         challenge_title.setEllipsize(TextUtils.TruncateAt.MARQUEE);
         challenge_title.setSelected(true);
 
+        /*
         challenge_text.setSingleLine(true);
         challenge_text.setEllipsize(TextUtils.TruncateAt.MARQUEE);
         challenge_text.setSelected(true);
+         */
     }
 
 }
