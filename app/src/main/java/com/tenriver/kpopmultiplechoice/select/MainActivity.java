@@ -102,6 +102,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView kpop3;
     private TextView mvquiz;
 
+    private TextView multiplechoice;
+
 
     private ImageView imageview_lp;
 
@@ -154,6 +156,7 @@ public class MainActivity extends AppCompatActivity {
     // 앱 리뷰 작성
     private ReviewInfo reviewInfo;
     private ReviewManager reviewManager;
+    private ImageButton ratingButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -166,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
         kpop2 = (TextView) findViewById((R.id.txtTitle2));
         kpop3 = (TextView) findViewById((R.id.txtTitle3));
         mvquiz = (TextView) findViewById((R.id.txtMvQuiz));
+        multiplechoice = findViewById(R.id.Mainmultiplechoice);
         txtpoint = findViewById(R.id.txtPoint);
 
         Animation textfadein = AnimationUtils.loadAnimation(getApplication(), R.anim.fade_in_text);
@@ -173,7 +177,10 @@ public class MainActivity extends AppCompatActivity {
         kpop2.startAnimation(textfadein);
         kpop3.startAnimation(textfadein);
         mvquiz.startAnimation(textfadein);
+        multiplechoice.startAnimation(textfadein);
         txtpoint.startAnimation(textfadein);
+
+        ratingButton = findViewById(R.id.rating_Button);
 
         // 인앱 업데이트
         mAppUpdateManager = AppUpdateManagerFactory.create(this);
@@ -269,12 +276,9 @@ public class MainActivity extends AppCompatActivity {
 
         startButton = findViewById(R.id.Main_start);
         settingOpen = findViewById(R.id.setting_Button);
-        txtbasicHighscore = findViewById(R.id.txtbasicbestScore);
-        txtchallengeHighscore = findViewById(R.id.txtChallengebestScore);
 
 
-        txtbasicHighscore.startAnimation(textfadein);
-        txtchallengeHighscore.startAnimation(textfadein);
+
 
 
         //Sound
@@ -352,6 +356,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ratingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startReviewFlow();
+            }
+        });
+
     }
 
     @Override
@@ -367,8 +378,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        loadHighscore();
-        loadchallengeHighscore();
         Intent intent = getIntent();
         int score = intent.getIntExtra(QuizMain.HIGH_SCORE, 0);
         int challengescore = intent.getIntExtra(QuizChallenge.CHALLENGE_HIGH_SCORE, 0);
@@ -376,13 +385,6 @@ public class MainActivity extends AppCompatActivity {
         updatePoint();
 
         Log.e("점수를 받았는가","?" + score);
-        if (score > basichighscore){
-            updateHighscore(score);
-        }
-
-        if (challengescore > challengehighscore) {
-            updatechallengeHighscore(challengescore);
-        }
 
 
         SharedPreferences music = getSharedPreferences(SHARED_MUSIC,MODE_PRIVATE);
@@ -429,27 +431,7 @@ public class MainActivity extends AppCompatActivity {
         editor.apply();
     }
 
-    private void loadHighscore() {
-        SharedPreferences prefs = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
-        basichighscore = prefs.getInt(KEY_HIGHSCORE, 0);
-        if(basichighscore <= 0) {
-            txtbasicHighscore.setText("Classic");
-        }
-        else{
-            txtbasicHighscore.setText("" + basichighscore);
-        }
-    }
 
-    private void loadchallengeHighscore() {
-        SharedPreferences prefs = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
-        challengehighscore = prefs.getInt(KEY_CHALLENGEHIGHSCORE, 0);
-        if(challengehighscore <= 0) {
-            txtchallengeHighscore.setText("Chall");
-        }
-        else{
-            txtchallengeHighscore.setText("" + challengehighscore);
-        }
-    }
 
     private void updatechallengeHighscore(int challengeNew){
         challengehighscore = challengeNew;
@@ -467,7 +449,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences point = getSharedPreferences(SHARED_POINT,MODE_PRIVATE);
 
         totalPoint = point.getInt(KEY_POINT,100);
-        txtpoint.setText(""+totalPoint);
+        txtpoint.setText(""+totalPoint +" POINT");
 
     }
 
@@ -762,7 +744,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if(requestCode == RC_APP_UPDATE && resultCode != RESULT_OK){
-            Toast.makeText(this,"Cancel", Toast.LENGTH_SHORT).show();
         }
 
         super.onActivityResult(requestCode, resultCode, data);

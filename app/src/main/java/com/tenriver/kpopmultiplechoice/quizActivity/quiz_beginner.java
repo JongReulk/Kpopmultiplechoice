@@ -254,8 +254,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
             Log.e("Question", " : "+year_num_string);
         }
 
-        //questionCountTotal = 10;
-        questionCountTotal = questionList.size();
+        questionCountTotal = 10;
 
 
 
@@ -542,7 +541,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
                     checkAnswer();
                 }
                 else {
-                    Toast.makeText(getApplicationContext(),"정답을 골라주세요", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),R.string.chooseAnswer, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -864,7 +863,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
             txtCountDown.setTextColor(getResources().getColor(R.color.hard_color));
         }
         else{
-            txtCountDown.setTextColor(getResources().getColor(R.color.teal_200));
+            txtCountDown.setTextColor(getResources().getColor(R.color.greencombination));
         }
     }
 

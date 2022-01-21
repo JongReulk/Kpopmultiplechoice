@@ -84,4 +84,5 @@
     <string name="KPOP_MASTER">케잘알</string>
     <string name="KPOP_GOD">GOD</string>
     <string name="KPOP_CHALLENGE">도전 100곡</string>
+    <string name="chooseAnswer">정답을 선택해주세요!</string>
 </resources>

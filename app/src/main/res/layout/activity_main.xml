@@ -152,78 +152,27 @@
         app:textStrokeColor="@color/palewhite"/>
 
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="100dp"
 
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/txtMvQuiz"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-
-            android:weightSum="2"
-            android:layout_margin="20dp"
-            >
-
-            <com.tenriver.kpopmultiplechoice.OutlineTextView
-                android:id="@+id/txtbasicbestScore"
-                android:layout_marginTop="10dp"
-                android:text="CLASSIC"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:textColor="@color/greencombination"
-                android:bufferType="spannable"
-                android:fontFamily="@font/font_digital"
-
-                android:autoSizeTextType="uniform"
-                android:autoSizeMinTextSize="24sp"
-                android:autoSizeMaxTextSize="40sp"
-                android:autoSizeStepGranularity="2sp"
-                android:shadowColor="@color/basic_color2"
-                android:shadowRadius="10"
-                android:shadowDy="5"
-
-
-                />
-
-            <com.tenriver.kpopmultiplechoice.OutlineTextView
-                android:id="@+id/txtChallengebestScore"
-                android:layout_marginTop="10dp"
-                android:text="Chall"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:textColor="@color/yellocombination"
-                android:bufferType="spannable"
-                android:fontFamily="@font/font_digital"
-
-                android:autoSizeTextType="uniform"
-                android:autoSizeMinTextSize="24sp"
-                android:autoSizeMaxTextSize="40sp"
-                android:autoSizeStepGranularity="2sp"
-                android:shadowColor="@color/challenge_color2"
-                android:shadowRadius="10"
-                android:shadowDy="5"
-
-
-                />
-        </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtPoint"
+        app:layout_constraintRight_toRightOf="parent">
 
 
         <ImageButton
             android:id="@+id/Main_start"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
 
             android:gravity="center"
-            android:src="@android:drawable/ic_media_play"
-            android:scaleType="fitCenter"
-            android:paddingLeft="10dp"
+            android:src="@drawable/play2"
+            android:scaleType="fitXY"
+            android:paddingLeft="5dp"
+
             android:fontFamily="@font/font_basic"
             android:background="@drawable/circlebutton_state"
             android:textColor="@color/palewhite"
@@ -234,15 +183,14 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toTopOf="@id/setting_Button"
             android:layout_marginBottom="20dp"
-
             />
 
         <ImageButton
             android:id="@+id/setting_Button"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:gravity="center"
-            android:src="@drawable/gearwheel3"
+            android:src="@drawable/gearwheel4"
             android:scaleType="fitStart"
 
             android:fontFamily="@font/font_basic"
@@ -255,34 +203,57 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.88"
-
-            />
-
-
-
-
-
-        <TextView
-            android:id="@+id/txtPoint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:alpha="0.8"
-            android:text="Point"
-            android:textSize="32sp"
-            android:fontFamily="@font/font_digital"
-            android:gravity="center"
-            android:textColor="@color/white"
-
+            app:layout_constraintVertical_bias="0.7"
             android:layout_marginBottom="20dp"
+            />
 
+        <ImageButton
+            android:id="@+id/rating_Button"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:gravity="center"
+            android:src="@drawable/rating2"
+            android:scaleType="fitStart"
+
+            android:fontFamily="@font/font_basic"
+            android:background="@drawable/circlebutton_state"
+            android:textColor="@color/white"
+            android:soundEffectsEnabled="false"
+
+
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/Main_start"
             app:layout_constraintRight_toRightOf="parent"
-
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.7"
 
             />
+    </LinearLayout>
+
+
+
+
+
+    <TextView
+        android:id="@+id/txtPoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:alpha="0.8"
+        android:text="Point"
+        android:textSize="28sp"
+        android:fontFamily="@font/font_digital"
+        android:gravity="center"
+        android:textColor="@color/white"
+
+        android:layout_marginTop="30dp"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtMvQuiz"
+        app:layout_constraintRight_toRightOf="parent"
+
+
+        />
 
     <TextView
         android:id="@+id/Mainmultiplechoice"

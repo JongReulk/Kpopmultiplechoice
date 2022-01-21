@@ -137,10 +137,6 @@
         android:fontFamily="@font/font_basic"
         android:textColor="@color/palewhite"
 
-        android:shadowColor="@color/title_text_color_pale"
-        android:shadowRadius="8"
-        android:shadowDy="10"
-
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

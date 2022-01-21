@@ -84,4 +84,5 @@
     <string name="KPOP_MASTER">KPOP MASTER</string>
     <string name="KPOP_GOD">KPOP GOD</string>
     <string name="KPOP_CHALLENGE">CHALLENGE</string>
+    <string name="chooseAnswer">Please choose the answer!</string>
 </resources>
