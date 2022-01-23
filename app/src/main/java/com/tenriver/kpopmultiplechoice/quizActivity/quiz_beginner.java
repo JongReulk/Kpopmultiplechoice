@@ -7,6 +7,8 @@ import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -63,6 +65,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
     private long COUNTDOWN_IN_MILLIS = 30500;
 
     private static final String QUIZ_SHARED = "quizshared";
+    private static final String SHARED_MUSIC = "sharedMusic";
     private String QuizHighscore;
     private static final String BABY_HIGH_SCORE = "babyhighscore";
     private static final String CLASSIC_HIGH_SCORE = "classichighscore";
@@ -169,6 +172,13 @@ public class quiz_beginner extends YouTubeBaseActivity {
     // 점수 비교용 변수
     private int currentHighScore;
 
+    // 답 효과음
+    SoundPool soundPool;	//작성
+    int correctSound;		    //작성
+    int wrongSound;
+    private float soundPoolVolume;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -181,6 +191,26 @@ public class quiz_beginner extends YouTubeBaseActivity {
         pointplus = 0;
 
         getModeandYear();
+
+        SharedPreferences music = getSharedPreferences(SHARED_MUSIC,MODE_PRIVATE);
+
+        Boolean bgmCb_main = music.getBoolean("bgmCb",true);
+        Boolean effectCb_main = music.getBoolean("effectCb",true);
+
+        //Sound
+        soundPool = new SoundPool(5, AudioManager.STREAM_MUSIC,0);	//작성
+        wrongSound = soundPool.load(this,R.raw.wrongsound,1);
+        correctSound = soundPool.load(this,R.raw.correctsound,1);
+
+        if(soundPool!=null){
+            if(!effectCb_main){
+                soundPoolVolume=0.0f;
+            }
+
+            else{
+                soundPoolVolume=1f;
+            }
+        }
 
 
         if(MainActivity.mediaplayer_main!=null)
@@ -906,6 +936,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
         // 보기 안에 있는 내용 보고 정답 확인
         if (answerNr == currentQuestion.getAnswerNr()) {
+            soundPool.play(correctSound,soundPoolVolume,soundPoolVolume,0,0,1f);
             correctText.setVisibility(View.VISIBLE);
             opSelected.setTextColor(Color.GREEN);
             score = score+plus; // 점수 책정 방식
@@ -922,6 +953,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
         else {
             if(opSelected !=null) {
+                soundPool.play(wrongSound,soundPoolVolume,soundPoolVolume,0,0,1f);
                 opSelected.setTextColor(Color.RED);
                 isWrong = true;
             }

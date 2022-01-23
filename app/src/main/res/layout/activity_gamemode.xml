@@ -446,7 +446,7 @@
                         android:paddingTop="20dp"
                         android:layout_weight="2.5"
                         android:text="@string/KPOP_MASTER"
-                        android:textColor="@color/fog"
+                        android:textColor="@color/charlotte"
 
                         android:ellipsize="marquee"
                         android:fontFamily="@font/font_basic"
