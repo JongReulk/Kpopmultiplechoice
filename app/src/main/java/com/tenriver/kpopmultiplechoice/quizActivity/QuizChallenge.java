@@ -7,6 +7,8 @@ import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -68,6 +70,7 @@ public class QuizChallenge extends YouTubeBaseActivity {
     private static final String INTERSTITIAL_AD_ID = "ca-app-pub-3940256099942544/1033173712";
 
     private static final String QUIZ_SHARED = "quizshared";
+    private static final String SHARED_MUSIC = "sharedMusic";
     private static final String CHALLENGE_HIGH_SCORE = "challengehighScore";
 
 
@@ -162,6 +165,14 @@ public class QuizChallenge extends YouTubeBaseActivity {
 
     private int currentChallengeHighscore;
 
+    private boolean isWrong;
+
+    // 답 효과음
+    SoundPool soundPool;	//작성
+    int correctSound;		    //작성
+    int wrongSound;
+    private float soundPoolVolume;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -171,6 +182,11 @@ public class QuizChallenge extends YouTubeBaseActivity {
 
         question_Num = 0;
 
+        SharedPreferences music = getSharedPreferences(SHARED_MUSIC,MODE_PRIVATE);
+
+        Boolean bgmCb_main = music.getBoolean("bgmCb",true);
+        Boolean effectCb_main = music.getBoolean("effectCb",true);
+
 
         if(MainActivity.mediaplayer_main!=null)
         {
@@ -178,6 +194,11 @@ public class QuizChallenge extends YouTubeBaseActivity {
             MainActivity.mediaplayer_main.release();
             MainActivity.mediaplayer_main = null;
         }
+
+        //Sound
+        soundPool = new SoundPool(5, AudioManager.STREAM_MUSIC,0);	//작성
+        wrongSound = soundPool.load(this,R.raw.wrongsound,1);
+        correctSound = soundPool.load(this,R.raw.correctsound,1);
 
         score_challenge = 0;
 
@@ -308,6 +329,8 @@ public class QuizChallenge extends YouTubeBaseActivity {
         Random Adrandom = new Random();
         randomAd = Adrandom.nextInt(3);
 
+        // 광고 부분
+        /*
         if(randomAd == 0){
             LoadAD();
         }
@@ -316,6 +339,12 @@ public class QuizChallenge extends YouTubeBaseActivity {
             initPlayer();
             showNextQuestion();
         }
+
+         */
+
+        isFirst = false;
+        initPlayer();
+        showNextQuestion();
 
         op1.setSingleLine(true);
         op1.setEllipsize(TextUtils.TruncateAt.MARQUEE);
@@ -552,7 +581,10 @@ public class QuizChallenge extends YouTubeBaseActivity {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            showInterstitial();
+
+                            //광고 부분
+                            //showInterstitial();
+                            finishQuiz();
                         }
                     },2000);
                 }
@@ -886,6 +918,7 @@ public class QuizChallenge extends YouTubeBaseActivity {
 
         // 보기 안에 있는 내용 보고 정답 확인
         if (answerNr == currentQuestion.getAnswerNr()) {
+            soundPool.play(correctSound,soundPoolVolume,soundPoolVolume,0,0,1f);
             correctText.setVisibility(View.VISIBLE);
             opSelected.setTextColor(Color.GREEN);
             score_challenge = score_challenge+plus; // 점수 책정 방식
@@ -902,6 +935,9 @@ public class QuizChallenge extends YouTubeBaseActivity {
         else {
             if(opSelected !=null) {
                 opSelected.setTextColor(Color.RED);
+                soundPool.play(wrongSound,soundPoolVolume,soundPoolVolume,0,0,1f);
+                opSelected.setTextColor(Color.RED);
+                isWrong = true;
             }
             nextButton.setText(getString(R.string.Finish));
             isChallengefinish = true;
@@ -909,7 +945,8 @@ public class QuizChallenge extends YouTubeBaseActivity {
 
             }
             else{
-                LoadAD();
+                // 광고 부분
+                //LoadAD();
             }
 
         }

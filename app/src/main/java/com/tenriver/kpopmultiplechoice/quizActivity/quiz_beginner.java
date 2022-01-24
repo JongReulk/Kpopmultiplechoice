@@ -378,6 +378,8 @@ public class quiz_beginner extends YouTubeBaseActivity {
         Random Adrandom = new Random();
         randomAd = Adrandom.nextInt(3);
 
+        // 광고 부분
+        /*
         if(randomAd == 0){
             LoadAD();
         }
@@ -386,6 +388,10 @@ public class quiz_beginner extends YouTubeBaseActivity {
             initPlayer();
             showNextQuestion();
         }
+
+         */
+        initPlayer();
+        showNextQuestion();
 
         op1.setSingleLine(true);
         op1.setEllipsize(TextUtils.TruncateAt.MARQUEE);
@@ -616,13 +622,17 @@ public class quiz_beginner extends YouTubeBaseActivity {
                     endimage.setVisibility(View.VISIBLE);
                     Animation end_anim = AnimationUtils.loadAnimation(getApplication(), R.anim.fade_in);
                     endimage.startAnimation(end_anim);
+
                     handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            showInterstitial();
+                            // 광고 부분
+                            //showInterstitial();
+                            finishQuiz();
                         }
                     },2000);
+
                 }
                 else {
                     showNextQuestion();
@@ -1001,12 +1011,15 @@ public class quiz_beginner extends YouTubeBaseActivity {
             nextButton.setText(getString(R.string.Next));
         }
         else{
+            // 광고 부분
+            /*
             if(randomAd == 0){
 
             }
             else{
                 LoadAD();
             }
+             */
             isFinished=true;
             nextButton.setText(getString(R.string.Finish));
         }
@@ -1015,13 +1028,13 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
     private void finishQuiz() {
         isHandler = false;
-        pointplus = 10;
+        pointplus = 20;
 
         if (plus == 10) {
-            pointplus = 10;
+            pointplus = 20;
         }
         else if (plus == 30) {
-            pointplus = 20;
+            pointplus = 30;
         }
         else if (plus == 50) {
             pointplus = 30;
