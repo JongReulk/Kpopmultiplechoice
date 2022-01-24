@@ -116,12 +116,16 @@ public class YearActivity extends AppCompatActivity {
         SharedPreferences mode_shared = getSharedPreferences(MODE_SHARED,MODE_PRIVATE);
 
 
+        // 광고 부분
+        /*
         mAdview = findViewById(R.id.yearadView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdview.loadAd(adRequest);
         AdView adView = new AdView(this);
         adView.setAdSize(AdSize.BANNER);
         adView.setAdUnitId("\n" + BANNER_AD_ID);
+       
+         */
 
         if(!MainActivity.mediaplayer_main.isPlaying())
         {

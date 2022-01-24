@@ -46,7 +46,7 @@
     <string name="currentPoint">현재 포인트 :</string>
     <string name="lessCount">힌트를 더 이상 쓸 수 없습니다.</string>
     <string name="tryAgain">잠시 후 다시 시도해 주세요.</string>
-    <string name="congratulation">축하합니다! 60포인트를 얻었습니다!!!</string>
+    <string name="congratulation">축하합니다! 80포인트를 얻었습니다!!!</string>
     <string name="point_30">30포인트를 획득하였습니다!!</string>
     <string name="seeAd">광고보고\n포인트얻기</string>
     <string name="fatalerror">치명적인 오류가 발생했습니다.</string>
@@ -95,4 +95,5 @@
     <string name="need30points">입장하려면 30포인트가 필요합니다!</string>
     <string name="deducted10points">10포인트가 차감되었습니다.</string>
     <string name="deducted30points">30포인트가 차감되었습니다.</string>
+    <string name="PLUS50">50 포인트  플러스</string>
 </resources>

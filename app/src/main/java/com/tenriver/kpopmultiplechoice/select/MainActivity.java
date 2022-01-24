@@ -222,12 +222,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // 광고 부분
+        /*
         mAdview = findViewById(R.id.mainadView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdview.loadAd(adRequest);
         AdView adView = new AdView(this);
         adView.setAdSize(AdSize.BANNER);
         adView.setAdUnitId("\n" + BANNER_AD_ID);
+        
+         */
 
 
         // BGN 실행
@@ -472,12 +476,12 @@ public class MainActivity extends AppCompatActivity {
         Integer adRandom = random.nextInt(4);
 
         if(adRandom == 0){
-            adPoint = 60;
+            adPoint = 80;
             adToast = Toast.makeText(this, getString(R.string.congratulation), Toast.LENGTH_SHORT);
         }
 
         else{
-            adPoint = 30;
+            adPoint = 50;
             adToast = Toast.makeText(this, getString(R.string.point_30), Toast.LENGTH_SHORT);
         }
 

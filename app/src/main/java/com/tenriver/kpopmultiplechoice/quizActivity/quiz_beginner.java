@@ -1028,16 +1028,13 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
     private void finishQuiz() {
         isHandler = false;
-        pointplus = 20;
+        pointplus = 0;
 
         if (plus == 10) {
-            pointplus = 20;
+            pointplus = 30;
         }
         else if (plus == 30) {
-            pointplus = 30;
-        }
-        else if (plus == 50) {
-            pointplus = 30;
+            pointplus = 50;
         }
 
         if (isBackPressed) {
