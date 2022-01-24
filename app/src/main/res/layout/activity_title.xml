@@ -10,32 +10,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="K"
-        android:textColor="@color/title_text_color"
+        android:textColor="@color/palepink2"
         android:gravity="center"
-        android:textSize="52dp"
+        android:textSize="56dp"
         android:fontFamily="@font/font_digital"
-        android:alpha="0"
+        android:alpha="1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.3"
-        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintHorizontal_bias="0.24"
 
         app:textStroke="true"
         app:textStrokeWidth="6.0"
-        app:textStrokeColor="@color/white"/>
+        app:textStrokeColor="@color/palewhite"/>
 
     <com.tenriver.kpopmultiplechoice.OutlineTextView
         android:id="@+id/titletextP1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="P"
-        android:textColor="@color/title_text_color"
+        android:textColor="@color/palepink2"
         android:gravity="center"
         android:textSize="52dp"
         android:fontFamily="@font/font_digital"
-        android:alpha="0"
+        android:alpha="1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -45,18 +45,18 @@
 
         app:textStroke="true"
         app:textStrokeWidth="6.0"
-        app:textStrokeColor="@color/white"/>
+        app:textStrokeColor="@color/palewhite"/>
 
     <com.tenriver.kpopmultiplechoice.OutlineTextView
         android:id="@+id/titletextO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="O"
-        android:textColor="@color/title_text_color"
+        android:textColor="@color/palepink2"
         android:gravity="center"
         android:textSize="52dp"
         android:fontFamily="@font/font_digital"
-        android:alpha="0"
+        android:alpha="1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -66,18 +66,18 @@
 
         app:textStroke="true"
         app:textStrokeWidth="6.0"
-        app:textStrokeColor="@color/white"/>
+        app:textStrokeColor="@color/palewhite"/>
 
     <com.tenriver.kpopmultiplechoice.OutlineTextView
         android:id="@+id/titletextP2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="P"
-        android:textColor="@color/title_text_color"
+        android:textColor="@color/palepink2"
         android:gravity="center"
         android:textSize="52dp"
         android:fontFamily="@font/font_digital"
-        android:alpha="0"
+        android:alpha="1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -87,7 +87,7 @@
 
         app:textStroke="true"
         app:textStrokeWidth="6.0"
-        app:textStrokeColor="@color/white"/>
+        app:textStrokeColor="@color/palewhite"/>
 
     <ImageView
         android:id="@+id/imageView_lp"
@@ -110,11 +110,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/MvQuiz"
-        android:textColor="@color/title_text_color"
+        android:textColor="@color/palepink2"
         android:gravity="center"
         android:textSize="52dp"
         android:fontFamily="@font/font_digital"
-        android:alpha="0"
+        android:alpha="1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -124,7 +124,7 @@
 
         app:textStroke="true"
         app:textStrokeWidth="6.0"
-        app:textStrokeColor="@color/white"/>
+        app:textStrokeColor="@color/palewhite"/>
 
     <com.tenriver.kpopmultiplechoice.OutlineTextView
         android:id="@+id/titleMultiplechoice"
@@ -135,7 +135,7 @@
         android:gravity="center"
         android:textSize="42dp"
         android:fontFamily="@font/font_digital"
-        android:alpha="0"
+        android:alpha="1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -145,7 +145,7 @@
 
         app:textStroke="true"
         app:textStrokeWidth="6.0"
-        app:textStrokeColor="@color/white"/>
+        app:textStrokeColor="@color/palewhite"/>
 
 
     <TextView
@@ -153,11 +153,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Touch To Start!!"
-        android:textColor="@color/title_text_color"
+        android:textColor="@color/palepink2"
         android:gravity="center"
         android:textSize="35dp"
         android:fontFamily="@font/font_digital"
-        android:alpha="0"
+        android:alpha="1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
