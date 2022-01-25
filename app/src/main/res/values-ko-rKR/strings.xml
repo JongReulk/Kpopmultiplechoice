@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Kpop 뮤비 퀴즈</string>
+    <string name="app_name">KPOP 뮤비 퀴즈 - 객관식 노래 맞추기</string>
     <string name="start">시작</string>
     <string name="bestscore">최고 점수</string>
     <string name="Confirm">정답 확인</string>

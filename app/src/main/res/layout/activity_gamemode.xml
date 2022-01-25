@@ -277,7 +277,7 @@
                         android:bufferType="spannable"
                         android:fontFamily="@font/font_basic"
                         android:gravity="center"
-                        android:text="@string/PLUS20"
+                        android:text="@string/PLUS30"
                         android:textColor="@color/teal_200"
 
 
@@ -376,7 +376,7 @@
                         android:bufferType="spannable"
                         android:fontFamily="@font/font_basic"
                         android:gravity="center"
-                        android:text="@string/PLUS30"
+                        android:text="@string/PLUS50"
                         android:textColor="@color/teal_200"
 
 

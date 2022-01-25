@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Kpop MV Quiz</string>
+    <string name="app_name">KPOP MV Quiz  - Multiple Choice</string>
     <string name="start">START</string>
     <string name="Title" translatable="false">KPOP</string>
     <string name="bestscore">Best Score</string>

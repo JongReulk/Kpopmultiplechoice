@@ -1,6 +1,8 @@
 package com.tenriver.kpopmultiplechoice.quizActivity;
 
 import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -493,7 +495,8 @@ public class quiz_beginner extends YouTubeBaseActivity {
                     hintPoint = hintPoint - 50;
 
                     txtHintPoint.setText(""+hintPoint);
-                    Toast.makeText(getApplicationContext(), getString(R.string.currentPoint) + hintPoint, Toast.LENGTH_SHORT).show();
+
+                    //Toast.makeText(getApplicationContext(), getString(R.string.currentPoint) + hintPoint, Toast.LENGTH_SHORT).show();
                     Log.v("보기 지우기", "보기 지우기 버튼 클릭");
 
                     int randomRemove;
@@ -536,6 +539,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
         // 보기 지우기 힌트
         Hint_pass.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
                 if (hintPoint < 100){
@@ -619,6 +623,11 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
                 if(questionCounter >= questionCountTotal)
                 {
+                    if (player != null) {
+                        if (player.isPlaying()) {
+                            player.pause();
+                        }
+                    }
                     endimage.setVisibility(View.VISIBLE);
                     Animation end_anim = AnimationUtils.loadAnimation(getApplication(), R.anim.fade_in);
                     endimage.startAnimation(end_anim);

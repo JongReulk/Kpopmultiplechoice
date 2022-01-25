@@ -573,6 +573,11 @@ public class QuizChallenge extends YouTubeBaseActivity {
                 if(isChallengefinish){
                     //AdRequest adRequest = new AdRequest.Builder().build();
                     //finishQuiz();
+                    if (player != null) {
+                        if (player.isPlaying()) {
+                            player.pause();
+                        }
+                    }
                     isFinished=true;
                     endimage.setVisibility(View.VISIBLE);
                     Animation end_anim = AnimationUtils.loadAnimation(getApplication(), R.anim.fade_in);
@@ -591,6 +596,11 @@ public class QuizChallenge extends YouTubeBaseActivity {
 
                 else {
                     if (questionCounter >= questionCountTotal) {
+                        if (player != null) {
+                            if (player.isPlaying()) {
+                                player.pause();
+                            }
+                        }
                         isFinished=true;
                         endimage.setVisibility(View.VISIBLE);
                         Animation end_anim = AnimationUtils.loadAnimation(getApplication(), R.anim.fade_in);

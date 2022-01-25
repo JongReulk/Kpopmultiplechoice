@@ -261,7 +261,7 @@
         android:layout_height="wrap_content"
 
         android:alpha="0.8"
-        android:text="MULTIPLE CHOICE"
+        android:text="@string/multiplechoice"
         android:textSize="28sp"
         android:fontFamily="@font/font_digital"
         android:gravity="center"
