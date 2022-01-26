@@ -751,7 +751,7 @@ public class MainActivity extends AppCompatActivity {
             }
             else
             {
-                Toast.makeText(this, "Review Failed to start", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Review Failed to start", Toast.LENGTH_SHORT).show();
             }
 
         });
@@ -762,7 +762,7 @@ public class MainActivity extends AppCompatActivity {
         {
             Task<Void> flow = reviewManager.launchReviewFlow(this,reviewInfo);
             flow.addOnCompleteListener(task -> {
-                Toast.makeText(this, "Rating is completed", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Rating is completed", Toast.LENGTH_SHORT).show();
             });
         }
     }
