@@ -43,8 +43,12 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 import com.google.android.gms.ads.rewarded.RewardItem;
 import com.google.android.gms.ads.rewarded.RewardedAd;
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
+import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.games.Games;
 import com.google.android.gms.games.GamesClient;
 import com.google.android.material.snackbar.Snackbar;
@@ -739,6 +743,15 @@ public class MainActivity extends AppCompatActivity {
         if(requestCode == RC_APP_UPDATE && resultCode != RESULT_OK){
         }
 
+        if(requestCode == RC_SIGN_IN) {
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            if (result.isSuccess()) {
+                GoogleSignInAccount signedInAccount = result.getSignInAccount();
+            } else {
+                String message = result.getStatus().getStatusMessage();
+            }
+        }
+
         super.onActivityResult(requestCode, resultCode, data);
     }
 
@@ -757,7 +770,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    void startReviewFlow() {
+    private void startReviewFlow() {
         if(reviewInfo != null)
         {
             Task<Void> flow = reviewManager.launchReviewFlow(this,reviewInfo);
@@ -766,4 +779,40 @@ public class MainActivity extends AppCompatActivity {
             });
         }
     }
+
+    public void login(View v) {
+        signinIntent();
+    }
+
+    public void logout(View v) {
+        signout();
+    }
+
+    private void submitTotalScore() {
+        SharedPreferences quizshared = getSharedPreferences(QUIZ_SHARED,MODE_PRIVATE);
+        int newTotalScore;
+        newTotalScore = quizshared.getInt(TOTAL_HIGH_SCORE,0);
+
+
+        try {
+            Games.getLeaderboardsClient(this,GoogleSignIn.getLastSignedInAccount(this)).submitScore(getString(R.string.leaderboard_kpop_mv_quiz__multiple_choice_ranking), newTotalScore);
+        } catch (Exception e) {
+
+        }
+    }
+
+    private void signinIntent() {
+        GoogleSignInClient signInclient = GoogleSignIn.getClient(this, GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN);
+        Intent signIntent = signInclient.getSignInIntent();
+        startActivityForResult(signIntent, RC_SIGN_IN);
+    }
+
+    private void signout() {
+        GoogleSignInClient signInClient = GoogleSignIn.getClient(this, GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN);
+        signInClient.signOut().addOnCompleteListener(this, task -> {
+
+        });
+    }
+
+
 }

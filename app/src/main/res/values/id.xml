@@ -2,33 +2,9 @@
 <!--Google Play game services IDs. Save this file as res/values/games-ids.xml in your project.-->
 <resources>
     <!--app_id-->
-    <string name="app_id" translatable="false">625182011319</string>
+    <string name="app_id" translatable="false">877191352337</string>
     <!--package_name-->
-    <string name="package_name" translatable="false">com.tenriver.kpop</string>
-    <!--achievement Start lightly (Easy)-->
-    <string name="achievement_start_lightly_easy" translatable="false">CgkIt9-B_pgSEAIQAw</string>
-    <!--achievement Start lightly (Normal)-->
-    <string name="achievement_start_lightly_normal" translatable="false">CgkIt9-B_pgSEAIQBA</string>
-    <!--achievement Start lightly (Hard)-->
-    <string name="achievement_start_lightly_hard" translatable="false">CgkIt9-B_pgSEAIQBQ</string>
-    <!--achievement Can you Challenge?-->
-    <string name="achievement_can_you_challenge" translatable="false">CgkIt9-B_pgSEAIQBg</string>
-    <!--achievement Easy Mode Master-->
-    <string name="achievement_easy_mode_master" translatable="false">CgkIt9-B_pgSEAIQBw</string>
-    <!--achievement Normal Mode Master-->
-    <string name="achievement_normal_mode_master" translatable="false">CgkIt9-B_pgSEAIQCA</string>
-    <!--achievement Hard Mode Master-->
-    <string name="achievement_hard_mode_master" translatable="false">CgkIt9-B_pgSEAIQCQ</string>
-    <!--achievement Effort Never Betrays!-->
-    <string name="achievement_effort_never_betrays" translatable="false">CgkIt9-B_pgSEAIQCg</string>
-    <!--achievement Road to Challenge Master-->
-    <string name="achievement_road_to_challenge_master" translatable="false">CgkIt9-B_pgSEAIQCw</string>
-    <!--achievement A Challenger is beautiful-->
-    <string name="achievement_a_challenger_is_beautiful" translatable="false">CgkIt9-B_pgSEAIQDA</string>
-    <!--achievement Many Drops Make a Shower-->
-    <string name="achievement_many_drops_make_a_shower" translatable="false">CgkIt9-B_pgSEAIQDQ</string>
-    <!--achievement Has Anyone Seen More Ads than Me?-->
-    <string name="achievement_has_anyone_seen_more_ads_than_me" translatable="false">CgkIt9-B_pgSEAIQDg</string>
-    <!--leaderboard KPOP MV QUIZ CHALLENGE HIGHSCORE-->
-    <string name="leaderboard_kpop_mv_quiz_challenge_highscore" translatable="false">CgkIt9-B_pgSEAIQAg</string>
+    <string name="package_name" translatable="false">com.tenriver.kpopmultiplechoice</string>
+    <!--leaderboard KPOP MV QUIZ - MULTIPLE CHOICE RANKING-->
+    <string name="leaderboard_kpop_mv_quiz__multiple_choice_ranking" translatable="false">CgkIkaC35cMZEAIQAQ</string>
 </resources>

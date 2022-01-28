@@ -200,32 +200,14 @@ public class QuizMain extends YouTubeBaseActivity {
 
         if(videoLength == 10000){
             plus = 10;
-            try {
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                        .unlock(getString(R.string.achievement_start_lightly_easy));
-            }catch (Exception e) {
-                Log.d("로그", "업적 업로드 실패");
-            }
         }
 
         if(videoLength == 5000){
             plus = 20;
-            try {
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                        .unlock(getString(R.string.achievement_start_lightly_normal));
-            }catch (Exception e) {
-                Log.d("로그", "업적 업로드 실패");
-            }
         }
 
         if(videoLength == 3000){
             plus = 30;
-            try {
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                        .unlockImmediate(getString(R.string.achievement_start_lightly_hard));
-            }catch (Exception e) {
-                Log.d("로그", "업적 업로드 실패");
-            }
         }
 
 
@@ -892,64 +874,6 @@ public class QuizMain extends YouTubeBaseActivity {
 
         basic_playtime++;
 
-        try {
-            if (basic_playtime > 500) {
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                        .increment(getString(R.string.achievement_effort_never_betrays), 5);
-            }
-            else if (basic_playtime > 300) {
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                        .increment(getString(R.string.achievement_effort_never_betrays), 4);
-            }
-            else if (basic_playtime > 100) {
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                        .increment(getString(R.string.achievement_effort_never_betrays), 3);
-            }
-            else if (basic_playtime > 50) {
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                        .increment(getString(R.string.achievement_effort_never_betrays), 2);
-            }
-            else if (basic_playtime > 10) {
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                        .increment(getString(R.string.achievement_effort_never_betrays), 1);
-            }
-
-        } catch(Exception e){
-            Log.d("로그", "챌린지 업적 불러오기 실패");
-        }
-
-        if(videoLength == 10000){
-            if(score == 100){
-                try {
-                    Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                            .unlock(getString(R.string.achievement_easy_mode_master));
-                }catch (Exception e) {
-                    Log.d("로그", "업적 업로드 실패");
-                }
-            }
-        }
-
-        if(videoLength == 5000){
-            if(score == 200){
-                try {
-                    Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                            .unlock(getString(R.string.achievement_normal_mode_master));
-                }catch (Exception e) {
-                    Log.d("로그", "업적 업로드 실패");
-                }
-            }
-        }
-
-        if(videoLength == 3000){
-            if(score == 300){
-                try {
-                    Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this))
-                            .unlock(getString(R.string.achievement_hard_mode_master));
-                }catch (Exception e) {
-                    Log.d("로그", "업적 업로드 실패");
-                }
-            }
-        }
         pointplus = 10;
 
 
