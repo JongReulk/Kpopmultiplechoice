@@ -67,7 +67,7 @@ public class QuizChallenge extends YouTubeBaseActivity {
     public static final String HIGH_SCORE = "highScore";
 
     private static final long COUNTDOWN_IN_MILLIS = 30500;
-    private static final String INTERSTITIAL_AD_ID = "ca-app-pub-3940256099942544/1033173712";
+    private String INTERSTITIAL_AD_ID;
 
     private static final String QUIZ_SHARED = "quizshared";
     private static final String SHARED_MUSIC = "sharedMusic";
@@ -178,6 +178,8 @@ public class QuizChallenge extends YouTubeBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_challenge);
 
+        INTERSTITIAL_AD_ID = getString(R.string.INTERSTITIAL_TEST);
+
         Log.d("start","quiz challenge activity start!");
 
         question_Num = 0;
@@ -268,6 +270,7 @@ public class QuizChallenge extends YouTubeBaseActivity {
 
         musicProgressbar = findViewById(R.id.musicProgressBar);
 
+
         musicProgressbar.setMax(videoLength);
 
         confirmButton.setEnabled(false);
@@ -330,7 +333,7 @@ public class QuizChallenge extends YouTubeBaseActivity {
         randomAd = Adrandom.nextInt(3);
 
         // 광고 부분
-        /*
+
         if(randomAd == 0){
             LoadAD();
         }
@@ -340,11 +343,6 @@ public class QuizChallenge extends YouTubeBaseActivity {
             showNextQuestion();
         }
 
-         */
-
-        isFirst = false;
-        initPlayer();
-        showNextQuestion();
 
         op1.setSingleLine(true);
         op1.setEllipsize(TextUtils.TruncateAt.MARQUEE);
@@ -588,8 +586,8 @@ public class QuizChallenge extends YouTubeBaseActivity {
                         public void run() {
 
                             //광고 부분
-                            //showInterstitial();
-                            finishQuiz();
+                            showInterstitial();
+                            //finishQuiz();
                         }
                     },2000);
                 }
@@ -956,7 +954,7 @@ public class QuizChallenge extends YouTubeBaseActivity {
             }
             else{
                 // 광고 부분
-                //LoadAD();
+                LoadAD();
             }
 
         }

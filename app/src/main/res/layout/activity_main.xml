@@ -157,6 +157,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:gravity="center"
         android:layout_marginTop="30dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtPoint"
@@ -207,27 +208,60 @@
             android:layout_marginBottom="20dp"
             />
 
-        <ImageButton
-            android:id="@+id/rating_Button"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:gravity="center"
-            android:src="@drawable/rating2"
-            android:scaleType="fitStart"
-
-            android:fontFamily="@font/font_basic"
-            android:background="@drawable/circlebutton_state"
-            android:textColor="@color/white"
-            android:soundEffectsEnabled="false"
-
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
 
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.7"
+            app:layout_constraintBottom_toBottomOf="parent">
 
-            />
+            <ImageButton
+                android:id="@+id/rating_Button"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:gravity="center"
+                android:src="@drawable/rating2"
+                android:scaleType="fitStart"
+
+                android:fontFamily="@font/font_basic"
+                android:background="@drawable/circlebutton_state"
+                android:textColor="@color/white"
+                android:soundEffectsEnabled="false"
+
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.7"
+                />
+
+            <Button
+                android:id="@+id/Reward_Button"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:gravity="center"
+                android:scaleType="fitStart"
+                android:layout_marginLeft="15dp"
+
+                android:fontFamily="@font/font_basic"
+                android:background="@drawable/circlebutton_state"
+                android:textColor="@color/white"
+                android:soundEffectsEnabled="false"
+                android:text="@string/ADPOINT"
+
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.7"
+                />
+
+        </LinearLayout>
     </LinearLayout>
 
 

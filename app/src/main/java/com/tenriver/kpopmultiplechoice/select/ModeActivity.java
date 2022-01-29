@@ -41,7 +41,7 @@ import static com.tenriver.kpopmultiplechoice.select.MainActivity.SHARED_POINT;
 
 public class ModeActivity extends AppCompatActivity {
 
-    private static final String BANNER_AD_ID = "ca-app-pub-3940256099942544/6300978111";
+    private String BANNER_AD_ID;
 
     private boolean isFinished = false;
 
@@ -94,6 +94,8 @@ public class ModeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gamemode);
 
+        BANNER_AD_ID = getString(R.string.BANNER_TEST);
+
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(@NonNull InitializationStatus initializationStatus) {
@@ -103,15 +105,14 @@ public class ModeActivity extends AppCompatActivity {
         });
 
         // 광고 부분
-        /*
+
         AdView mAdview = findViewById(R.id.mode_adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdview.loadAd(adRequest);
         AdView adView = new AdView(this);
         adView.setAdSize(AdSize.BANNER);
         adView.setAdUnitId("\n" + BANNER_AD_ID);
-        
-         */
+
 
 
 

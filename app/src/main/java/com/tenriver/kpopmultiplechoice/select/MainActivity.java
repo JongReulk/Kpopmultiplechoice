@@ -98,8 +98,8 @@ public class MainActivity extends AppCompatActivity {
     private int master_highscore;
     private int challengehighscore;
 
-    private static final String REWARD_AD_ID = "ca-app-pub-3940256099942544/5224354917";
-    private static final String BANNER_AD_ID = "ca-app-pub-3940256099942544/6300978111";
+    private String REWARD_AD_ID;
+    private String BANNER_AD_ID;
 
     //로그인 관련
     private static final int RC_SIGN_IN=9001;
@@ -168,8 +168,15 @@ public class MainActivity extends AppCompatActivity {
     private ReviewManager reviewManager;
     private ImageButton ratingButton;
 
+    // 리워드 광고
+    private Button rewardButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        BANNER_AD_ID = getString(R.string.BANNER_TEST);
+        REWARD_AD_ID = getString(R.string.REWARD_TEST);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -189,6 +196,8 @@ public class MainActivity extends AppCompatActivity {
         mvquiz.startAnimation(textfadein);
         multiplechoice.startAnimation(textfadein);
         txtpoint.startAnimation(textfadein);
+
+        rewardButton = findViewById(R.id.Reward_Button);
 
         ratingButton = findViewById(R.id.rating_Button);
 
@@ -227,15 +236,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // 광고 부분
-        /*
+
         mAdview = findViewById(R.id.mainadView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdview.loadAd(adRequest);
         AdView adView = new AdView(this);
         adView.setAdSize(AdSize.BANNER);
         adView.setAdUnitId("\n" + BANNER_AD_ID);
-        
-         */
+
 
 
         // BGN 실행
@@ -380,6 +388,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        rewardButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showRewardedAd();
+            }
+        });
+
     }
 
     @Override
@@ -480,12 +495,12 @@ public class MainActivity extends AppCompatActivity {
         Integer adRandom = random.nextInt(4);
 
         if(adRandom == 0){
-            adPoint = 80;
+            adPoint = 50;
             adToast = Toast.makeText(this, getString(R.string.congratulation), Toast.LENGTH_SHORT);
         }
 
         else{
-            adPoint = 50;
+            adPoint = 30;
             adToast = Toast.makeText(this, getString(R.string.point_30), Toast.LENGTH_SHORT);
         }
 

@@ -37,7 +37,7 @@ import java.util.Random;
 
 public class YearActivity extends AppCompatActivity {
 
-    private static final String BANNER_AD_ID = "ca-app-pub-3940256099942544/6300978111";
+    private String BANNER_AD_ID;
 
     private ScrollView year_scroll;
 
@@ -85,6 +85,8 @@ public class YearActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_year_new);
+        BANNER_AD_ID = getString(R.string.BANNER_TEST);
+
         getWindow().setWindowAnimations(0);
 
         year_2016 = findViewById(R.id.year_2016);
@@ -117,15 +119,14 @@ public class YearActivity extends AppCompatActivity {
 
 
         // 광고 부분
-        /*
+
         mAdview = findViewById(R.id.yearadView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdview.loadAd(adRequest);
         AdView adView = new AdView(this);
         adView.setAdSize(AdSize.BANNER);
         adView.setAdUnitId("\n" + BANNER_AD_ID);
-       
-         */
+
 
         if(!MainActivity.mediaplayer_main.isPlaying())
         {

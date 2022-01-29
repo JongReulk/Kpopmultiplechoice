@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--KPOP MULTI 아이디-->
+    <string name="AD_id" translatable="false">ca-app-pub-6633751318337334~8236028765</string>
+    <!--AD_TEST-->
+    <string name="BANNER_TEST" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+
+    <string name="INTERSTITIAL_TEST" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+
+    <string name="REWARD_TEST" translatable="false">ca-app-pub-3940256099942544/5224354917</string>
+
+
+    <!--AD_REAL-->
+    <string name="BANNER_REAL" translatable="false">ca-app-pub-6633751318337334/5400491179</string>
+
+    <string name="INTERSTITIAL_REAL" translatable="false">ca-app-pub-6633751318337334/6731375406</string>
+
+    <string name="REWARD_REAL" translatable="false">ca-app-pub-6633751318337334/9165967051</string>
+
+
+</resources>

@@ -46,7 +46,7 @@
     <string name="currentPoint">Current points :</string>
     <string name="lessCount">Can not use hint anymore.</string>
     <string name="tryAgain">Please try again in a few minutes.</string>
-    <string name="congratulation">Congratulations! Got 80 points!!!</string>
+    <string name="congratulation">Congratulations! Got 50 points!!!</string>
     <string name="point_30">You have earned 30 points!!</string>
     <string name="seeAd">See Ad\nGet Points</string>
     <string name="fatalerror">A fatal error has occurred.</string>
@@ -95,5 +95,6 @@
     <string name="need30points">Need 30 points to enter!</string>
     <string name="deducted10points">10 points have been deducted.</string>
     <string name="deducted30points">30 points have been deducted.</string>
-    <string name="PLUS50">PLSU 50 POINTS</string>
+    <string name="PLUS50">PLUS 50 POINTS</string>
+    <string name="ADPOINT">GET POINTS</string>
 </resources>

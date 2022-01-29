@@ -83,7 +83,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
     //static String API_KEY ="AIzaSyDImlmmX6mnicXNlzed8TH1cn5YN62hBN0"; // 구글 콘솔사이트에서 발급받는 키
     static String API_KEY ="AIzaSyCnt7CWC3z_t_OimQLUwJ5-yXf6C6F83-A";
-    private static final String INTERSTITIAL_AD_ID = "ca-app-pub-3940256099942544/1033173712";
+    private String INTERSTITIAL_AD_ID;
     static int score = 0;
     static int plus = 0;
     static int videoLength;// 이지 노말 하드에 따라서 바뀜
@@ -159,6 +159,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
     private int hintPoint;
     private TextView txtHintPoint;
     private static int pointplus;
+    private int scorepointplus;
 
     private ImageView endimage;
 
@@ -186,6 +187,8 @@ public class quiz_beginner extends YouTubeBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_beginner);
+
+        INTERSTITIAL_AD_ID = getString(R.string.INTERSTITIAL_TEST);
 
         Log.d("start","quiz main activity start!");
 
@@ -381,7 +384,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
         randomAd = Adrandom.nextInt(3);
 
         // 광고 부분
-        /*
+
         if(randomAd == 0){
             LoadAD();
         }
@@ -391,9 +394,6 @@ public class quiz_beginner extends YouTubeBaseActivity {
             showNextQuestion();
         }
 
-         */
-        initPlayer();
-        showNextQuestion();
 
         op1.setSingleLine(true);
         op1.setEllipsize(TextUtils.TruncateAt.MARQUEE);
@@ -637,8 +637,8 @@ public class quiz_beginner extends YouTubeBaseActivity {
                         @Override
                         public void run() {
                             // 광고 부분
-                            //showInterstitial();
-                            finishQuiz();
+                            showInterstitial();
+                            //finishQuiz();
                         }
                     },2000);
 
@@ -1021,14 +1021,14 @@ public class quiz_beginner extends YouTubeBaseActivity {
         }
         else{
             // 광고 부분
-            /*
+
             if(randomAd == 0){
 
             }
             else{
                 LoadAD();
             }
-             */
+
             isFinished=true;
             nextButton.setText(getString(R.string.Finish));
         }
@@ -1038,6 +1038,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
     private void finishQuiz() {
         isHandler = false;
         pointplus = 0;
+        scorepointplus = score / 5;
 
         if (plus == 10) {
             pointplus = 30;
@@ -1045,6 +1046,8 @@ public class quiz_beginner extends YouTubeBaseActivity {
         else if (plus == 30) {
             pointplus = 50;
         }
+
+        pointplus = pointplus + scorepointplus;
 
         if (isBackPressed) {
             score = 0;
