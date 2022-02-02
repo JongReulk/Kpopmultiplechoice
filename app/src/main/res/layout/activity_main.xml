@@ -338,5 +338,47 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageButton
+        android:id="@+id/loginBtn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:srcCompat="@drawable/common_google_signin_btn_icon_light_focused"
+
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:background="@color/whitetransparent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtPoint"
+         />
+
+    <ImageButton
+        android:id="@+id/logoutBtn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:srcCompat="@drawable/common_google_signin_btn_icon_light_focused"
+        android:alpha="0.8"
+        android:background="@color/whitetransparent"
+        android:visibility="gone"
+
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtPoint"
+        />
+
+    <ImageButton
+        android:id="@+id/scoreRank"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:scaleType="fitStart"
+        app:srcCompat="@drawable/trophyfinal2"
+        android:background="@drawable/circlebutton_state"
+
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtPoint"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

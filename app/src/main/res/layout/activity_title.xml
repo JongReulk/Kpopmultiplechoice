@@ -171,7 +171,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/touchtext"
         android:gravity="end"
-        android:text="ver. 1.0.1"
+        android:text="ver. 1.1.0"
         android:textColor="@color/title_text_color"
         android:textSize="32dp"
         android:alpha="0"

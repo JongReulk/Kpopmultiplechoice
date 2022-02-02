@@ -148,13 +148,6 @@ public class MainActivity extends AppCompatActivity {
 
     private Toast adToast;
 
-    // 로그인 및 랭킹 관련
-    private Button loginbtn;
-    private Button submitbtn;
-    private Button boardbtn;
-    private Button logoutbtn;
-    private Button achievementbtn;
-
     // 전원 버튼 감지
     private BroadcastReceiver receiver;
     private IntentFilter intentFilter;
@@ -170,6 +163,11 @@ public class MainActivity extends AppCompatActivity {
 
     // 리워드 광고
     private Button rewardButton;
+
+    // 로그인 및 랭킹 관련
+    private ImageButton loginButton;
+    private ImageButton logoutButton;
+    private ImageButton rankButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -189,6 +187,11 @@ public class MainActivity extends AppCompatActivity {
         multiplechoice = findViewById(R.id.Mainmultiplechoice);
         txtpoint = findViewById(R.id.txtPoint);
 
+        // 로그인 및 랭킹 관련
+        loginButton = findViewById(R.id.loginBtn);
+        logoutButton = findViewById(R.id.logoutBtn);
+        rankButton = findViewById(R.id.scoreRank);
+
         Animation textfadein = AnimationUtils.loadAnimation(getApplication(), R.anim.fade_in_text);
         kpop1.startAnimation(textfadein);
         kpop2.startAnimation(textfadein);
@@ -196,6 +199,9 @@ public class MainActivity extends AppCompatActivity {
         mvquiz.startAnimation(textfadein);
         multiplechoice.startAnimation(textfadein);
         txtpoint.startAnimation(textfadein);
+        loginButton.startAnimation(textfadein);
+        logoutButton.startAnimation(textfadein);
+        rankButton.startAnimation(textfadein);
 
         rewardButton = findViewById(R.id.Reward_Button);
 
@@ -225,6 +231,12 @@ public class MainActivity extends AppCompatActivity {
 
         // 퀴즈 별 하이스코어 확인 후 토탈 점수 갱신
         updateQuizHighscore();
+
+        // 토탈점수 submit
+        submitTotalScore();
+        
+        // 자동 로그인
+        signInSilently();
 
 
 
@@ -392,6 +404,27 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 showRewardedAd();
+            }
+        });
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                signinIntent();
+            }
+        });
+
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                signout();
+            }
+        });
+
+        rankButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rank();
             }
         });
 
@@ -762,8 +795,14 @@ public class MainActivity extends AppCompatActivity {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             if (result.isSuccess()) {
                 GoogleSignInAccount signedInAccount = result.getSignInAccount();
+                // 로그인 성공시
+                loginButton.setVisibility(View.GONE);
+                logoutButton.setVisibility(View.VISIBLE);
+                rankButton.setVisibility(View.VISIBLE);
+                Toast.makeText(this, getString(R.string.loginsucceed), Toast.LENGTH_SHORT);
             } else {
                 String message = result.getStatus().getStatusMessage();
+                Toast.makeText(this, getString(R.string.loginFail), Toast.LENGTH_SHORT);
             }
         }
 
@@ -795,13 +834,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void login(View v) {
-        signinIntent();
-    }
-
-    public void logout(View v) {
-        signout();
-    }
 
     private void submitTotalScore() {
         SharedPreferences quizshared = getSharedPreferences(QUIZ_SHARED,MODE_PRIVATE);
@@ -811,9 +843,18 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             Games.getLeaderboardsClient(this,GoogleSignIn.getLastSignedInAccount(this)).submitScore(getString(R.string.leaderboard_kpop_mv_quiz__multiple_choice_ranking), newTotalScore);
+            Toast.makeText(this, getString(R.string.updateSuccess), Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
 
         }
+    }
+
+    private void rank() {
+        Games.getLeaderboardsClient(this,GoogleSignIn.getLastSignedInAccount(this))
+                .getLeaderboardIntent(getString(R.string.leaderboard_kpop_mv_quiz__multiple_choice_ranking))
+                .addOnSuccessListener(intent -> {
+                    startActivityForResult(intent,RC_LEADERBOARD_UI);
+                });
     }
 
     private void signinIntent() {
@@ -825,8 +866,33 @@ public class MainActivity extends AppCompatActivity {
     private void signout() {
         GoogleSignInClient signInClient = GoogleSignIn.getClient(this, GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN);
         signInClient.signOut().addOnCompleteListener(this, task -> {
+            // 로그아웃 성공시
+            loginButton.setVisibility(View.VISIBLE);
+            logoutButton.setVisibility(View.GONE);
+            rankButton.setVisibility(View.GONE);
 
         });
+    }
+
+    private void signInSilently() {
+        GoogleSignInOptions signInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN).build();
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+        if(GoogleSignIn.hasPermissions(account,signInOptions.getScopeArray())) {
+            // 이미 로그인됨
+            googleSignInAccount=account;
+            loginButton.setVisibility(View.GONE);
+            logoutButton.setVisibility(View.VISIBLE);
+            rankButton.setVisibility(View.VISIBLE);
+            Toast.makeText(this, getString(R.string.loginsucceed), Toast.LENGTH_SHORT).show();
+
+        } else {
+            // 로그인 안됨
+            loginButton.setVisibility(View.VISIBLE);
+            logoutButton.setVisibility(View.GONE);
+            rankButton.setVisibility(View.GONE);
+            Toast.makeText(this,getString(R.string.offline),Toast.LENGTH_SHORT).show();
+        }
+
     }
 
 
