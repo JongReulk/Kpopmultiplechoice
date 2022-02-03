@@ -206,6 +206,10 @@ public class MainActivity extends AppCompatActivity {
         rewardButton = findViewById(R.id.Reward_Button);
 
         ratingButton = findViewById(R.id.rating_Button);
+        
+        loginButton.setVisibility(View.VISIBLE);
+        logoutButton.setVisibility(View.GONE);
+        rankButton.setVisibility(View.GONE);
 
         // 인앱 업데이트
         mAppUpdateManager = AppUpdateManagerFactory.create(this);
