@@ -621,7 +621,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
                 nextButton.setTextColor(Color.GRAY);
 
 
-                if(questionCounter >= questionCountTotal)
+                if(question_Num >= questionCountTotal)
                 {
                     if (player != null) {
                         if (player.isPlaying()) {
@@ -812,7 +812,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
 
     private void showNextQuestion() {
-        if (questionCounter < questionCountTotal) {
+        if (question_Num <= questionCountTotal) {
             op1.setTextColor(textColorDefaultRb);
             op2.setTextColor(textColorDefaultRb);
             op3.setTextColor(textColorDefaultRb);
@@ -826,7 +826,6 @@ public class quiz_beginner extends YouTubeBaseActivity {
             op3.setText(currentQuestion.getOption3());
             op4.setText(currentQuestion.getOption4());
 
-            questionCounter ++;
             if(!isError){
                 question_Num++;
             }
@@ -849,7 +848,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
             isStarted = true;
 
             checkLast();
-
+            questionCounter ++;
         }
 
     }
@@ -1016,7 +1015,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
     // 마지막 문제인지 체크
     private void checkLast(){
-        if (questionCounter < questionCountTotal) {
+        if (question_Num < questionCountTotal) {
             nextButton.setText(getString(R.string.Next));
         }
         else{

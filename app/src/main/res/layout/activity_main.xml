@@ -358,7 +358,6 @@
         app:srcCompat="@drawable/common_google_signin_btn_icon_light_focused"
         android:alpha="0.8"
         android:background="@color/whitetransparent"
-        android:visibility="gone"
 
         android:layout_marginTop="30dp"
         android:layout_marginLeft="20dp"
