@@ -97,4 +97,7 @@
     <string name="deducted30points">30 points have been deducted.</string>
     <string name="PLUS50">PLUS 50 POINTS</string>
     <string name="ADPOINT">GET POINTS</string>
+    <string name="Removeoption">Removed One Option.</string>
+    <string name="passquestion">Skip a question.</string>
+    <string name="listenagain">Listen to the song again.</string>
 </resources>

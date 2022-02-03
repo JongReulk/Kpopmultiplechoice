@@ -464,7 +464,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
                     hintPoint = hintPoint - 10;
 
                     txtHintPoint.setText(""+hintPoint);
-                    Toast.makeText(getApplicationContext(), getString(R.string.currentPoint) + hintPoint, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.listenagain), Toast.LENGTH_SHORT).show();
                     Log.v("다시 듣기", "다시듣기 버튼 클릭");
 
                     musicProgressbar.setAlpha(0.0f);
@@ -496,7 +496,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
                     txtHintPoint.setText(""+hintPoint);
 
-                    //Toast.makeText(getApplicationContext(), getString(R.string.currentPoint) + hintPoint, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.Removeoption), Toast.LENGTH_SHORT).show();
                     Log.v("보기 지우기", "보기 지우기 버튼 클릭");
 
                     int randomRemove;
@@ -550,7 +550,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
                     hintPoint = hintPoint - 100;
 
                     txtHintPoint.setText(""+hintPoint);
-                    Toast.makeText(getApplicationContext(), getString(R.string.currentPoint) + hintPoint, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.passquestion), Toast.LENGTH_SHORT).show();
                     Log.v("문제 패스", "패스 버튼 클릭");
 
                     isPassed = true;
