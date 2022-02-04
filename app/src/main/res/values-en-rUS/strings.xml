@@ -100,4 +100,5 @@
     <string name="Removeoption">Removed One Option.</string>
     <string name="passquestion">Skip a question.</string>
     <string name="listenagain">Listen to the song again.</string>
+    <string name="mverror">An error occurred while loading the music video. Please wait a moment.</string>
 </resources>

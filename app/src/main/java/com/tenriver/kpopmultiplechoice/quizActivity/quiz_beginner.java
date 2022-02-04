@@ -675,7 +675,10 @@ public class quiz_beginner extends YouTubeBaseActivity {
                     public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
                         // Handle the error
                         quiz_beginner.this.screenAd = null;
-                        Toast.makeText(getApplicationContext(), getString(R.string.waitasecond), Toast.LENGTH_SHORT).show();
+
+                        if (isFinished){
+                            finishQuiz();
+                        }
                         initPlayer();
                         showNextQuestion();
                     }
@@ -718,8 +721,9 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
                     @Override
                     public void onError(YouTubePlayer.ErrorReason errorReason) {
+                        customProgressDialog.dismiss();
                         Log.d("로그", "init player 에러발생"+errorReason);
-                        Toast.makeText(getApplicationContext(), getString(R.string.waitasecond), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), getString(R.string.mverror), Toast.LENGTH_LONG).show();
 
                         isError = true;
 
@@ -1126,12 +1130,12 @@ public class quiz_beginner extends YouTubeBaseActivity {
             screenAd.show(quiz_beginner.this);
             screenAd = null;
         } else {
-            Toast.makeText(this, getString(R.string.waitasecond), Toast.LENGTH_SHORT).show();
             Log.e("TAG","NO SHOW!");
             if(!isLoaded) {
+                isLoaded = true;
                 LoadAD();
                 showInterstitial();
-                isLoaded = true;
+
             }
             else {
                 if (isFinished){

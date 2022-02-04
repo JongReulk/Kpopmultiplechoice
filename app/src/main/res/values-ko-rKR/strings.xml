@@ -100,4 +100,5 @@
     <string name="Removeoption">보기 하나를 제거하였습니다.</string>
     <string name="passquestion">문제를 건너뛰었습니다.</string>
     <string name="listenagain">노래를 다시 듣습니다.</string>
+    <string name="mverror">뮤비를 불러오는 동안 에러가 발생했습니다. 잠시만 기다려주세요.</string>
 </resources>

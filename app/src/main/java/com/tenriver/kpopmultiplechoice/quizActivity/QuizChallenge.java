@@ -334,6 +334,7 @@ public class QuizChallenge extends YouTubeBaseActivity {
 
         // 광고 부분
 
+
         if(randomAd == 0){
             LoadAD();
         }
@@ -691,7 +692,7 @@ public class QuizChallenge extends YouTubeBaseActivity {
                     @Override
                     public void onError(YouTubePlayer.ErrorReason errorReason) {
                         Log.d("로그", "init player 에러발생"+errorReason);
-                        Toast.makeText(getApplicationContext(), getString(R.string.waitasecond), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), getString(R.string.mverror), Toast.LENGTH_SHORT).show();
 
                         isError = true;
 
@@ -992,7 +993,9 @@ public class QuizChallenge extends YouTubeBaseActivity {
         op2.setEnabled(false);
         op3.setEnabled(false);
         op4.setEnabled(false);
-        checkLast();
+        if(!isChallengefinish) {
+            checkLast();
+        }
     }
 
 
@@ -1093,12 +1096,13 @@ public class QuizChallenge extends YouTubeBaseActivity {
             screenAd.show(QuizChallenge.this);
             screenAd = null;
         } else {
-            Toast.makeText(this, getString(R.string.waitasecond), Toast.LENGTH_SHORT).show();
+            Log.e("TAG", "isLoaded: " + isLoaded);
             Log.e("TAG","NO SHOW!");
             if(!isLoaded) {
+                Log.e("TAG","is NOT LOADED!");
+                isLoaded = true;
                 LoadAD();
                 showInterstitial();
-                isLoaded = true;
             }
             else {
                 if (isFinished){
@@ -1108,8 +1112,8 @@ public class QuizChallenge extends YouTubeBaseActivity {
                 else{
                     initPlayer();
                     showNextQuestion();
+                    LoadAD();
                 }
-                LoadAD();
             }
         }
 
