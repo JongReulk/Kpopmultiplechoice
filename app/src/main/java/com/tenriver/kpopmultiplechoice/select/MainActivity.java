@@ -264,7 +264,7 @@ public class MainActivity extends AppCompatActivity {
 
         // BGN 실행
         if(mediaplayer_main ==null){
-            mediaplayer_main = MediaPlayer.create(this, R.raw.selectmusic_new);
+            mediaplayer_main = MediaPlayer.create(this, R.raw.loveaside_bgm);
             mediaplayer_main.setLooping(true);
             mediaplayer_main.start();
         }
@@ -862,7 +862,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void signinIntent() {
-        GoogleSignInClient signInclient = GoogleSignIn.getClient(this, GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN);
+        GoogleSignInOptions signInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN).build();
+        GoogleSignInClient signInclient = GoogleSignIn.getClient(this, signInOptions);
         Intent signIntent = signInclient.getSignInIntent();
         startActivityForResult(signIntent, RC_SIGN_IN);
     }

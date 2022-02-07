@@ -57,11 +57,8 @@ public class TitleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_title);
 
 
-
-
-
         // BGN 실행
-        mediaplayer_title = MediaPlayer.create(this, R.raw.titlemusic_new);
+        mediaplayer_title = MediaPlayer.create(this, R.raw.better_bgm);
         mediaplayer_title.setLooping(true);
         mediaplayer_title.start();
 
