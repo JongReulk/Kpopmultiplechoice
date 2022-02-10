@@ -862,8 +862,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void signinIntent() {
-        GoogleSignInOptions signInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN).build();
-        GoogleSignInClient signInclient = GoogleSignIn.getClient(this, signInOptions);
+        GoogleSignInClient signInclient = GoogleSignIn.getClient(this, GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN);
         Intent signIntent = signInclient.getSignInIntent();
         startActivityForResult(signIntent, RC_SIGN_IN);
     }
