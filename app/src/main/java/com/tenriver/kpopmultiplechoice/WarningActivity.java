@@ -13,6 +13,7 @@ public class WarningActivity extends AppCompatActivity {
     private TextView WarnText1; // 경고문 1
     private TextView WarnText2; // 경고문 2
     private TextView WarnText3; // 경고문 3
+    private boolean isPaused;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,13 +28,24 @@ public class WarningActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable(){
             @Override
             public void run() {
-                Intent intent = new Intent (getApplicationContext(), TitleActivity.class);
-                startActivity(intent);
+                if(isPaused){
+                    finish();
+                }
+                else {
+                    Intent intent = new Intent(getApplicationContext(), TitleActivity.class);
+                    startActivity(intent);
 
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 
-                finish();
+                    finish();
+                }
             }
         },5000); // 5초 뒤에 Runner객체 실행하도록 함
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        isPaused = true;
     }
 }
