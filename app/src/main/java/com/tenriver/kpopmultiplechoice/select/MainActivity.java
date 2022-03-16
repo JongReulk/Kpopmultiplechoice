@@ -251,15 +251,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // 광고 부분
-
-        mAdview = findViewById(R.id.mainadView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdview.loadAd(adRequest);
-        AdView adView = new AdView(this);
-        adView.setAdSize(AdSize.BANNER);
-        adView.setAdUnitId("\n" + BANNER_AD_ID);
-
 
 
         // BGN 실행
@@ -335,17 +326,6 @@ public class MainActivity extends AppCompatActivity {
                 soundPoolVolume=0.4f;
             }
         }
-
-        try {
-            GamesClient gamesClient = Games.getGamesClient(this,GoogleSignIn.getLastSignedInAccount(this));
-            gamesClient.setViewForPopups(findViewById(R.id.content));
-            gamesClient.setGravityForPopups(Gravity.TOP | Gravity.CENTER_HORIZONTAL);
-
-        } catch(Exception e){
-            Log.d("로그", "알림 불러오기 실패");
-        }
-
-
 
         pointNow = 0;
         pointBeginner = 0;

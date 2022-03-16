@@ -104,18 +104,6 @@ public class ModeActivity extends AppCompatActivity {
             }
         });
 
-        // 광고 부분
-
-        AdView mAdview = findViewById(R.id.mode_adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdview.loadAd(adRequest);
-        AdView adView = new AdView(this);
-        adView.setAdSize(AdSize.BANNER);
-        adView.setAdUnitId("\n" + BANNER_AD_ID);
-
-
-
-
 
         if (!MainActivity.mediaplayer_main.isPlaying()) {
             MainActivity.mediaplayer_main.start();
