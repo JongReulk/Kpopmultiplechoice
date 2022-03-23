@@ -35,6 +35,7 @@ import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.tenriver.kpopmultiplechoice.R;
 import com.tenriver.kpopmultiplechoice.quizActivity.QuizChallenge;
+import com.tenriver.kpopmultiplechoice.singerActivity;
 
 import static com.tenriver.kpopmultiplechoice.select.MainActivity.KEY_POINT;
 import static com.tenriver.kpopmultiplechoice.select.MainActivity.SHARED_POINT;
@@ -85,9 +86,11 @@ public class ModeActivity extends AppCompatActivity {
 
     // 현재 골라진 모드를 숫자로 지정
     private int currentMode = 10000;
+    private String whichMode;
 
     private static final String MODE_SHARED = "modeshared";
     private static final String GAMEMODE_SELECT = "gamemodeselect";
+    private static final String WHICHMODE_SELECT = "whichmodeselect";
 
     private int select_num;
 
@@ -203,6 +206,41 @@ public class ModeActivity extends AppCompatActivity {
             }
         }
 
+        singer_cardview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("로그", "singer_ 카드뷰 클릭!");
+
+                currentMode = 10000;
+
+                updateMode();
+                updateWhichMode("singer");
+
+                singer_title.startAnimation(anim);
+
+                soundPool.play(soundID, soundPoolVolume, soundPoolVolume, 0, 0, 1f);
+
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        if (!isFinished) {
+                            Intent Singerintent = new Intent(getApplicationContext(), singerActivity.class);
+
+                            Singerintent.addFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION);
+                            startActivity(Singerintent);
+                            finish();
+                        } else {
+                            handler.removeCallbacks(this);
+                        }
+
+                    }
+                }, 600);
+            }
+        });
+
 
         // 각 모드들 카드 클릭
         baby_cardview.setOnClickListener(new View.OnClickListener() {
@@ -213,6 +251,7 @@ public class ModeActivity extends AppCompatActivity {
                 currentMode = 10000;
 
                 updateMode();
+                updateWhichMode("year");
 
                 baby_title.startAnimation(anim);
 
@@ -247,6 +286,7 @@ public class ModeActivity extends AppCompatActivity {
                 currentMode = 5000;
 
                 updateMode();
+                updateWhichMode("year");
 
                 classic_title.startAnimation(anim);
 
@@ -284,6 +324,7 @@ public class ModeActivity extends AppCompatActivity {
                     currentMode = 3000;
 
                     updateMode();
+                    updateWhichMode("year");
 
                     master_title.startAnimation(anim);
 
@@ -382,6 +423,14 @@ public class ModeActivity extends AppCompatActivity {
 
         SharedPreferences.Editor modeEditor = modeshared.edit();
         modeEditor.putInt(GAMEMODE_SELECT,currentMode);
+        modeEditor.apply();
+    }
+
+    private void updateWhichMode(String whichmode) {
+        SharedPreferences modeshared = getSharedPreferences(MODE_SHARED,MODE_PRIVATE);
+
+        SharedPreferences.Editor modeEditor = modeshared.edit();
+        modeEditor.putString(WHICHMODE_SELECT,whichmode);
         modeEditor.apply();
     }
 

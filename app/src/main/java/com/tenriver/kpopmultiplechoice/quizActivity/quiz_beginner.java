@@ -77,6 +77,8 @@ public class quiz_beginner extends YouTubeBaseActivity {
     private static final String MODE_SHARED = "modeshared";
     private static final String GAMEMODE_SELECT = "gamemodeselect";
     private static final String YEAR_SELECT = "yearselect";
+    private static final String WHICHMODE_SELECT = "whichmodeselect";
+    private static final String SINGER_SELECT = "singerselect";
 
     YouTubePlayerView playerView;
     YouTubePlayer player;
@@ -169,8 +171,11 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
     private boolean isWrong;
 
+    // 선택된 변수들
     private int modenum;
     private int yearnum;
+    private String whichmode;
+    private String singerselect;
 
     // 점수 비교용 변수
     private int currentHighScore;
@@ -263,21 +268,28 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
         txtHintPoint = findViewById(R.id.txt_HintPoint);
 
+        questionCountTotal = 10;
 
         // DB 관련 선언
         QuizDbHelper dbHelper = new QuizDbHelper(this);
-        if(year_num == 101){
-            questionList = dbHelper.getAllQuestions();
+
+        if(whichmode.equals("year")) {
+            if (year_num == 101) {
+                questionList = dbHelper.getAllQuestions();
+            } else {
+                String year_num_string = String.valueOf(year_num);
+                Log.e("year_QUIZMAIN", " : " + year_num_string);
+
+                questionList = dbHelper.getQuestions(year_num_string);
+                Log.e("Question", " : " + year_num_string);
+            }
         }
         else {
-            String year_num_string = String.valueOf(year_num);
-            Log.e("year_QUIZMAIN", " : " +year_num_string);
-
-            questionList = dbHelper.getQuestions(year_num_string);
-            Log.e("Question", " : "+year_num_string);
+            questionList = dbHelper.getSingerQuestion(singerselect);
+            questionCountTotal = 5;
         }
 
-        questionCountTotal = 10;
+
 
         Collections.shuffle(questionList);
 
@@ -320,8 +332,13 @@ public class quiz_beginner extends YouTubeBaseActivity {
         hintPoint = point.getInt(KEY_POINT,100);
 
         if(videoLength == 10000){
-            plus = 10;
-            QuizHighscore = BABY_HIGH_SCORE;
+            if(whichmode.equals("year")) {
+                plus = 10;
+                QuizHighscore = BABY_HIGH_SCORE;
+            }
+            else {
+                plus = 10;
+            }
         }
 
         if(videoLength == 5000){
@@ -381,7 +398,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
         });
 
         Random Adrandom = new Random();
-        randomAd = Adrandom.nextInt(3);
+        randomAd = Adrandom.nextInt(5);
 
         // 광고 부분
 
@@ -628,6 +645,9 @@ public class quiz_beginner extends YouTubeBaseActivity {
                             player.pause();
                         }
                     }
+                    Random endrandom = new Random();
+                    int randomNum = endrandom.nextInt(3);
+
                     endimage.setVisibility(View.VISIBLE);
                     Animation end_anim = AnimationUtils.loadAnimation(getApplication(), R.anim.fade_in);
                     endimage.startAnimation(end_anim);
@@ -636,8 +656,14 @@ public class quiz_beginner extends YouTubeBaseActivity {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            Log.d("로그", "랜덤 값" + randomNum);
+                            if(randomNum == 0) {
+                                finishQuiz();
+                            }
                             // 광고 부분
-                            showInterstitial();
+                            else {
+                                showInterstitial();
+                            }
                             //finishQuiz();
                         }
                     },2000);
@@ -1160,6 +1186,9 @@ public class quiz_beginner extends YouTubeBaseActivity {
 
         yearnum = modeandyear.getInt(YEAR_SELECT,2020);
 
+        whichmode = modeandyear.getString(WHICHMODE_SELECT, "year");
+
+        singerselect = modeandyear.getString(SINGER_SELECT,"BLACKPINK");
     }
 
     private void updateQuizHighScore() {

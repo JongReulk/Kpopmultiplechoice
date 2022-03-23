@@ -335,14 +335,10 @@ public class QuizChallenge extends YouTubeBaseActivity {
         // 광고 부분
 
 
-        if(randomAd == 0){
-            LoadAD();
-        }
-        else{
-            isFirst = false;
-            initPlayer();
-            showNextQuestion();
-        }
+        isFirst = false;
+        initPlayer();
+        showNextQuestion();
+
 
 
         op1.setSingleLine(true);
@@ -578,6 +574,8 @@ public class QuizChallenge extends YouTubeBaseActivity {
                         }
                     }
                     isFinished=true;
+                    Random endrandom = new Random();
+                    int randomNum = endrandom.nextInt(3);
                     endimage.setVisibility(View.VISIBLE);
                     Animation end_anim = AnimationUtils.loadAnimation(getApplication(), R.anim.fade_in);
                     endimage.startAnimation(end_anim);
@@ -585,10 +583,13 @@ public class QuizChallenge extends YouTubeBaseActivity {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-
-                            //광고 부분
-                            showInterstitial();
-                            //finishQuiz();
+                            if(randomNum == 0) {
+                                finishQuiz();
+                            }
+                            // 광고 부분
+                            else {
+                                showInterstitial();
+                            }
                         }
                     },2000);
                 }
