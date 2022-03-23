@@ -101,4 +101,6 @@
     <string name="passquestion">문제를 건너뛰었습니다.</string>
     <string name="listenagain">노래를 다시 듣습니다.</string>
     <string name="mverror">뮤비를 불러오는 동안 에러가 발생했습니다. 잠시만 기다려주세요.</string>
+    <string name="singerExplain">특정 KPOP 아티스트들의\n노래를 맞춰보세요</string>
+    <string name="singerMode">KPOP 아티스트 모드</string>
 </resources>

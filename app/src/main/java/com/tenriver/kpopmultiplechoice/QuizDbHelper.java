@@ -713,12 +713,6 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         List<Question> questionList = new ArrayList<>();
         db = getReadableDatabase();
 
-        /*
-        for(int i = 0; i < year.length; i++){
-            String[] selectionArgs = new String[]{year[i]};
-        }*/
-
-
         String[] selectionArgs = new String[]{year};
         Log.e("Year", " : " + selectionArgs.length);
         Cursor c = db.rawQuery("SELECT * FROM " + QuestionsTable.TABLE_NAME +
@@ -741,5 +735,33 @@ public class QuizDbHelper extends SQLiteOpenHelper {
 
         c.close();
         return questionList;
+    }
+
+    public List<Question> getSingerQuestion(String singer) {
+        List<Question> SingerquestionList = new ArrayList<>();
+        db = getReadableDatabase();
+
+        String[] singerArgs = new String[]{singer};
+        Log.e("Singer", " : " + singerArgs.length);
+        Cursor c = db.rawQuery("SELECT * FROM " + QuestionsTable.TABLE_NAME +
+                " WHERE " + QuestionsTable.COLUMN_SINGER + " = ?", singerArgs);
+
+        if (c.moveToFirst()) {
+            do {
+                Question question = new Question();
+                question.setQuestion(c.getString(c.getColumnIndexOrThrow(QuestionsTable.COLUMN_QUESTION)));
+                question.setOption1(c.getString(c.getColumnIndexOrThrow(QuestionsTable.COLUMN_OPTION1)));
+                question.setOption2(c.getString(c.getColumnIndexOrThrow(QuestionsTable.COLUMN_OPTION2)));
+                question.setOption3(c.getString(c.getColumnIndexOrThrow(QuestionsTable.COLUMN_OPTION3)));
+                question.setOption4(c.getString(c.getColumnIndexOrThrow(QuestionsTable.COLUMN_OPTION4)));
+                question.setAnswerNr(c.getInt(c.getColumnIndexOrThrow(QuestionsTable.COLUMN_ANSWER_NR)));
+                question.setSinger(c.getString(c.getColumnIndexOrThrow(QuestionsTable.COLUMN_SINGER)));
+                question.setYear(c.getInt(c.getColumnIndexOrThrow(QuestionsTable.COLUMN_YEAR)));
+                SingerquestionList.add(question);
+            } while (c.moveToNext());
+        }
+
+        c.close();
+        return SingerquestionList;
     }
 }

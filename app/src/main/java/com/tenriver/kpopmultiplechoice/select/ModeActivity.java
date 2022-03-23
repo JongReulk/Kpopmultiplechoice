@@ -63,8 +63,10 @@ public class ModeActivity extends AppCompatActivity {
     private CardView classic_cardview;
     private CardView master_cardview;
     private CardView challenge_cardview;
+    private CardView singer_cardview;
 
     // 각 모드 타이틀
+    private TextView singer_title;
     private TextView baby_title;
     private TextView classic_title;
     private TextView master_title;
@@ -115,7 +117,9 @@ public class ModeActivity extends AppCompatActivity {
         classic_cardview = findViewById(R.id.card_classic);
         master_cardview = findViewById(R.id.card_master);
         challenge_cardview = findViewById(R.id.card_challenge);
+        singer_cardview = findViewById(R.id.card_singer);
 
+        singer_title = findViewById(R.id.title_singer);
         baby_title = findViewById(R.id.title_baby);
         classic_title = findViewById(R.id.title_classic);
         master_title = findViewById(R.id.title_master);
@@ -400,11 +404,10 @@ public class ModeActivity extends AppCompatActivity {
         challenge_title.setEllipsize(TextUtils.TruncateAt.MARQUEE);
         challenge_title.setSelected(true);
 
-        /*
-        challenge_text.setSingleLine(true);
-        challenge_text.setEllipsize(TextUtils.TruncateAt.MARQUEE);
-        challenge_text.setSelected(true);
-         */
+        singer_title.setSingleLine(true);
+        singer_title.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+        singer_title.setSelected(true);
+
     }
 
 }

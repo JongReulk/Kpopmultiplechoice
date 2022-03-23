@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".select.YearActivity"
+    >
+
+    <com.tenriver.kpopmultiplechoice.OutlineTextView
+        android:id="@+id/txtTitle1"
+        android:text="K"
+        android:fontFamily="@font/font_basicbold"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:textColor="@color/palepink2"
+
+        android:gravity="center"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="28sp"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeStepGranularity="2sp"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="0.18"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintWidth_percent="0.15"
+        app:layout_constraintHorizontal_bias="0.2"
+        android:shadowColor="@color/title_text_color_pale"
+        android:shadowRadius="8"
+        android:shadowDy="10"
+
+        app:textStroke="true"
+        app:textStrokeWidth="8.0"
+        app:textStrokeColor="@color/palewhite"/>
+
+    <com.tenriver.kpopmultiplechoice.OutlineTextView
+        android:id="@+id/txtTitle2"
+        android:text="P"
+        android:fontFamily="@font/font_basicbold"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:textColor="@color/palewhite"
+
+
+        android:gravity="center"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="28sp"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeStepGranularity="2sp"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="0.18"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintWidth_percent="0.15"
+        app:layout_constraintHorizontal_bias="0.42"
+        android:shadowColor="@color/title_text_color_pale"
+        android:shadowRadius="8"
+        android:shadowDy="10"
+
+        app:textStroke="true"
+        app:textStrokeWidth="8.0"
+        app:textStrokeColor="@color/palewhite"
+
+
+        />
+
+
+    <ImageView
+        android:id="@+id/imageView_lp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:srcCompat="@drawable/musiclp"
+
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintWidth_percent="0.25"
+        app:layout_constraintVertical_bias="0.18"
+        app:layout_constraintHorizontal_bias="0.63"
+
+        />
+
+    <com.tenriver.kpopmultiplechoice.OutlineTextView
+        android:id="@+id/txtTitle3"
+        android:text="P"
+        android:fontFamily="@font/font_basicbold"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:textColor="@color/palewhite"
+
+        android:gravity="center"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="28sp"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeStepGranularity="2sp"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="0.18"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintWidth_percent="0.15"
+        app:layout_constraintHorizontal_bias="0.81"
+        android:shadowColor="@color/title_text_color_pale"
+        android:shadowRadius="8"
+        android:shadowDy="10"
+
+        app:textStroke="true"
+        app:textStrokeWidth="8.0"
+        app:textStrokeColor="@color/palewhite"/>
+
+    <com.tenriver.kpopmultiplechoice.OutlineTextView
+        android:id="@+id/singer_MvQuiz"
+        android:text="@string/MvQuiz"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/palewhite"
+        android:bufferType="spannable"
+        android:fontFamily="@font/font_basic"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="24sp"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeStepGranularity="2sp"
+
+        app:layout_constraintTop_toBottomOf="@id/txtTitle1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.04"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintWidth_percent="1"
+        android:shadowColor="@color/title_text_color_pale"
+        android:shadowRadius="8"
+        android:shadowDy="10"
+
+        app:textStroke="true"
+        app:textStrokeWidth="8.0"
+        app:textStrokeColor="@color/palewhite"/>
+
+    <TextView
+        android:id="@+id/singerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:alpha="0.8"
+        android:text="ARTIST"
+        android:textSize="28sp"
+        android:fontFamily="@font/font_digital"
+        android:gravity="center"
+        android:textColor="@color/palewhite"
+
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/imageView_lp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="20dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_selectSinger"
+        android:gravity="center"
+        android:text="ARTIST"
+        android:textStyle="bold"
+
+        android:fontFamily="@font/font_digital"
+        android:textColor="@color/brightpurple"
+
+        android:textSize="70sp"
+
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/singer_MvQuiz"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
+        >
+    </TextView>
+
+
+
+    <ScrollView
+        android:id="@+id/singer_Scrollview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:fillViewport="true"
+
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/singer_MvQuiz"
+        >
+
+        <LinearLayout
+            android:id="@+id/singer_linearlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp"
+            >
+
+            <Button
+                android:id="@+id/singer_BLACKPINK"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/btn_year"
+                android:text="BLACKPINK"
+                android:textSize="48dp"
+                android:textColor="@drawable/selector_text_year"
+                android:textStyle="bold"
+                android:fontFamily="@font/font_digital"
+                android:layout_marginBottom="10dp"
+                >
+            </Button>
+
+            <Button
+                android:id="@+id/singer_BOL4"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/btn_year"
+                android:text="BOL4\n(볼빨간사춘기)"
+                android:textSize="42dp"
+                android:textColor="@drawable/selector_text_year"
+                android:textStyle="bold"
+                android:fontFamily="@font/font_digital"
+                android:layout_marginBottom="10dp"
+                >
+
+            </Button>
+
+            <Button
+                android:id="@+id/singer_BTS"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/btn_year"
+                android:text="BTS"
+                android:textSize="48dp"
+                android:textColor="@drawable/selector_text_year"
+                android:textStyle="bold"
+                android:fontFamily="@font/font_digital"
+                android:layout_marginBottom="10dp"
+                >
+            </Button>
+
+            <Button
+                android:id="@+id/singer_GFRIEND"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/btn_year"
+                android:text="GFRIEND\n(여자친구)"
+                android:textSize="42dp"
+                android:textColor="@drawable/selector_text_year"
+                android:textStyle="bold"
+                android:fontFamily="@font/font_digital"
+                android:layout_marginBottom="10dp"
+                >
+            </Button>
+
+            <Button
+                android:id="@+id/singer_Heize"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/btn_year"
+                android:text="Heize\n(헤이즈)"
+                android:textSize="42dp"
+                android:textColor="@drawable/selector_text_year"
+                android:textStyle="bold"
+                android:fontFamily="@font/font_digital"
+                android:layout_marginBottom="10dp"
+                >
+            </Button>
+
+            <Button
+                android:id="@+id/singer_IU"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/btn_year"
+                android:fontFamily="@font/font_digital"
+                android:text="IU\n(아이유)"
+                android:textColor="@drawable/selector_text_year"
+                android:textSize="42dp"
+                android:textStyle="bold">
+
+            </Button>
+
+            <Button
+                android:id="@+id/singer_MAMAMOO"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/btn_year"
+                android:text="MAMAMOO\n(마마무)"
+                android:textSize="42dp"
+                android:textColor="@drawable/selector_text_year"
+                android:textStyle="bold"
+                android:fontFamily="@font/font_digital"
+                android:layout_marginBottom="10dp"
+                >
+            </Button>
+
+            <Button
+                android:id="@+id/singer_MONSTAX"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/btn_year"
+                android:text="MONSTA X\n(몬스타엑스)"
+                android:textSize="42dp"
+                android:textColor="@drawable/selector_text_year"
+                android:textStyle="bold"
+                android:fontFamily="@font/font_digital"
+                android:layout_marginBottom="10dp"
+                >
+            </Button>
+
+            <Button
+                android:id="@+id/singer_OHMYGIRL"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/btn_year"
+                android:text="OH MY GIRL\n(오마이걸)"
+                android:textSize="42dp"
+                android:textColor="@drawable/selector_text_year"
+                android:textStyle="bold"
+                android:fontFamily="@font/font_digital"
+                android:layout_marginBottom="10dp"
+                >
+            </Button>
+
+            <Button
+                android:id="@+id/singer_REDVELVET"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/btn_year"
+                android:text="Red Velvet\n(레드벨벳)"
+                android:textSize="42dp"
+                android:textColor="@drawable/selector_text_year"
+                android:textStyle="bold"
+                android:fontFamily="@font/font_digital"
+                android:layout_marginBottom="10dp"
+                >
+            </Button>
+
+            <Button
+                android:id="@+id/singer_TWICE"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/btn_year"
+                android:text="TWICE\n(트와이스)"
+                android:textSize="42dp"
+                android:textColor="@drawable/selector_text_year"
+                android:textStyle="bold"
+                android:fontFamily="@font/font_digital"
+                android:layout_marginBottom="10dp"
+                >
+            </Button>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

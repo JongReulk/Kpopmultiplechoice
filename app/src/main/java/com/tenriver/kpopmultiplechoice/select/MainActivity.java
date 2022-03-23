@@ -874,7 +874,7 @@ public class MainActivity extends AppCompatActivity {
             loginButton.setVisibility(View.VISIBLE);
             logoutButton.setVisibility(View.GONE);
             rankButton.setVisibility(View.GONE);
-            Toast.makeText(this,getString(R.string.offline),Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this,getString(R.string.offline),Toast.LENGTH_SHORT).show();
         }
 
     }

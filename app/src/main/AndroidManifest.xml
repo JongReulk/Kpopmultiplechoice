@@ -19,54 +19,52 @@
         android:roundIcon="@mipmap/ic_main_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Kpop">
+        <activity android:name=".singerActivity"></activity>
         <activity
-            android:name="com.tenriver.kpopmultiplechoice.quizActivity.QuizAlphabet"
+            android:name=".quizActivity.QuizAlphabet"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"/> <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
+            android:windowSoftInputMode="adjustPan" /> <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-6633751318337334~8236028765" />
 
         <activity
-            android:name="com.tenriver.kpopmultiplechoice.quizActivity.quiz_beginner"
+            android:name=".quizActivity.quiz_beginner"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.tenriver.kpopmultiplechoice.quizActivity.QuizChallenge"
+            android:name=".quizActivity.QuizChallenge"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.tenriver.kpopmultiplechoice.quizActivity.QuizMain"
+            android:name=".quizActivity.QuizMain"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.tenriver.kpopmultiplechoice.select.DifficultyActivity"
+            android:name=".select.DifficultyActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.tenriver.kpopmultiplechoice.select.YearActivity"
+            android:name=".select.YearActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.tenriver.kpopmultiplechoice.select.MainActivity"
+            android:name=".select.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.tenriver.kpopmultiplechoice.TitleActivity"
+            android:name=".TitleActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.tenriver.kpopmultiplechoice.select.ModeActivity"
+            android:name=".select.ModeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.tenriver.kpopmultiplechoice.WarningActivity"
-            android:screenOrientation="portrait"
+            android:name=".WarningActivity"
             android:exported="true"
-            >
-
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
 
         <meta-data
             android:name="com.google.android.gms.games.APP_ID"

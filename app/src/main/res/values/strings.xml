@@ -101,4 +101,6 @@
     <string name="passquestion">Skip a question.</string>
     <string name="listenagain">Listen to the song again.</string>
     <string name="mverror">An error occurred while loading the music video. Please wait a moment.</string>
+    <string name="singerExplain">Guess the songs\nof specific KPOP artists</string>
+    <string name="singerMode">KPOP ARTIST MODE</string>
 </resources>
