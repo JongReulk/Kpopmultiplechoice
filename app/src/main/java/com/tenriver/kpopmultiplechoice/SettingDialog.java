@@ -12,7 +12,6 @@ public class SettingDialog extends Dialog {
     MediaPlayer mediaPlayer;
     AudioManager audioManager;
 
-
     public SettingDialog(@NonNull Context context) {
         super(context);
 

@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentSender;
@@ -65,6 +67,7 @@ import com.google.android.play.core.review.ReviewManager;
 import com.google.android.play.core.review.ReviewManagerFactory;
 import com.google.android.play.core.tasks.OnSuccessListener;
 import com.google.android.play.core.tasks.Task;
+import com.tenriver.kpopmultiplechoice.MainHelpDialog;
 import com.tenriver.kpopmultiplechoice.R;
 import com.tenriver.kpopmultiplechoice.SettingDialog;
 import com.tenriver.kpopmultiplechoice.quizActivity.QuizChallenge;
@@ -121,12 +124,14 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageButton startButton;
     private ImageButton settingOpen;
+    private ImageButton mainHelp;
 
     private AdView mAdview;
     private RewardedAd mRewardedAd;
     private boolean isEarned = false;
 
     SettingDialog settingDialog;
+    MainHelpDialog mainHelpDialog;
     private float soundPoolVolume;
 
 
@@ -308,7 +313,7 @@ public class MainActivity extends AppCompatActivity {
 
         startButton = findViewById(R.id.Main_start);
         settingOpen = findViewById(R.id.setting_Button);
-
+        mainHelp = findViewById(R.id.main_help);
 
 
 
@@ -348,6 +353,7 @@ public class MainActivity extends AppCompatActivity {
 
                 startButton.setEnabled(false);
                 settingOpen.setEnabled(false);
+                mainHelp.setEnabled(false);
 
 
                 Handler handler = new Handler();
@@ -374,6 +380,13 @@ public class MainActivity extends AppCompatActivity {
                 soundPool.play(soundID,soundPoolVolume,soundPoolVolume,0,0,1f);
                 dial();
 
+            }
+        });
+
+        mainHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mainhelpDialog();
             }
         });
 
@@ -421,7 +434,7 @@ public class MainActivity extends AppCompatActivity {
         if(!mediaplayer_main.isPlaying())
         {
             // BGN 실행
-            mediaplayer_main = MediaPlayer.create(this, R.raw.selectmusic_new);
+            mediaplayer_main = MediaPlayer.create(this, R.raw.loveaside_bgm);
             mediaplayer_main.setLooping(true);
             mediaplayer_main.start();
 
@@ -585,7 +598,6 @@ public class MainActivity extends AppCompatActivity {
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                soundPool.play(soundID,soundPoolVolume,soundPoolVolume,0,0,1f);
                 settingDialog.dismiss();
 
             }
@@ -627,6 +639,26 @@ public class MainActivity extends AppCompatActivity {
 
                 soundPool.play(soundID,soundPoolVolume,soundPoolVolume,0,0,1f);
                 settingDialog.dismiss();
+
+            }
+        });
+
+    }
+
+    private void mainhelpDialog(){
+        mainHelpDialog = new MainHelpDialog(this);
+        mainHelpDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        Button confirmBtn = mainHelpDialog.findViewById(R.id.btn_confirm);
+
+        mainHelpDialog.setCancelable(false); // 밖에 선택해도 창이 안꺼짐
+        mainHelpDialog.show();
+
+
+        confirmBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainHelpDialog.dismiss();
 
             }
         });
@@ -707,6 +739,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
         else {
+            loadRewardedAd();
             Toast.makeText(this, getString(R.string.tryAgain), Toast.LENGTH_SHORT).show();
         }
     }
@@ -734,7 +767,7 @@ public class MainActivity extends AppCompatActivity {
 
             if (!mediaplayer_main.isPlaying()) {
                 // BGN 실행
-                mediaplayer_main = MediaPlayer.create(this, R.raw.selectmusic_new);
+                mediaplayer_main = MediaPlayer.create(this, R.raw.loveaside_bgm);
                 mediaplayer_main.setLooping(true);
                 mediaplayer_main.start();
 

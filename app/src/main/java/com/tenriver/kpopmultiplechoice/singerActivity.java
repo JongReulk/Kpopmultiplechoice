@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -45,6 +48,8 @@ public class singerActivity extends AppCompatActivity {
 
     private TextView singer_select;
 
+    private ImageButton singer_help;
+
     // 모드 선택 변수
     private static final String MODE_SHARED = "modeshared";
     private static final String SINGER_SELECT = "singerselect";
@@ -66,12 +71,14 @@ public class singerActivity extends AppCompatActivity {
     private Button singer_monstax;
     private Button singer_ohmygirl;
     private Button singer_redvelvet;
+    private Button singer_taeyeon;
     private Button singer_twice;
+    private Button singer_winner;
 
     private String m_singer; // 가수 선택 String
     private String singer_string; // 선택 후 표시될 가수 String
 
-
+    private Setting_singerhelp setting_singerhelp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,8 +97,11 @@ public class singerActivity extends AppCompatActivity {
         singer_monstax = findViewById(R.id.singer_MONSTAX);
         singer_ohmygirl = findViewById(R.id.singer_OHMYGIRL);
         singer_redvelvet = findViewById(R.id.singer_REDVELVET);
+        singer_taeyeon = findViewById(R.id.singer_TAEYEON);
         singer_twice = findViewById(R.id.singer_TWICE);
+        singer_winner = findViewById(R.id.singer_WINNER);
 
+        singer_help = findViewById(R.id.singer_help);
 
 
         SharedPreferences music = getSharedPreferences(MainActivity.SHARED_MUSIC,MODE_PRIVATE);
@@ -162,6 +172,13 @@ public class singerActivity extends AppCompatActivity {
         singer_view.startAnimation(textfadein);
 
         singer_select.setVisibility(View.GONE);
+
+        singer_help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                singerhelpDialog();
+            }
+        });
 
         singer_blackpink.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -283,10 +300,34 @@ public class singerActivity extends AppCompatActivity {
             }
         });
 
+        singer_taeyeon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                m_singer = "TAEYEON";
+                soundPool.play(soundID,soundPoolVolume,soundPoolVolume,0,0,1f);
+                singer_string = m_singer;
+
+                checkAndintent();
+
+            }
+        });
+
         singer_twice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 m_singer = "TWICE";
+                soundPool.play(soundID,soundPoolVolume,soundPoolVolume,0,0,1f);
+                singer_string = m_singer;
+
+                checkAndintent();
+
+            }
+        });
+
+        singer_winner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                m_singer = "WINNER";
                 soundPool.play(soundID,soundPoolVolume,soundPoolVolume,0,0,1f);
                 singer_string = m_singer;
 
@@ -315,6 +356,25 @@ public class singerActivity extends AppCompatActivity {
         Intent mainintent = new Intent(this, ModeActivity.class);
         startActivity(mainintent);
         finish();
+    }
+
+    private void singerhelpDialog(){
+        setting_singerhelp = new Setting_singerhelp(this);
+        setting_singerhelp.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        Button confirmBtn = setting_singerhelp.findViewById(R.id.btn_confirm);
+
+        setting_singerhelp.setCancelable(false); // 밖에 선택해도 창이 안꺼짐
+        setting_singerhelp.show();
+
+
+        confirmBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setting_singerhelp.dismiss();
+            }
+        });
+
     }
 
     @Override

@@ -103,4 +103,10 @@
     <string name="mverror">An error occurred while loading the music video. Please wait a moment.</string>
     <string name="singerExplain">Guess the songs\nof specific KPOP artists</string>
     <string name="singerMode">KPOP ARTIST MODE</string>
+    <string name="KPOPMVQUIZ">KPOP MV QUIZ</string>
+    <string name="KPOPMVQUIZ_text">KPOP MV QUIZ\nis a game\nto guess the questions\nby watching\nthe most popular music videos of the year.\n\nYou can get points to enter certain modes or use hints by tapping GET POINTS.\n\nLog in to the\nGoogle Play game service\nand compete\nwith people around the world!</string>
+    <string name="KPOPARTISTMODE">KPOP ARTIST\nMODE</string>
+    <string name="KPOPARTISTMODE_text">KPOP ARTIST MODE is a\nmini-game mode\nin which you listen to and guess songs from artists with many music videos on KPOP MV QUIZ.\n\nThis score does not count towards the rank score.</string>
+    <string name="KPOPMODE">KPOP MV QUIZ\nMODE</string>
+    <string name="KPOPMODE_text">There are many different modes to choose from.\n\nPoints increase or decrease when completing or entering each mode.</string>
 </resources>

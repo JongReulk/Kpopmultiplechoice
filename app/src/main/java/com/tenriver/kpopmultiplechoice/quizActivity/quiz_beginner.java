@@ -166,6 +166,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
     private ImageView endimage;
 
     private int randomAd;
+    private int lastrandomAd;
 
     private boolean isLoaded;
 
@@ -176,6 +177,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
     private int yearnum;
     private String whichmode;
     private String singerselect;
+
 
     // 점수 비교용 변수
     private int currentHighScore;
@@ -276,17 +278,26 @@ public class quiz_beginner extends YouTubeBaseActivity {
         if(whichmode.equals("year")) {
             if (year_num == 101) {
                 questionList = dbHelper.getAllQuestions();
+                Random Adrandom = new Random();
+                randomAd = Adrandom.nextInt(5);
+                lastrandomAd = Adrandom.nextInt(4);
             } else {
                 String year_num_string = String.valueOf(year_num);
                 Log.e("year_QUIZMAIN", " : " + year_num_string);
 
                 questionList = dbHelper.getQuestions(year_num_string);
                 Log.e("Question", " : " + year_num_string);
+                Random Adrandom = new Random();
+                randomAd = Adrandom.nextInt(5);
+                lastrandomAd = Adrandom.nextInt(4);
             }
         }
         else {
             questionList = dbHelper.getSingerQuestion(singerselect);
             questionCountTotal = 5;
+            Random Adrandom = new Random();
+            randomAd = 1;
+            lastrandomAd = Adrandom.nextInt(3);
         }
 
 
@@ -397,8 +408,7 @@ public class quiz_beginner extends YouTubeBaseActivity {
             }
         });
 
-        Random Adrandom = new Random();
-        randomAd = Adrandom.nextInt(5);
+
 
         // 광고 부분
 
@@ -645,8 +655,6 @@ public class quiz_beginner extends YouTubeBaseActivity {
                             player.pause();
                         }
                     }
-                    Random endrandom = new Random();
-                    int randomNum = endrandom.nextInt(3);
 
                     endimage.setVisibility(View.VISIBLE);
                     Animation end_anim = AnimationUtils.loadAnimation(getApplication(), R.anim.fade_in);
@@ -656,8 +664,8 @@ public class quiz_beginner extends YouTubeBaseActivity {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            Log.d("로그", "랜덤 값" + randomNum);
-                            if(randomNum == 0) {
+                            Log.d("로그", "랜덤 값" + lastrandomAd);
+                            if(lastrandomAd == 0) {
                                 finishQuiz();
                             }
                             // 광고 부분
@@ -1067,16 +1075,18 @@ public class quiz_beginner extends YouTubeBaseActivity {
     private void finishQuiz() {
         isHandler = false;
         pointplus = 0;
-        scorepointplus = score / 5;
 
         if (plus == 10) {
-            pointplus = 30;
+            if(whichmode.equals("year")) {
+                pointplus = 20;
+            }
+            else {
+                pointplus = 0;
+            }
         }
         else if (plus == 30) {
-            pointplus = 50;
+            pointplus = 30;
         }
-
-        pointplus = pointplus + scorepointplus;
 
         if (isBackPressed) {
             score = 0;

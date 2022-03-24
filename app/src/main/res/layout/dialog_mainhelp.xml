@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+
+    android:orientation="vertical"
+    android:background="@drawable/progress_wt">
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/KPOPMVQUIZ"
+        android:textSize="30dp"
+        android:fontFamily="@font/font_basicbold"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:gravity="center"
+        android:textColor="@color/pinkcombination"
+        android:layout_margin="15dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/KPOPMVQUIZ_text"
+        android:fontFamily="@font/font_basic"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textSize="20sp"
+        >
+
+
+    </TextView>
+
+
+    <Button
+        android:id="@+id/btn_confirm"
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:text="@string/Ok"
+        android:layout_margin="10dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/font_basicbold"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:soundEffectsEnabled="false"
+        style ="@style/Widget.AppCompat.Button.Borderless"
+        />
+
+
+
+
+
+</LinearLayout>

@@ -3,6 +3,7 @@ package com.tenriver.kpopmultiplechoice.select;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
@@ -34,6 +35,8 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.tenriver.kpopmultiplechoice.R;
+import com.tenriver.kpopmultiplechoice.Setting_modehelp;
+import com.tenriver.kpopmultiplechoice.Setting_singerhelp;
 import com.tenriver.kpopmultiplechoice.quizActivity.QuizChallenge;
 import com.tenriver.kpopmultiplechoice.singerActivity;
 
@@ -93,6 +96,8 @@ public class ModeActivity extends AppCompatActivity {
     private static final String WHICHMODE_SELECT = "whichmodeselect";
 
     private int select_num;
+    private ImageButton modeHelp;
+    private Setting_modehelp setting_modehelp;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -130,6 +135,8 @@ public class ModeActivity extends AppCompatActivity {
 
         challenge_text = findViewById(R.id.text_challenge);
         master_text = findViewById(R.id.text_master);
+
+        modeHelp = findViewById(R.id.mode_help);
 
 
         txtHintPoint = findViewById(R.id.txtPoint);
@@ -205,6 +212,13 @@ public class ModeActivity extends AppCompatActivity {
                 master_text.setAlpha(0.5f);
             }
         }
+
+        modeHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                modehelpDialog();
+            }
+        });
 
         singer_cardview.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -456,6 +470,25 @@ public class ModeActivity extends AppCompatActivity {
         singer_title.setSingleLine(true);
         singer_title.setEllipsize(TextUtils.TruncateAt.MARQUEE);
         singer_title.setSelected(true);
+
+    }
+
+    private void modehelpDialog(){
+        setting_modehelp = new Setting_modehelp(this);
+        setting_modehelp.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        Button confirmBtn = setting_modehelp.findViewById(R.id.btn_confirm);
+
+        setting_modehelp.setCancelable(false); // 밖에 선택해도 창이 안꺼짐
+        setting_modehelp.show();
+
+
+        confirmBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setting_modehelp.dismiss();
+            }
+        });
 
     }
 

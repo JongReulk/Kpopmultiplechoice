@@ -71,7 +71,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         Question q11 = new Question("WfYgbFBFe1E", "Bambi", "UN Village ", "비가와 (Rain) ", "Dream ",4,"수지(Suzy), 백현(BAEKHYUN)",2016);	addQuestion(q11);
         Question q12 = new Question("eelfrHtmk68", "D (Half Moon)", "instagram ", "나빠 (NAPPA) ", "둘만의 세상으로 가 (Let Us Go) ",1,"DEAN",2016);	addQuestion(q12);
         Question q13 = new Question("QslJYDX3o8s", "러시안 룰렛 (Russian Roulette)", "7월 7일 (One Of These Nights) ", "Rookie ", "Would U ",1,"Red Velvet",2016);	addQuestion(q13);
-        Question q14 = new Question("eHir_vB1RUI", "Rain", "Starlight (Feat. DEAN) ", "Why ", "This Christmas ",1,"TAEYEON (태연)",2016);	addQuestion(q14);
+        Question q14 = new Question("eHir_vB1RUI", "Rain", "Starlight (Feat. DEAN) ", "Why ", "This Christmas ",1,"TAEYEON",2016);	addQuestion(q14);
         Question q15 = new Question("ST8O-AeY3Uo", "RE-BYE", "DINOSAUR", "선물을 고르며 (A Gift!)", "낙하 (NAKKA) (with IU)",1,"AKMU",2016);	addQuestion(q15);
         Question q16 = new Question("cIGgSI1uhKI", "봄이 좋냐?? (What The Spring??)", "폰서트 (Phonecert)", "당신과는 천천히 (every moment with you)", "그러나",1,"10cm",2016);	addQuestion(q16);
         Question q17 = new Question("erErBFKPbMY", "솔직히 (Honestly…)", "봄인가 봐 (Spring Love) ", "유후 (You, Who?) ", "가을 타나 봐 (Fall in Fall) ",2,"에릭남 X 웬디",2016);	addQuestion(q17);
@@ -111,7 +111,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         Question q51 = new Question("vcnv3jjWgSc", "봄날의 기억(Remember that)", "몇 년 후에 (A Few Years Later) ", "MOVIE ", "쏘쏘(SO-SO)",1,"BTOB(비투비)",2016);	addQuestion(q51);
         Question q52 = new Question("Q4vFviZ4qw0", "Fly", "하드캐리(Hard Carry) ", "Never Ever ", "Look ",1,"GOT7(갓세븐)",2016);	addQuestion(q52);
         Question q53 = new Question("qqqRn0l0PKE", "봄날의 기억(Remember that)", "몇 년 후에 (A Few Years Later) ", "MOVIE ", "있어 희미하게 (Just us 2)",2,"BTOB(비투비)",2016);	addQuestion(q53);
-        Question q54 = new Question("eNmL4JiGxZQ", "Rain", "Starlight (Feat. DEAN) ", "Why ", "This Christmas ",2,"TAEYEON (태연)",2016);	addQuestion(q54);
+        Question q54 = new Question("eNmL4JiGxZQ", "Rain", "Starlight (Feat. DEAN) ", "Why ", "This Christmas ",2,"TAEYEON",2016);	addQuestion(q54);
         Question q55 = new Question("tbe3pe2BtwA", "Love Shot", "Monster ", "For Life ", "Lotto ",4,"EXO (엑소)",2016);	addQuestion(q55);
         Question q56 = new Question("y882AFjrSOM", "멍청이 (TWIT)", "Lip & Hip ", "베베(BABE) ", "어때? (How's this?) ",4,"HyunA(현아)",2016);	addQuestion(q56);
         Question q57 = new Question("pcKR0LPwoYs", "밤하늘의 저 별처럼 (Midnight)", "가끔 이러다 (Sometimes) ", "Stay With Me ", "Ring Ring ",3,"찬열, 펀치",2016);	addQuestion(q57);
@@ -138,7 +138,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         Question q78 = new Question("IlJHZJ8EqeA", "몸 (BODY)", "도망가 (Run away) ", "탕!♡ (TANG!♡) ", "아낙네 (FIANCÉ) ",1,"MINO",2016);	addQuestion(q78);
         Question q79 = new Question("P79G22cJe74", "센치해(SENTIMENTAL)", "BABY BABY ", "좋더라 (I'M YOUNG) ", "LOVE ME LOVE ME ",3,"WINNER",2016);	addQuestion(q79);
         Question q80 = new Question("JvjWy4saR08", "벚꽃연가 (Cherry Blossom Love Song)", "사월이 지나면 우리 헤어져요 (Beautiful goodbye) ", "너를 위해 (For You) ", "Hey - Mama!",3,"첸, 백현, 시우민 (EXO) CHEN, BAEKHYUN, XIUMIN (EXO)",2016);	addQuestion(q80);
-        Question q81 = new Question("8Q2mth2bX10", "If You", "Is You ", "All With You ", "그대라는 시 (All about you) ",3,"TAEYEON (태연)",2016);	addQuestion(q81);
+        Question q81 = new Question("8Q2mth2bX10", "If You", "Is You ", "All With You ", "그대라는 시 (All about you) ",3,"TAEYEON",2016);	addQuestion(q81);
         Question q82 = new Question("sk6WiGOmlso", "저 별 (Star)", "And July (Feat. DEAN, DJ Friz) ", "Shut Up & Groove Feat.DEAN ", "널 너무 모르고 (Don't know you) ",3,"Heize",2016);	addQuestion(q82);
         Question q83 = new Question("Kf3IumJmLqM", "너무너무너무 (Very Very Very)", "Crush ", "소나기 (DOWNPOUR) ", "Whatta Man (Good man) ",2,"아이오아이 (I.O.I)",2016);	addQuestion(q83);
         Question q84 = new Question("36HvpOE4opQ", "랑데부 (Rendezvous)", "Counting Stars (feat. Beenzino) ", "BAD LOVE ", "연애소설 (LOVE STORY) ",1,"Sik-K (식케이)",2016);	addQuestion(q84);
@@ -146,7 +146,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         Question q86 = new Question("wNxPGbk-gwA", "SHINE FOREVER", "Fighter ", "네게만 집착해 (Stuck) ", "걸어 (ALL IN) ",4,"MONSTA X",2016);	addQuestion(q86);
         Question q87 = new Question("ro74Ki2jsNg", "SHINE FOREVER", "Fighter ", "네게만 집착해 (Stuck) ", "걸어 (ALL IN) ",3,"MONSTA X",2016);	addQuestion(q87);
         Question q88 = new Question("3UGMDJ9kZCA", "일곱 번째 감각 (The 7th Sense)", "BOSS ", "Baby Don't Stop ", "Make A Wish (Birthday Song) ",1,"NCT U (엔시티 유)",2016);	addQuestion(q88);
-        Question q89 = new Question("WkdtmT8A2iY", "Rain", "Starlight (Feat. DEAN) ", "Why ", "This Christmas ",3,"TAEYEON (태연)",2016);	addQuestion(q89);
+        Question q89 = new Question("WkdtmT8A2iY", "Rain", "Starlight (Feat. DEAN) ", "Why ", "This Christmas ",3,"TAEYEON",2016);	addQuestion(q89);
         Question q90 = new Question("AOzVyVv1HtQ", "Love Shot", "Tempo ", "花요일 (Blooming Day) ", "Hey - Mama!",4,"EXO-CBX (첸백시)",2016);	addQuestion(q90);
         Question q91 = new Question("E0Y3ABqK7M4", "I Just Wanna Dance", "몰랐니 (Lil' Touch) ", "Holiday ", "I'll be yours ",1,"TIFFANY (티파니)",2016);	addQuestion(q91);
         Question q92 = new Question("5jTtU9VNALs", "SHINE FOREVER", "Fighter ", "네게만 집착해 (Stuck) ", "걸어 (ALL IN) ",2,"MONSTA X",2016);	addQuestion(q92);
@@ -167,11 +167,11 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         Question q107 = new Question("8Oz7DG76ibY", "RE-BYE", "DINOSAUR", "우아해 (woo ah)", "낙하 (NAKKA) (with IU)",2,"AKMU",2017);	addQuestion(q107);
         Question q108 = new Question("axVvZrDz60k", "낮보다는 밤 (Night Rather Than Day)", "L.I.E 엘라이 ", "멍청이 (TWIT) ", "덜덜덜(DDD) ",4,"EXID(이엑스아이디)",2017);	addQuestion(q108);
         Question q109 = new Question("r1afdZk0qcI", "DRAMARAMA", "아름다워(Beautiful) ", "Love Killa ", "Shall We Dance ",1,"MONSTA X",2017);	addQuestion(q109);
-        Question q110 = new Question("hsh54g9JmC0", "Rain", "Starlight (Feat. DEAN) ", "Why ", "This Christmas ",4,"TAEYEON (태연)",2017);	addQuestion(q110);
+        Question q110 = new Question("hsh54g9JmC0", "Rain", "Starlight (Feat. DEAN) ", "Why ", "This Christmas ",4,"TAEYEON",2017);	addQuestion(q110);
         Question q111 = new Question("MBdVXkSdhwU", "Come Back Home", "DNA ", "피 땀 눈물 (Blood Sweat & Tears) ", "Hey - Mama!",2,"BTS",2017);	addQuestion(q111);
         Question q112 = new Question("ppOWR7ZLl7Q", "센치해(SENTIMENTAL)", "BABY BABY ", "좋더라 (I'M YOUNG) ", "LOVE ME LOVE ME ",4,"WINNER",2017);	addQuestion(q112);
         Question q113 = new Question("J0h8-OTC38I", "러시안 룰렛 (Russian Roulette)", "7월 7일 (One Of These Nights) ", "Rookie ", "Would U ",3,"Red Velvet",2017);	addQuestion(q113);
-        Question q114 = new Question("TVUqLBRQom8", "내게 들려주고 싶은 말 (Dear Me)", "사계 (Four Seasons) ", "불티 (Spark) ", "Make Me Love You ",4,"TAEYEON (태연)",2017);	addQuestion(q114);
+        Question q114 = new Question("TVUqLBRQom8", "내게 들려주고 싶은 말 (Dear Me)", "사계 (Four Seasons) ", "불티 (Spark) ", "Make Me Love You ",4,"TAEYEON",2017);	addQuestion(q114);
         Question q115 = new Question("rcEyUNeZqmY", "BAD LOVE", "WANT ", "MOVE ", "Press Your Number ",3,"TAEMIN (태민)",2017);	addQuestion(q115);
         Question q116 = new Question("42A-rFdralM", "봄날의 기억(Remember that)", "몇 년 후에 (A Few Years Later) ", "MOVIE ", "있어 희미하게 (Just us 2)",3,"BTOB(비투비)",2017);	addQuestion(q116);
         Question q117 = new Question("CyzEtbG-sxY", "아주 NICE (VERY NICE)", "CLAP ", "울고 싶지 않아 (Don't Wanna Cry) ", "Rock with you ",2,"SEVENTEEN (세븐틴)",2017);	addQuestion(q117);
@@ -364,7 +364,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         Question q304 = new Question("Cp56JdkmE9s", "고고베베 (gogobebe)", "딩가딩가 (Dingga) ", "AYA ", "WANNA BE MYSELF ",1,"MAMAMOO",2019);	addQuestion(q304);
         Question q305 = new Question("j2aQ_NqeTNw", "Rose", "음 (Mmmh) ", "사랑, 하자 (Let’s Love) ", "괜찮아도 괜찮아 (That's okay) ",4,"디오 (D.O.)",2019);	addQuestion(q305);
         Question q306 = new Question("Xp8Ep1W-azw", "답장 (Reply)", "숨(Breath) ", "굿바이 (Goodbye) ", "기억의 빈자리 (Emptiness in Memory) ",3,"박효신(Park Hyo Shin)",2019);	addQuestion(q306);
-        Question q307 = new Question("lHEOj3d7YS4", "If You", "Is You ", "All With You ", "그대라는 시 (All about you) ",4,"TAEYEON (태연)",2019);	addQuestion(q307);
+        Question q307 = new Question("lHEOj3d7YS4", "If You", "Is You ", "All With You ", "그대라는 시 (All about you) ",4,"TAEYEON",2019);	addQuestion(q307);
         Question q308 = new Question("hNnoi32CyrA", "당신과는 천천히 (every moment with you)", "폰서트 (Phonecert)", "그러나 (however)", "고백 (Go Back)",3,"10cm",2019);	addQuestion(q308);
         Question q309 = new Question("AsXxuIdpkWM", "썸 탈꺼야 (SOME)", "여행 (Travel) ", "나만, 봄 (Bom) ", "피카부 (Peek-A-Boo)",3,"BOL4",2019);	addQuestion(q309);
         Question q310 = new Question("OoMIAo0a2TA", "나빠 (NAPPA)", "놓아줘 (with 태연) ", "둘만의 세상으로 가 (Let Us Go) ", "아무노래 (Any song) ",1,"Crush(크러쉬)",2019);	addQuestion(q310);
@@ -385,11 +385,11 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         Question q325 = new Question("PALjhRpnfbk", "MILLIONS", "EVERYDAY ", "FOOL ", "ISLAND ",1,"WINNER",2019);	addQuestion(q325);
         Question q326 = new Question("oDJ4ct59NC4", "Birthday", "What You Waiting For ", "DUMB DUMB ", "XOXO ",1,"JEON SOMI (전소미)",2019);	addQuestion(q326);
         Question q327 = new Question("DsouXE31I6k", "봄(Spring)", "SPICY ", "No ", "미 (Me) ",1,"박봄(PARK BOM)",2019);	addQuestion(q327);
-        Question q328 = new Question("eP4ga_fNm-E", "내게 들려주고 싶은 말 (Dear Me)", "사계 (Four Seasons) ", "불티 (Spark) ", "Make Me Love You ",3,"TAEYEON (태연)",2019);	addQuestion(q328);
+        Question q328 = new Question("eP4ga_fNm-E", "내게 들려주고 싶은 말 (Dear Me)", "사계 (Four Seasons) ", "불티 (Spark) ", "Make Me Love You ",3,"TAEYEON",2019);	addQuestion(q328);
         Question q329 = new Question("D1PvIWdJ8xo", "strawberry moon", "에잇 (eight) ", "블루밍 (Blueming) ", "Celebrity ",3,"IU",2019);	addQuestion(q329);
         Question q330 = new Question("gWHgpJ3m-x8", "비가 내리는 날에는 (On A Rainy Day)", "My Love ", "별의 조각 (Stardust) ", "밤하늘의 별을 (Shiny Star) ",1,"YOUNHA(윤하)",2019);	addQuestion(q330);
         Question q331 = new Question("6eEZ7DJMzuk", "Panorama", "환상동화 (Secret Story of the Swan) ", "FIESTA ", "비올레타 (Violeta) ",4,"IZ*ONE (아이즈원)",2019);	addQuestion(q331);
-        Question q332 = new Question("4HG_CJzyX6A", "내게 들려주고 싶은 말 (Dear Me)", "사계 (Four Seasons) ", "불티 (Spark) ", "Make Me Love You ",2,"TAEYEON (태연)",2019);	addQuestion(q332);
+        Question q332 = new Question("4HG_CJzyX6A", "내게 들려주고 싶은 말 (Dear Me)", "사계 (Four Seasons) ", "불티 (Spark) ", "Make Me Love You ",2,"TAEYEON",2019);	addQuestion(q332);
         Question q333 = new Question("kXAvbHPdTZ0", "사랑에 연습이 있었다면 (If there was practice in love)", "조금 취했어 (I'm a little drunk) ", "이제 나만 믿어요 (Trust in Me) ", "HERO ",1,"Lim Jae Hyun(임재현)",2019);	addQuestion(q333);
         Question q334 = new Question("tlHTOlnPcbs", "어디에도 (No matter where)", "사랑이 식었다고 말해도 돼 (My love has faded away) ", "처음처럼 (BLOOM) ", "그대라는 사치 (Amazing You) ",2,"Monday Kiz(먼데이 키즈)",2019);	addQuestion(q334);
         Question q335 = new Question("JrOrlhjIYVk", "벚꽃연가 (Cherry Blossom Love Song)", "사월이 지나면 우리 헤어져요 (Beautiful goodbye) ", "너를 위해 (For You) ", "Hey - Mama!",2,"첸 (CHEN)",2019);	addQuestion(q335);
@@ -461,7 +461,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         Question q401 = new Question("oDKMLDH8kqc", "MILLIONS", "Remember ", "SOSO ", "아예 (AH YEAH) ",3,"WINNER",2019);	addQuestion(q401);
         Question q402 = new Question("9T_uq_HpfyQ", "You In Me", "주저하는 연인들을 위해 (for lovers who hesitate) ", "Bomb Bomb (밤밤) ", "가을밤에 든 생각 (A thought on an autumn night) ",4,"JANNABI(잔나비)",2020);	addQuestion(q402);
         Question q403 = new Question("L8UUYfe6-UA", "Dancing Cartoon", "품 (Hug) ", "나비와 고양이 (Leo) ", "몰랐니 (Lil' Touch)",3,"BOL4",2020);	addQuestion(q403);
-        Question q404 = new Question("bho0m505qVA", "내게 들려주고 싶은 말 (Dear Me)", "사계 (Four Seasons) ", "불티 (Spark) ", "Make Me Love You ",1,"TAEYEON (태연)",2020);	addQuestion(q404);
+        Question q404 = new Question("bho0m505qVA", "내게 들려주고 싶은 말 (Dear Me)", "사계 (Four Seasons) ", "불티 (Spark) ", "Make Me Love You ",1,"TAEYEON",2020);	addQuestion(q404);
         Question q405 = new Question("tLGHKyZs0Gk", "너에게 난, 나에게 넌 (Me to You, You to Me)", "슈퍼스타 (Superstar) ", "사랑하게 될 줄 알았어 (I Knew I Love) ", "여우야 (Yeowooya) ",1,"미도와 파라솔 (Mido and Falasol)",2020);	addQuestion(q405);
         Question q406 = new Question("vAa8R_ze6ZI", "나빠 (NAPPA)", "놓아줘 (with 태연) ", "둘만의 세상으로 가 (Let Us Go) ", "아무노래 (Any song) ",2,"Crush(크러쉬)",2020);	addQuestion(q406);
         Question q407 = new Question("tJQaUW36pMw", "마리아 (Maria)", "Cold Blooded ", "눈누난나 (NUNU NANA) ", "Gucci ",3,"Jessi (제시)",2020);	addQuestion(q407);
@@ -615,7 +615,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         Question q555 = new Question("srWfDwiRVgQ", "WHY DON’T WE", "최고의 선물 (The Best Present) Prod. By PSY ", "FACE ", "Summer Taste ",1,"RAIN (비)",2021);	addQuestion(q555);
         Question q556 = new Question("DslHQto2V7I", "사랑을 했다(LOVE SCENARIO)", "이별길(GOODBYE ROAD) ", "왜왜왜 (Why Why Why) ", "아예 (AH YEAH) ",3,"iKON",2021);	addQuestion(q556);
         Question q557 = new Question("ShFKF2YN7H0", "Spell", "둘 중에 골라 (Summer or Summer) ", "헤어지자(Good bye) ", "water color ",4,"휘인 (Whee In)",2021);	addQuestion(q557);
-        Question q558 = new Question("RmuL-BPFi2Q", "사계 (Four Seasons)", "Weekend ", "불티 (Spark) ", "Make Me Love You ",2,"TAEYEON (태연)",2021);	addQuestion(q558);
+        Question q558 = new Question("RmuL-BPFi2Q", "사계 (Four Seasons)", "Weekend ", "불티 (Spark) ", "Make Me Love You ",2,"TAEYEON",2021);	addQuestion(q558);
         Question q559 = new Question("AIyarEsQvAg", "Sorry", "Sixteen (Feat. Changmo) ", "INSIDE OUT ", "WHERE YOU AT ",3,"NU'EST (뉴이스트)",2021);	addQuestion(q559);
         Question q560 = new Question("e70PkoJhQYM", "운전만해 (We Ride)", "치맛바람 (Chi Mat Ba Ram) ", "Summer Taste ", "BAAM ",2,"브레이브걸스(Brave Girls)",2021);	addQuestion(q560);
         Question q561 = new Question("86BST8NIpNM", "On the Ground", "strawberry moon ", "Coin ", "라일락 (LILAC) ",3,"IU",2021);	addQuestion(q561);

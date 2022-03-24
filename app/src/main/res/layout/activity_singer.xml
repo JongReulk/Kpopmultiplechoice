@@ -122,7 +122,7 @@
 
     <com.tenriver.kpopmultiplechoice.OutlineTextView
         android:id="@+id/singer_MvQuiz"
-        android:text="@string/MvQuiz"
+        android:text="MINI-GAME"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:textStyle="bold"
@@ -174,22 +174,23 @@
         android:layout_height="wrap_content"
         android:id="@+id/txt_selectSinger"
         android:gravity="center"
-        android:text="ARTIST"
+        android:text="BTS"
         android:textStyle="bold"
+        android:singleLine="true"
 
-        android:fontFamily="@font/font_digital"
-        android:textColor="@color/brightpurple"
+        android:fontFamily="@font/font_hand"
+        android:textColor="@color/yellocombination"
 
-        android:textSize="70sp"
+        android:textSize="60sp"
 
 
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/singer_MvQuiz"
-        android:layout_marginTop="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="30dp"
+
         >
     </TextView>
 
@@ -229,7 +230,7 @@
                 android:textSize="48dp"
                 android:textColor="@drawable/selector_text_year"
                 android:textStyle="bold"
-                android:fontFamily="@font/font_digital"
+                android:fontFamily="@font/font_hand"
                 android:layout_marginBottom="10dp"
                 >
             </Button>
@@ -237,13 +238,13 @@
             <Button
                 android:id="@+id/singer_BOL4"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/btn_year"
                 android:text="BOL4\n(볼빨간사춘기)"
                 android:textSize="42dp"
                 android:textColor="@drawable/selector_text_year"
                 android:textStyle="bold"
-                android:fontFamily="@font/font_digital"
+                android:fontFamily="@font/font_hand"
                 android:layout_marginBottom="10dp"
                 >
 
@@ -258,7 +259,7 @@
                 android:textSize="48dp"
                 android:textColor="@drawable/selector_text_year"
                 android:textStyle="bold"
-                android:fontFamily="@font/font_digital"
+                android:fontFamily="@font/font_hand"
                 android:layout_marginBottom="10dp"
                 >
             </Button>
@@ -266,13 +267,13 @@
             <Button
                 android:id="@+id/singer_GFRIEND"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/btn_year"
                 android:text="GFRIEND\n(여자친구)"
                 android:textSize="42dp"
                 android:textColor="@drawable/selector_text_year"
                 android:textStyle="bold"
-                android:fontFamily="@font/font_digital"
+                android:fontFamily="@font/font_hand"
                 android:layout_marginBottom="10dp"
                 >
             </Button>
@@ -280,13 +281,14 @@
             <Button
                 android:id="@+id/singer_Heize"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/btn_year"
                 android:text="Heize\n(헤이즈)"
                 android:textSize="42dp"
+                android:textAllCaps="false"
                 android:textColor="@drawable/selector_text_year"
                 android:textStyle="bold"
-                android:fontFamily="@font/font_digital"
+                android:fontFamily="@font/font_hand"
                 android:layout_marginBottom="10dp"
                 >
             </Button>
@@ -294,10 +296,10 @@
             <Button
                 android:id="@+id/singer_IU"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/btn_year"
-                android:fontFamily="@font/font_digital"
+                android:fontFamily="@font/font_hand"
                 android:text="IU\n(아이유)"
                 android:textColor="@drawable/selector_text_year"
                 android:textSize="42dp"
@@ -308,13 +310,13 @@
             <Button
                 android:id="@+id/singer_MAMAMOO"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/btn_year"
                 android:text="MAMAMOO\n(마마무)"
                 android:textSize="42dp"
                 android:textColor="@drawable/selector_text_year"
                 android:textStyle="bold"
-                android:fontFamily="@font/font_digital"
+                android:fontFamily="@font/font_hand"
                 android:layout_marginBottom="10dp"
                 >
             </Button>
@@ -322,13 +324,13 @@
             <Button
                 android:id="@+id/singer_MONSTAX"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/btn_year"
                 android:text="MONSTA X\n(몬스타엑스)"
                 android:textSize="42dp"
                 android:textColor="@drawable/selector_text_year"
                 android:textStyle="bold"
-                android:fontFamily="@font/font_digital"
+                android:fontFamily="@font/font_hand"
                 android:layout_marginBottom="10dp"
                 >
             </Button>
@@ -336,13 +338,13 @@
             <Button
                 android:id="@+id/singer_OHMYGIRL"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/btn_year"
                 android:text="OH MY GIRL\n(오마이걸)"
                 android:textSize="42dp"
                 android:textColor="@drawable/selector_text_year"
                 android:textStyle="bold"
-                android:fontFamily="@font/font_digital"
+                android:fontFamily="@font/font_hand"
                 android:layout_marginBottom="10dp"
                 >
             </Button>
@@ -350,13 +352,28 @@
             <Button
                 android:id="@+id/singer_REDVELVET"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/btn_year"
                 android:text="Red Velvet\n(레드벨벳)"
                 android:textSize="42dp"
+                android:textAllCaps="false"
                 android:textColor="@drawable/selector_text_year"
                 android:textStyle="bold"
-                android:fontFamily="@font/font_digital"
+                android:fontFamily="@font/font_hand"
+                android:layout_marginBottom="10dp"
+                >
+            </Button>
+
+            <Button
+                android:id="@+id/singer_TAEYEON"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_year"
+                android:text="TAEYEON\n(태연)"
+                android:textSize="42dp"
+                android:textColor="@drawable/selector_text_year"
+                android:textStyle="bold"
+                android:fontFamily="@font/font_hand"
                 android:layout_marginBottom="10dp"
                 >
             </Button>
@@ -364,13 +381,27 @@
             <Button
                 android:id="@+id/singer_TWICE"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/btn_year"
                 android:text="TWICE\n(트와이스)"
                 android:textSize="42dp"
                 android:textColor="@drawable/selector_text_year"
                 android:textStyle="bold"
-                android:fontFamily="@font/font_digital"
+                android:fontFamily="@font/font_hand"
+                android:layout_marginBottom="10dp"
+                >
+            </Button>
+
+            <Button
+                android:id="@+id/singer_WINNER"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_year"
+                android:text="WINNER\n(위너)"
+                android:textSize="42dp"
+                android:textColor="@drawable/selector_text_year"
+                android:textStyle="bold"
+                android:fontFamily="@font/font_hand"
                 android:layout_marginBottom="10dp"
                 >
             </Button>
@@ -378,6 +409,20 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <ImageButton
+        android:id="@+id/singer_help"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/circlebutton_state"
+        app:srcCompat="@android:drawable/ic_menu_help"
+        android:scaleType="fitXY"
+        android:layout_marginRight="40dp"
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/imageView_lp"
+        android:layout_marginBottom="10dp"
+        />
 
 
 
