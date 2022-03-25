@@ -108,5 +108,5 @@
     <string name="KPOPARTISTMODE">KPOP ARTIST\nMODE</string>
     <string name="KPOPARTISTMODE_text">KPOP ARTIST MODE is a\nmini-game mode\nin which you listen to and guess songs from artists with many music videos on KPOP MV QUIZ.\n\nThis score does not count towards the rank score.</string>
     <string name="KPOPMODE">KPOP MV QUIZ\nMODE</string>
-    <string name="KPOPMODE_text">There are many different modes to choose from.\n\nPoints increase or decrease when completing or entering each mode.</string>
+    <string name="KPOPMODE_text">There are many different modes to choose from.\n\nThe total score for each KPOP MV QUIZ MODE is reflected in the ranking score.\n\nPoints increase or decrease when completing or entering each mode.</string>
 </resources>

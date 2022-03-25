@@ -19,7 +19,9 @@
         android:roundIcon="@mipmap/ic_main_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Kpop">
-        <activity android:name=".singerActivity"></activity>
+        <activity android:name=".singerActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".quizActivity.QuizAlphabet"
             android:screenOrientation="portrait"

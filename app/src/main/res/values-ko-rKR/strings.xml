@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">KPOP 뮤비 퀴즈 - 객관식 노래 맞추기</string>
+    <string name="app_name">KPOP 뮤비 퀴즈 - 객관식 노래 맞히기</string>
     <string name="start">시작</string>
     <string name="bestscore">최고 점수</string>
     <string name="Confirm">정답 확인</string>
@@ -109,5 +109,5 @@
     <string name="KPOPARTISTMODE">KPOP 아티스트\n모드</string>
     <string name="KPOPARTISTMODE_text">KPOP 아티스트 모드는\nKPOP MV QUIZ에서 뮤직 비디오가 많은 아티스트의 노래를 듣고 추측하는 미니 게임 모드입니다.\n\n이 점수는 순위 점수에 포함되지 않습니다.</string>
     <string name="KPOPMODE">KPOP 뮤비 퀴즈\n모드</string>
-    <string name="KPOPMODE_text">다양한 모드들을 선택할 수 있습니다.\n\n모드별로 완료하거나 입장 시 포인트가 증가하거나 감소됩니다.</string>
+    <string name="KPOPMODE_text">다양한 모드들을 선택할 수 있습니다.\n\nKPOP 뮤비 퀴즈 모드별 합산 점수가 랭킹에 반영됩니다.\n\n모드별로 완료하거나 입장 시 포인트가 증가하거나 감소됩니다.</string>
 </resources>
