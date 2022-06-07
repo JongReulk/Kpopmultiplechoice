@@ -1,6 +1,6 @@
 # **K-POP Multiple Choice (K-POP 뮤비 퀴즈 : 객관식 인기 뮤비 맞히기)**
 
-Youtube API 사용, SQLite 데이터베이스 사용하여 테이블을 만들고 400개이상의 노래 데이터를 넣음. 노래의 링크, 영어 및 한글 답, 연도의 Constructor 및 getter and setter 메소드 생성, TV와 리모콘 디자인으로 UI 디자인 및 연도와 게임모드 선택으로 노래의 갯수, 들려주는 시간을 다르게 하여 게임을 진행토록 함
+기존의 KPOP 뮤비 퀴즈를 객관식으로 출시한 게임입니다. 포인트를 이용해 다양한 모드로 진행이 가능하며 기존과는 다르게 터치로 UI 조작이 가능합니다. Google 로그인 및 Google Play Games 서비스를 이용해 유저들과 경쟁할 수 있습니다.
 
 <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=Android&logoColor=green"> <img src="https://img.shields.io/badge/AndroidStudio-3DDC84?style=for-the-badge&logo=Android Studio&logoColor=green">
 
