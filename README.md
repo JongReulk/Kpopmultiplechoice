@@ -8,8 +8,9 @@
 
 
 ### MODE 선택
-![kpopmulti2](https://user-images.githubusercontent.com/43633076/172318765-5471eb2f-9564-418e-a767-5320c4c91f58.png)
+<img src="https://user-images.githubusercontent.com/43633076/172318765-5471eb2f-9564-418e-a767-5320c4c91f58.png" width="30%" height="30%"/>
 
 ### QUIZ 화면
-![kpopmulti1](https://user-images.githubusercontent.com/43633076/172318505-5f85d83c-e2b0-401b-bcd1-b592b580753c.png)
+<img src="https://user-images.githubusercontent.com/43633076/172318505-5f85d83c-e2b0-401b-bcd1-b592b580753c.png" width="30%" height="30%"/>
+
 
